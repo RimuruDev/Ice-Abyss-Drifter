@@ -28,13 +28,13 @@ public class PostScript : MonoBehaviour
 
     public static bool _idIsYou = false;
 
-    void Start()
+    private void Start()
     {
         transform.position = new Vector2(Random.Range(-110, 110), Random.Range(10, 70));
         _isSpeedy = false;
     }
 
-    void OnTriggerEnter2D(Collider2D _coll)
+    private void OnTriggerEnter2D(Collider2D _coll)
     {
         if (_coll.gameObject.CompareTag("Player"))
         {
