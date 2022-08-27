@@ -2,27 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PostScript : MonoBehaviour
+public sealed class PostScript : MonoBehaviour
 {
     [SerializeField] GameObject _gun;
 
-    [SerializeField] GameObject _petHappy;
-    [SerializeField] GameObject _petNormal;
-    [SerializeField] GameObject _petSad;
+    [SerializeField] private GameObject _petHappy;
+    [SerializeField] private GameObject _petNormal;
+    [SerializeField] private GameObject _petSad;
 
-    [SerializeField] GameObject _ID;
+    [SerializeField] private GameObject _ID;
 
-    [SerializeField] AudioSource _sound;
+    [SerializeField] private AudioSource _sound;
 
     [Header("Bools")]
-    [SerializeField] bool _isSpeed;
-    [SerializeField] bool _isRadiation;
-    [SerializeField] bool _isNormalInventore;
-    [SerializeField] bool _isBigInventore;
-    [SerializeField] bool _isPet;
-    [SerializeField] bool _isGun;
-    [SerializeField] bool _isID;
-    [SerializeField] bool _isTrecker;
+    [SerializeField] private bool _isSpeed;
+    [SerializeField] private bool _isRadiation;
+    [SerializeField] private bool _isNormalInventore;
+    [SerializeField] private bool _isBigInventore;
+    [SerializeField] private bool _isPet;
+    [SerializeField] private bool _isGun;
+    [SerializeField] private bool _isID;
+    [SerializeField] private bool _isTrecker;
 
     public static bool _isSpeedy;
 
