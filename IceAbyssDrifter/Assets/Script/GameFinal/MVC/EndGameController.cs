@@ -12,18 +12,24 @@ namespace RimuruDev.GameFinal
 
         private void Awake() => Init();
 
+        private void Start() => endGameModel.StartCoroutine(endGameModel.UnlockPanel(endGameModel.endGameButton, endGameModel.unlockTimer));
+
         private void Update()
         {
+            if (!isWhetherToDisplay) return;
+
             if (endGameModel.unlockTimerCopyForText <= 0)
-                endGameModel. DisableTextUnlockCounter(endGameModel.unlockCounterText, out isWhetherToDisplay);
+                endGameModel.DisableTextUnlockCounter(endGameModel.unlockCounterText.gameObject, out isWhetherToDisplay);
 
-
+            endGameView.UpdateUnlockCounterText();
         }
 
         private void Init()
         {
             endGameView = GetComponent<EndGameView>();
             endGameModel = GetComponent<EndGameModel>();
+
+            endGameModel.unlockTimerCopyForText = (endGameModel.unlockTimer * 2);
         }
     }
 }
