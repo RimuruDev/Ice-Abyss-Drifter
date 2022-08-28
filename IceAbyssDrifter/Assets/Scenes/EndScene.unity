@@ -397,6 +397,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ba15b4ce5ae8b4887194511b2028b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataContainer: {fileID: 0}
+  isWhetherToDisplay: 1
 --- !u!4 &413144314
 Transform:
   m_ObjectHideFlags: 0
@@ -6011,8 +6013,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1415771782}
-  - component: {fileID: 1415771785}
-  - component: {fileID: 1415771784}
   - component: {fileID: 1415771783}
   m_Layer: 5
   m_Name: EndController
@@ -6050,37 +6050,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1415771781}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d344cedb6cea6614ba01848ded6f44c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 650895c9ad7c8b14da60d6a76ab9972a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1415771784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1415771781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45db5cb72eff6c647b76efaa2a0acb98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unlockCounterText: {fileID: 1378846267}
-  endGameButton: {fileID: 1149746072}
-  unlockTimer: 10
-  unlockTimerCopyForText: 0
---- !u!114 &1415771785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1415771781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08bbef1108d9f9345a852e05710995c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  dataContainer:
+    unlockCounterText: {fileID: 1378846267}
+    endGameButton: {fileID: 1149746072}
+    unlockTimer: 10
+    unlockTimerCopyForText: 0
 --- !u!1 &1590463018
 GameObject:
   m_ObjectHideFlags: 0
