@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Prekol : MonoBehaviour
+public sealed class Prekol : MonoBehaviour
 {
-    [SerializeField] AudioClip _pigstep;
-    [SerializeField] AudioClip _gameThemeclip;
-    [SerializeField] AudioClip _wait;
+    [SerializeField] private AudioClip _pigstep;
+    [SerializeField] private AudioClip _gameThemeclip;
+    [SerializeField] private AudioClip _wait;
 
-    [SerializeField] AudioSource _gameTheme;
+    [SerializeField] private AudioSource _gameTheme;
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F1))
         {
