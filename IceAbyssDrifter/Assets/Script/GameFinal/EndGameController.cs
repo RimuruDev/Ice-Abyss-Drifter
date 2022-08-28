@@ -1,37 +1,44 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
-namespace RimuruDev.GameFinal
+namespace RimuruDev.GameFinal.Test
 {
-    [RequireComponent(typeof(EndGameView))]
-    [RequireComponent(typeof(EndGameModel))]
+    /// <summary>
+    /// The controller for the game's ending screensaver.
+    /// </summary>
     public sealed class EndGameController : MonoBehaviour
     {
-        private EndGameView endGameView = null;
-        private EndGameModel endGameModel = null;
+        public EndGameDataContainer dataContainer;
+
+        private EndGameUIHandler uIHandler;
         private bool isWhetherToDisplay = true;
 
-        private void Awake() => Init();
+        private void Awake()
+        {
+            uIHandler = new EndGameUIHandler(dataContainer);
 
-        private void Start() => endGameModel.StartCoroutine(endGameModel.UnlockPanel(endGameModel.endGameButton, endGameModel.unlockTimer));
+            dataContainer.unlockTimerCopyForText = dataContainer.unlockTimer;
+        }
+
+        private void Start() => StartCoroutine(nameof(UnlockPanel));
 
         private void Update()
         {
             if (!isWhetherToDisplay) return;
 
-            if (endGameModel.unlockTimerCopyForText <= 0)
-                endGameModel.DisableTextUnlockCounter(endGameModel.unlockCounterText.gameObject, out isWhetherToDisplay);
+            if (dataContainer.unlockTimerCopyForText <= 0)
+                uIHandler.DisableUnlockCounterText(dataContainer.unlockCounterText.gameObject, out isWhetherToDisplay);
 
-            endGameModel.unlockTimerCopyForText -= Time.deltaTime;
+            dataContainer.unlockTimerCopyForText -= Time.deltaTime;
 
-            endGameView.UpdateUnlockCounterText();
+            uIHandler.UpdateUnlockCounterText(dataContainer.unlockTimerCopyForText);
         }
 
-        private void Init()
+        private IEnumerator UnlockPanel()
         {
-            endGameView = GetComponent<EndGameView>();
-            endGameModel = GetComponent<EndGameModel>();
+            yield return new WaitForSeconds(dataContainer.unlockTimer);
 
-            endGameModel.unlockTimerCopyForText = endGameModel.unlockTimer;
+            dataContainer.endGameButton.SetActive(true);
         }
     }
 }
