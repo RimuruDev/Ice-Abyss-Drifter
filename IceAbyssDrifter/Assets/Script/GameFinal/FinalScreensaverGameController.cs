@@ -6,16 +6,16 @@ namespace RimuruDev.GameFinal.Test
     /// <summary>
     /// The controller for the game's ending screensaver.
     /// </summary>
-    public sealed class EndGameController : MonoBehaviour
+    public sealed class FinalScreensaverGameController : MonoBehaviour
     {
-        public EndGameDataContainer dataContainer;
+        public FinalScreensaverGameDataContainer dataContainer;
 
-        private EndGameUIHandler uIHandler;
+        private FinalScreensaverGameUIHandler uIHandler;
         private bool isWhetherToDisplay = true;
 
         private void Awake()
         {
-            uIHandler = new EndGameUIHandler(dataContainer);
+            uIHandler = new FinalScreensaverGameUIHandler(dataContainer);
 
             dataContainer.unlockTimerCopyForText = dataContainer.unlockTimer;
         }

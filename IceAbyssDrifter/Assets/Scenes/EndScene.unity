@@ -360,7 +360,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 413144314}
-  - component: {fileID: 413144313}
   - component: {fileID: 413144312}
   m_Layer: 0
   m_Name: End
@@ -385,20 +384,6 @@ MonoBehaviour:
   _gameTheme: {fileID: 0}
   _wind: {fileID: 0}
   _pauseTheme: {fileID: 0}
---- !u!114 &413144313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413144311}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7ba15b4ce5ae8b4887194511b2028b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dataContainer: {fileID: 0}
-  isWhetherToDisplay: 1
 --- !u!4 &413144314
 Transform:
   m_ObjectHideFlags: 0

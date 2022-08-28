@@ -7,7 +7,7 @@ namespace RimuruDev.GameFinal.Test
     /// Controller data for the game's final cutscene.
     /// </summary>
     [System.Serializable]
-    public sealed class EndGameDataContainer
+    public sealed class FinalScreensaverGameDataContainer
     {
         [Header("UI - Texts")]
         public Text unlockCounterText;

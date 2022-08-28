@@ -6,11 +6,11 @@ namespace RimuruDev.GameFinal.Test
     /// The UI handler for the game's final cutscene.
     /// </summary>
     [System.Serializable]
-    public sealed class EndGameUIHandler
+    public sealed class FinalScreensaverGameUIHandler
     {
-        private readonly EndGameDataContainer dataContainer = null;
+        private readonly FinalScreensaverGameDataContainer dataContainer = null;
 
-        public EndGameUIHandler(EndGameDataContainer dataContainer) =>
+        public FinalScreensaverGameUIHandler(FinalScreensaverGameDataContainer dataContainer) =>
             this.dataContainer = dataContainer;
 
         /// <summary>
