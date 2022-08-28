@@ -21,6 +21,8 @@ namespace RimuruDev.GameFinal
             if (endGameModel.unlockTimerCopyForText <= 0)
                 endGameModel.DisableTextUnlockCounter(endGameModel.unlockCounterText.gameObject, out isWhetherToDisplay);
 
+            endGameModel.unlockTimerCopyForText -= Time.deltaTime;
+
             endGameView.UpdateUnlockCounterText();
         }
 
@@ -29,7 +31,7 @@ namespace RimuruDev.GameFinal
             endGameView = GetComponent<EndGameView>();
             endGameModel = GetComponent<EndGameModel>();
 
-            endGameModel.unlockTimerCopyForText = (endGameModel.unlockTimer * 2);
+            endGameModel.unlockTimerCopyForText = endGameModel.unlockTimer;
         }
     }
 }

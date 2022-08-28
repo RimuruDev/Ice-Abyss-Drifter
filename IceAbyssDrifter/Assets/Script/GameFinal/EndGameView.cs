@@ -9,6 +9,6 @@ namespace RimuruDev.GameFinal
         private void Awake() => gameModel = GetComponent<EndGameModel>();
 
         public void UpdateUnlockCounterText() =>
-            gameModel.unlockCounterText.text = $"{gameModel.unlockTimerCopyForText}";
+            gameModel.unlockCounterText.text = $"{(int)gameModel.unlockTimerCopyForText}";
     }
 }
