@@ -2450,7 +2450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123091790}
   m_Layer: 0
-  m_Name: BeePoint (7)
+  m_Name: BeeMovementPoints_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4077,6 +4077,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 192318731}
+  - component: {fileID: 192318732}
   m_Layer: 0
   m_Name: GameDataContainer
   m_TagString: Untagged
@@ -4099,6 +4100,59 @@ Transform:
   m_Father: {fileID: 1206676056}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &192318732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192318730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ad0e5a5d5244714ca959cdece3209b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelPause: {fileID: 581524778}
+  deadPanel: {fileID: 174005300}
+  gameTheme: {fileID: 312585460}
+  wind: {fileID: 947125348}
+  pauseTheme: {fileID: 616662577}
+  isPaused: 0
+  pointMoney: 20
+  pointUgly: 0
+  porohPoint: 0
+  inventor: 0
+  limitInventore: 10
+  uran: 0
+  uranClear: 0
+  uranRadiation: 0
+  uranNormalRadiation: 0
+  horny: 0
+  metal: 0
+  metalBullet: 0
+  rubin: 0
+  clearRubin: 0
+  cosmo: 0
+  _limitTexti: {fileID: 1973552398}
+  moneyText: {fileID: 1950854650}
+  twoMoneyText: {fileID: 247276472}
+  treeMoneyText: {fileID: 2126779426}
+  inventoreText: {fileID: 666886666}
+  inventoreGameText: {fileID: 64388179}
+  limitText: {fileID: 1727732752}
+  limitGameText: {fileID: 1220244762}
+  uglyText: {fileID: 1152174670}
+  porohText: {fileID: 1380725429}
+  uranText: {fileID: 1812461909}
+  claerUranText: {fileID: 926039846}
+  radiathionText: {fileID: 2075238636}
+  hornyText: {fileID: 1841106856}
+  metalText: {fileID: 1471712379}
+  inInventBullet: {fileID: 621696431}
+  bulletText: {fileID: 1301522071}
+  rubinText: {fileID: 465021601}
+  clearRubinText: {fileID: 1804192807}
+  cosmoText: {fileID: 395743901}
 --- !u!1001 &193918964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4486,7 +4540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 204585979}
   m_Layer: 0
-  m_Name: World (2)
+  m_Name: WorldPoints_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6110,7 +6164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 280569757}
   m_Layer: 0
-  m_Name: World (6)
+  m_Name: WorldPoints_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6317,7 +6371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 283501783}
   m_Layer: 0
-  m_Name: BeePoints
+  m_Name: BeeMovementPointsCollections
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10699,6 +10753,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491442047}
   m_CullTransparentMesh: 1
+--- !u!1 &492360512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 492360513}
+  m_Layer: 0
+  m_Name: === Debug ===
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &492360513
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492360512}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 764507071}
+  m_Father: {fileID: 1206676056}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &493443897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11039,7 +11125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 513763341}
   m_Layer: 0
-  m_Name: BeePoint (6)
+  m_Name: BeeMovementPoints_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11313,7 +11399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 531119259}
   m_Layer: 0
-  m_Name: BeePoint (8)
+  m_Name: BeeMovementPoints_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20245,7 +20331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 704888056}
   m_Layer: 0
-  m_Name: World
+  m_Name: WorldPoints_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21908,6 +21994,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8dc2658e5864f44199195eeee8ba1c2, type: 3}
+--- !u!1 &764507070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 764507071}
+  - component: {fileID: 764507072}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &764507071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764507070}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 492360513}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &764507072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764507070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb3d97392ada954696f355658239d38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVisualization: 0
 --- !u!1001 &769792182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25341,7 +25472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 937845164}
   m_Layer: 0
-  m_Name: BeePoint (2)
+  m_Name: BeeMovementPoints_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26265,7 +26396,7 @@ GameObject:
   m_Component:
   - component: {fileID: 974126632}
   m_Layer: 0
-  m_Name: World (5)
+  m_Name: WorldPoints_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28574,7 +28705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1086901932}
   m_Layer: 0
-  m_Name: BeePoint (4)
+  m_Name: BeeMovementPoints_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30866,6 +30997,8 @@ Transform:
   - {fileID: 818764361}
   - {fileID: 344513254}
   - {fileID: 1233058713}
+  - {fileID: 1340497879}
+  - {fileID: 492360513}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31646,8 +31779,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1233058713}
   - component: {fileID: 1233058712}
+  - component: {fileID: 1233058714}
+  - component: {fileID: 1233058715}
+  - component: {fileID: 1233058716}
   m_Layer: 0
-  m_Name: PointsMassive
+  m_Name: PointCollections
   m_TagString: Other
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31665,6 +31801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3f04722603a47448190bdbb1d2a787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beeMovementPoints: []
   _point:
   - {fileID: 1971029012}
   - {fileID: 1933619527}
@@ -31698,6 +31835,79 @@ Transform:
   m_Father: {fileID: 1206676056}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1233058714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233058711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 279081ee04527a3498577e6e8c6ddac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beeMovementPoints:
+  - {fileID: 1971029012}
+  - {fileID: 1933619527}
+  - {fileID: 937845164}
+  - {fileID: 1361020899}
+  - {fileID: 1086901932}
+  - {fileID: 1485016118}
+  - {fileID: 513763341}
+  - {fileID: 123091790}
+  - {fileID: 531119259}
+--- !u!114 &1233058715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233058711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa6d8f964b38a5459ee2c5941a64f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worldMovementPoints:
+  - {fileID: 704888056}
+  - {fileID: 1233818270}
+  - {fileID: 204585979}
+  - {fileID: 1441653533}
+  - {fileID: 1418128775}
+  - {fileID: 974126632}
+  - {fileID: 280569757}
+  - {fileID: 1872613093}
+--- !u!114 &1233058716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233058711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f876c4f7c236974e8752efa0c32d501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allPoints:
+  - {fileID: 1971029012}
+  - {fileID: 1933619527}
+  - {fileID: 937845164}
+  - {fileID: 1361020899}
+  - {fileID: 1086901932}
+  - {fileID: 1485016118}
+  - {fileID: 513763341}
+  - {fileID: 123091790}
+  - {fileID: 531119259}
+  - {fileID: 704888056}
+  - {fileID: 1233818270}
+  - {fileID: 204585979}
+  - {fileID: 1441653533}
+  - {fileID: 1418128775}
+  - {fileID: 974126632}
+  - {fileID: 280569757}
+  - {fileID: 1872613093}
 --- !u!1 &1233818269
 GameObject:
   m_ObjectHideFlags: 0
@@ -31708,7 +31918,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1233818270}
   m_Layer: 0
-  m_Name: World (1)
+  m_Name: WorldPoints_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34245,6 +34455,137 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4d45e1d1932141488704401a2a290d1, type: 3}
+--- !u!1 &1340497878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1340497879}
+  - component: {fileID: 1340497880}
+  m_Layer: 0
+  m_Name: Line
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1340497879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340497878}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1206676056}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!120 &1340497880
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340497878}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
 --- !u!4 &1344722227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6338917808618730775, guid: df68ea4f21c5b4f4ea96970308387919, type: 3}
@@ -34463,7 +34804,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1361020899}
   m_Layer: 0
-  m_Name: BeePoint (3)
+  m_Name: BeeMovementPoints_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35679,7 +36020,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1418128775}
   m_Layer: 0
-  m_Name: World (4)
+  m_Name: WorldPoints_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36154,7 +36495,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1441653533}
   m_Layer: 0
-  m_Name: World (3)
+  m_Name: WorldPoints_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37236,7 +37577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1485016118}
   m_Layer: 0
-  m_Name: BeePoint (5)
+  m_Name: BeeMovementPoints_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47371,7 +47712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1771652404}
   m_Layer: 0
-  m_Name: WorldsPoint
+  m_Name: WorldPointsCollections
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50143,7 +50484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1872613093}
   m_Layer: 0
-  m_Name: World (7)
+  m_Name: WorldPoints_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51668,7 +52009,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1933619527}
   m_Layer: 0
-  m_Name: BeePoint (1)
+  m_Name: BeeMovementPoints_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52803,7 +53144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1971029012}
   m_Layer: 0
-  m_Name: BeePoint
+  m_Name: BeeMovementPoints_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
