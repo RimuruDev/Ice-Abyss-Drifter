@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using RimuruDev.AI;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public sealed class EnemyAI : MonoBehaviour
 {
     [SerializeField] float _speed;
     [SerializeField] float _startWaitTime;
@@ -12,55 +11,63 @@ public class EnemyAI : MonoBehaviour
     private float _waitTime;
     private int _randomPoint;
 
-    void Start()
+    private AllMobMovementPoints allMobPoints = null;
+
+    private void Awake()
     {
-        _randomPoint = Random.Range(0, TransformPoint._points.Length);
+        allMobPoints = FindObjectOfType<AllMobMovementPoints>();
+    }
+
+    private void Start()
+    {
+        _randomPoint = Random.Range(0, allMobPoints.AllPoints.Length);
+
         _waitTime = _startWaitTime;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
 
         if (_isAgry == false)
         {
-            transform.position = Vector2.MoveTowards(transform.position, TransformPoint._points[_randomPoint].position, _speed * Time.deltaTime);
-            _FlipWithPoints();
-            if (Vector2.Distance(transform.position, TransformPoint._points[_randomPoint].position) < 0.2f)
+            transform.position = Vector2.MoveTowards(transform.position, allMobPoints.AllPoints[_randomPoint].position, _speed * Time.deltaTime);
+            FlipWithPoints();
+            if (Vector2.Distance(transform.position, allMobPoints.AllPoints[_randomPoint].position) < 0.2f)
             {
-               
-               if (_waitTime <= 0)
-               {
-                 _randomPoint = Random.Range(0, TransformPoint._points.Length);
-                 _waitTime = _startWaitTime;
-               }
-               else
-               {
-                 _waitTime -= Time.deltaTime;
-               }
+
+                if (_waitTime <= 0)
+                {
+                    _randomPoint = Random.Range(0, allMobPoints.AllPoints.Length);
+                    _waitTime = _startWaitTime;
+                }
+                else
+                {
+                    _waitTime -= Time.deltaTime;
+                }
             }
         }
 
         if (Vector2.Distance(transform.position, CharacterController._playerPoint.transform.position) < _minDistance && LutingPlayer._heKeng == false)
         {
             _isAgry = true;
-            if (_isAgry == true)
+
+            if (_isAgry)
             {
-               transform.position = Vector2.MoveTowards(transform.position, CharacterController._playerPoint.transform.position, _speed * Time.deltaTime);
-               _FlipWithPlayer();
+                transform.position = Vector2.MoveTowards(transform.position, CharacterController._playerPoint.transform.position, _speed * Time.deltaTime);
+
+                FlipWithPlayer();
             }
         }
         else if (Vector2.Distance(transform.position, CharacterController._playerPoint.transform.position) > _minDistance)
         {
-          _isAgry = false;
+            _isAgry = false;
         }
 
-        if (LutingPlayer._heKeng == true)
-        {
+        if (LutingPlayer._heKeng)
             _minDistance = 0f;
-        }
     }
 
-    void _FlipWithPlayer()
+    private void FlipWithPlayer()
     {
         if (CharacterController._playerPoint.transform.position.x < transform.position.x)
         {
@@ -72,15 +79,15 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    void _FlipWithPoints()
+    private void FlipWithPoints()
     {
-        if (TransformPoint._points[_randomPoint].transform.position.x < transform.position.x)
+        if (allMobPoints.AllPoints[_randomPoint].transform.position.x < transform.position.x)
         {
-           transform.localRotation = Quaternion.Euler(0, 0, 0);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (TransformPoint._points[_randomPoint].transform.position.x > transform.position.x)
+        else if (allMobPoints.AllPoints[_randomPoint].transform.position.x > transform.position.x)
         {
-          transform.localRotation = Quaternion.Euler(0, 180, 0);
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
     }
 }
