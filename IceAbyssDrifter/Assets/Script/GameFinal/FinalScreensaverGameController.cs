@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace RimuruDev.GameFinal.Test
+namespace RimuruDev.GameFinal
 {
     /// <summary>
     /// The controller for the game's ending screensaver.
@@ -9,7 +9,6 @@ namespace RimuruDev.GameFinal.Test
     public sealed class FinalScreensaverGameController : MonoBehaviour
     {
         public FinalScreensaverGameDataContainer dataContainer;
-
         private FinalScreensaverGameUIHandler uIHandler;
         private bool isWhetherToDisplay = true;
 
@@ -17,7 +16,7 @@ namespace RimuruDev.GameFinal.Test
         {
             uIHandler = new FinalScreensaverGameUIHandler(dataContainer);
 
-            dataContainer.unlockTimerCopyForText = dataContainer.unlockTimer;
+            dataContainer.UnlockTimerCopyForText = dataContainer.UnlockTimer;
         }
 
         private void Start() => StartCoroutine(nameof(UnlockPanel));
@@ -26,19 +25,19 @@ namespace RimuruDev.GameFinal.Test
         {
             if (!isWhetherToDisplay) return;
 
-            if (dataContainer.unlockTimerCopyForText <= 0)
-                uIHandler.DisableUnlockCounterText(dataContainer.unlockCounterText.gameObject, out isWhetherToDisplay);
+            if (dataContainer.UnlockTimerCopyForText <= 0)
+                uIHandler.DisableUnlockCounterText(dataContainer.UnlockCounterText.gameObject, out isWhetherToDisplay);
 
-            dataContainer.unlockTimerCopyForText -= Time.deltaTime;
+            dataContainer.UnlockTimerCopyForText -= Time.deltaTime;
 
-            uIHandler.UpdateUnlockCounterText(dataContainer.unlockTimerCopyForText);
+            uIHandler.UpdateUnlockCounterText(dataContainer.UnlockTimerCopyForText);
         }
 
         private IEnumerator UnlockPanel()
         {
-            yield return new WaitForSeconds(dataContainer.unlockTimer);
+            yield return new WaitForSeconds(dataContainer.UnlockTimer);
 
-            dataContainer.endGameButton.SetActive(true);
+            dataContainer.EndGameButton.SetActive(true);
         }
     }
 }
