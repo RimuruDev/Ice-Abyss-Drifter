@@ -5,11 +5,11 @@ namespace RimuruDev.UI
 {
     public sealed class MenuManager : MonoBehaviour
     {
-        [SerializeField] private GameObject _panel;
+        [SerializeField] private GameObject panel;
         [Space]
-        [SerializeField] private AudioSource _gameTheme;
-        [SerializeField] private AudioSource _wind;
-        [SerializeField] private AudioSource _pauseTheme;
+        [SerializeField] private AudioSource gameTheme;
+        [SerializeField] private AudioSource wind;
+        [SerializeField] private AudioSource pauseTheme;
 
         private void Start() => TimeNormal();
 
@@ -19,17 +19,17 @@ namespace RimuruDev.UI
         public void TimeNormal() => Time.timeScale = 1;
         public void TimeStopped() => Time.timeScale = 0;
 
-        public void Exit() => Application.Quit();
+        public void ExitTheGame() => Application.Quit();
 
         public void PauseStop()
         {
-            _panel.SetActive(false);
+            panel.SetActive(false);
 
             GameManager._isPaused = false;
 
-            _gameTheme.volume = 0.671f;
-            _wind.volume = 0.274f;
-            _pauseTheme.volume = 0;
+            gameTheme.volume = 0.671f;
+            wind.volume = 0.274f;
+            pauseTheme.volume = 0;
 
             TimeNormal();
         }
