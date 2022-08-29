@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace RimuruDev.GameFinal.Test
+namespace RimuruDev.GameFinal
 {
     /// <summary>
     /// Controller data for the game's final cutscene.
@@ -9,14 +9,18 @@ namespace RimuruDev.GameFinal.Test
     [System.Serializable]
     public sealed class FinalScreensaverGameDataContainer
     {
-        [Header("UI - Texts")]
-        public Text unlockCounterText;
+        [Header("UI")]
+        [SerializeField] private Text unlockCounterText;
+        [SerializeField] private GameObject endGameButton;
         [Space]
-        [Header("UI - Buttons")]
-        public GameObject endGameButton;
-        [Space]
-        [Header("Timers for visualizing exit button")]
-        public float unlockTimer = 15;
-        [HideInInspector] public float unlockTimerCopyForText;
+        [Header("Timers")]
+        [SerializeField] private float unlockTimer = 15;
+        [SerializeField] private float unlockTimerCopyForText;
+
+        public Text UnlockCounterText => unlockCounterText;
+        public GameObject EndGameButton => endGameButton;
+
+        public float UnlockTimer => unlockTimer;
+        public float UnlockTimerCopyForText { get => unlockTimerCopyForText; set => unlockTimerCopyForText = value; }
     }
 }
