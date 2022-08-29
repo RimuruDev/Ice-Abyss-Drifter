@@ -1,93 +1,95 @@
-using RimuruDev.AI;
 using UnityEngine;
 
-public sealed class EnemyAI : MonoBehaviour
+namespace RimuruDev.AI
 {
-    [SerializeField] float _speed;
-    [SerializeField] float _startWaitTime;
-    [SerializeField] float _minDistance;
-
-    private bool _isAgry = false;
-    private float _waitTime;
-    private int _randomPoint;
-
-    private AllMobMovementPoints allMobPoints = null;
-
-    private void Awake()
+    public sealed class EnemyAI : MonoBehaviour
     {
-        allMobPoints = FindObjectOfType<AllMobMovementPoints>();
-    }
+        [SerializeField] float _speed;
+        [SerializeField] float _startWaitTime;
+        [SerializeField] float _minDistance;
 
-    private void Start()
-    {
-        _randomPoint = Random.Range(0, allMobPoints.AllPoints.Length);
+        private bool _isAgry = false;
+        private float _waitTime;
+        private int _randomPoint;
 
-        _waitTime = _startWaitTime;
-    }
+        private AllMobMovementPoints allMobPoints = null;
 
-    private void FixedUpdate()
-    {
-
-        if (_isAgry == false)
+        private void Awake()
         {
-            transform.position = Vector2.MoveTowards(transform.position, allMobPoints.AllPoints[_randomPoint].position, _speed * Time.deltaTime);
-            FlipWithPoints();
-            if (Vector2.Distance(transform.position, allMobPoints.AllPoints[_randomPoint].position) < 0.2f)
-            {
+            allMobPoints = FindObjectOfType<AllMobMovementPoints>();
+        }
 
-                if (_waitTime <= 0)
+        private void Start()
+        {
+            _randomPoint = Random.Range(0, allMobPoints.AllPoints.Length);
+
+            _waitTime = _startWaitTime;
+        }
+
+        private void FixedUpdate()
+        {
+
+            if (_isAgry == false)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, allMobPoints.AllPoints[_randomPoint].position, _speed * Time.deltaTime);
+                FlipWithPoints();
+                if (Vector2.Distance(transform.position, allMobPoints.AllPoints[_randomPoint].position) < 0.2f)
                 {
-                    _randomPoint = Random.Range(0, allMobPoints.AllPoints.Length);
-                    _waitTime = _startWaitTime;
+
+                    if (_waitTime <= 0)
+                    {
+                        _randomPoint = Random.Range(0, allMobPoints.AllPoints.Length);
+                        _waitTime = _startWaitTime;
+                    }
+                    else
+                    {
+                        _waitTime -= Time.deltaTime;
+                    }
                 }
-                else
+            }
+
+            if (Vector2.Distance(transform.position, CharacterController._playerPoint.transform.position) < _minDistance && LutingPlayer._heKeng == false)
+            {
+                _isAgry = true;
+
+                if (_isAgry)
                 {
-                    _waitTime -= Time.deltaTime;
+                    transform.position = Vector2.MoveTowards(transform.position, CharacterController._playerPoint.transform.position, _speed * Time.deltaTime);
+
+                    FlipWithPlayer();
                 }
+            }
+            else if (Vector2.Distance(transform.position, CharacterController._playerPoint.transform.position) > _minDistance)
+            {
+                _isAgry = false;
+            }
+
+            if (LutingPlayer._heKeng)
+                _minDistance = 0f;
+        }
+
+        private void FlipWithPlayer()
+        {
+            if (CharacterController._playerPoint.transform.position.x < transform.position.x)
+            {
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
+            else if (CharacterController._playerPoint.transform.position.x > transform.position.x)
+            {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
             }
         }
 
-        if (Vector2.Distance(transform.position, CharacterController._playerPoint.transform.position) < _minDistance && LutingPlayer._heKeng == false)
+        private void FlipWithPoints()
         {
-            _isAgry = true;
-
-            if (_isAgry)
+            if (allMobPoints.AllPoints[_randomPoint].transform.position.x < transform.position.x)
             {
-                transform.position = Vector2.MoveTowards(transform.position, CharacterController._playerPoint.transform.position, _speed * Time.deltaTime);
-
-                FlipWithPlayer();
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
-        }
-        else if (Vector2.Distance(transform.position, CharacterController._playerPoint.transform.position) > _minDistance)
-        {
-            _isAgry = false;
-        }
-
-        if (LutingPlayer._heKeng)
-            _minDistance = 0f;
-    }
-
-    private void FlipWithPlayer()
-    {
-        if (CharacterController._playerPoint.transform.position.x < transform.position.x)
-        {
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-        }
-        else if (CharacterController._playerPoint.transform.position.x > transform.position.x)
-        {
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
-        }
-    }
-
-    private void FlipWithPoints()
-    {
-        if (allMobPoints.AllPoints[_randomPoint].transform.position.x < transform.position.x)
-        {
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-        }
-        else if (allMobPoints.AllPoints[_randomPoint].transform.position.x > transform.position.x)
-        {
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
+            else if (allMobPoints.AllPoints[_randomPoint].transform.position.x > transform.position.x)
+            {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+            }
         }
     }
 }
