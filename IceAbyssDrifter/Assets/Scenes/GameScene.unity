@@ -31866,7 +31866,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1233058711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baa6d8f964b38a5459ee2c5941a64f61, type: 3}
+  m_Script: {fileID: 11500000, guid: e314481f5bfafe3438d070eb5885297d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   worldMovementPoints:
