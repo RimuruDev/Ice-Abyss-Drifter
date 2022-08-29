@@ -1,17 +1,13 @@
 using UnityEngine;
 
-public class TransformPoint : MonoBehaviour
+namespace RimuruDev.AI
 {
-    [SerializeField] private Transform[] beeMovementPoints;
-
-    [SerializeField] Transform[] _point;
-
-    public static Transform[] _points;
-
-    public Transform[] BeeMovementPoints => beeMovementPoints;
-
-    void Awake()
+    public sealed class TransformPoint : MonoBehaviour
     {
-        _points = _point;
+        [SerializeField] private Transform[] _point;
+
+        public static Transform[] _points;
+
+        private void Awake() => _points = _point;
     }
 }
