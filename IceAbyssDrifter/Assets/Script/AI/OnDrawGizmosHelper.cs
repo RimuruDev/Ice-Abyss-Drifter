@@ -8,7 +8,7 @@ namespace RimuruDev.Helpers
         [SerializeField] private bool isVisualization;
 
         private BeePointArray beePointArray = null;
-        private WorldPontArrsy worldPontArray = null;
+        private WorldPontArray worldPontArray = null;
 
         private void Awake() => Init();
 
@@ -38,7 +38,7 @@ namespace RimuruDev.Helpers
                 beePointArray = FindObjectOfType<BeePointArray>();
 
             if (worldPontArray == null)
-                worldPontArray = FindObjectOfType<WorldPontArrsy>();
+                worldPontArray = FindObjectOfType<WorldPontArray>();
         }
     }
 }
