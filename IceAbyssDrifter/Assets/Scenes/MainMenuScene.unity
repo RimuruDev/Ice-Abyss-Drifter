@@ -6238,7 +6238,7 @@ Transform:
   - {fileID: 39793189}
   - {fileID: 1206475505}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &447798548
 GameObject:
@@ -6945,8 +6945,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1396401289}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: Exit
+        m_TargetAssemblyTypeName: RimuruDev.UI.MenuManager, Assembly-CSharp
+        m_MethodName: ExitTheGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6994,37 +6994,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712192794}
   m_CullTransparentMesh: 1
---- !u!1 &716453692
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 716453693}
-  m_Layer: 0
-  m_Name: === SceenController ===
-  m_TagString: GameController
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &716453693
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 716453692}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &831313833
 GameObject:
   m_ObjectHideFlags: 0
@@ -7055,7 +7024,7 @@ Transform:
   m_Children:
   - {fileID: 1184115359}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &860499900
 GameObject:
@@ -7142,8 +7111,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1396401289}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: Play
+        m_TargetAssemblyTypeName: RimuruDev.UI.MenuManager, Assembly-CSharp
+        m_MethodName: LoadGameScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13565,10 +13534,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14873d0e3adb664c8b8ded8f79b231a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panel: {fileID: 0}
-  _gameTheme: {fileID: 0}
-  _wind: {fileID: 0}
-  _pauseTheme: {fileID: 0}
+  panel: {fileID: 0}
+  gameTheme: {fileID: 0}
+  wind: {fileID: 0}
+  pauseTheme: {fileID: 0}
 --- !u!4 &1396401290
 Transform:
   m_ObjectHideFlags: 0
@@ -13913,8 +13882,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1396401289}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenURL2
+        m_TargetAssemblyTypeName: RimuruDev.UI.MenuManager, Assembly-CSharp
+        m_MethodName: OpenURL
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18817,7 +18786,7 @@ Transform:
   - {fileID: 1140246234}
   - {fileID: 883221681}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1815195887
 GameObject:
@@ -23993,7 +23962,7 @@ Transform:
   m_Children:
   - {fileID: 1396401290}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2115692277
 GameObject:

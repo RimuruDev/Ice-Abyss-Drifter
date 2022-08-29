@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 413144314}
   - component: {fileID: 413144312}
   m_Layer: 0
-  m_Name: End
+  m_Name: MenuHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -380,10 +380,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14873d0e3adb664c8b8ded8f79b231a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panel: {fileID: 0}
-  _gameTheme: {fileID: 0}
-  _wind: {fileID: 0}
-  _pauseTheme: {fileID: 0}
+  panel: {fileID: 0}
+  gameTheme: {fileID: 0}
+  wind: {fileID: 0}
+  pauseTheme: {fileID: 0}
 --- !u!4 &413144314
 Transform:
   m_ObjectHideFlags: 0
@@ -6041,7 +6041,7 @@ MonoBehaviour:
   dataContainer:
     unlockCounterText: {fileID: 1378846267}
     endGameButton: {fileID: 1149746072}
-    unlockTimer: 10
+    unlockTimer: 15
     unlockTimerCopyForText: 0
 --- !u!1 &1590463018
 GameObject:
