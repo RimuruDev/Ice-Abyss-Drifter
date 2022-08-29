@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace RimuruDev.GameFinal.Test
+namespace RimuruDev.GameFinal
 {
     /// <summary>
     /// The UI handler for the game's final cutscene.
@@ -18,7 +18,7 @@ namespace RimuruDev.GameFinal.Test
         /// </summary>
         /// <param name="timer">The time until the exit button is unlocked.</param>
         public void UpdateUnlockCounterText(float timer) =>
-            dataContainer.unlockCounterText.text = $"{(int)timer}";
+            dataContainer.UnlockCounterText.text = $"{(int)timer}";
 
         /// <summary>
         /// Disable game exit button unlock counter text.
