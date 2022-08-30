@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletMove : MonoBehaviour
+public sealed class BulletMove : MonoBehaviour
 {
-    [SerializeField] float _speed;
+    [SerializeField] private float _speed;
 
-    bool _isRight;
+    private bool _isRight;
 
-    void Start()
+    private void Start()
     {
         if (Gun._FacingRight == true)
         {
@@ -19,16 +19,16 @@ public class BulletMove : MonoBehaviour
             _isRight = false;
         }
     }
-         
-    void Update()
+
+    private void Update()
     {
         if (_isRight)
         {
-            transform.Translate(Vector2.left * _speed * Time.deltaTime);
+            transform.Translate(_speed * Time.deltaTime * Vector2.left);
         }
         else if (!_isRight)
         {
-            transform.Translate(Vector2.right * _speed * Time.deltaTime);
+            transform.Translate(_speed * Time.deltaTime * Vector2.right);
         }
-    }     
+    }
 }
