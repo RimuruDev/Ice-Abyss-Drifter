@@ -1,13 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GunTransform : MonoBehaviour
+public sealed class GunTransform : MonoBehaviour
 {
-    [SerializeField] Transform _player;
+    [SerializeField] private Transform _player;
 
-    void Update()
-    {
-        gameObject.transform.position = _player.transform.position;
-    }
+    private void Update() => gameObject.transform.position = _player.transform.position;
 }
