@@ -1,36 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SoldManager : MonoBehaviour
+public sealed class SoldManager : MonoBehaviour
 {
     [Header("Objects")]
-    [SerializeField] GameObject _gun;
-    [SerializeField] GameObject _pet;
-    [SerializeField] GameObject _ID;
-    [SerializeField] GameObject _Trecker;
+    [SerializeField] private GameObject _gun;
+    [SerializeField] private GameObject _pet;
+    [SerializeField] private GameObject _ID;
+    [SerializeField] private GameObject _Trecker;
 
     [Header("BuyButtons")]
-    [SerializeField] GameObject _buySpeed;
-    [SerializeField] GameObject _buyRadiation;
-    [SerializeField] GameObject _buyNormalInventore;
-    [SerializeField] GameObject _buyBigInventore;
-    [SerializeField] GameObject _buyPet;
-    [SerializeField] GameObject _buyGun;
-    [SerializeField] GameObject _buyID;
-    [SerializeField] GameObject _buyTrecker;
+    [SerializeField] private GameObject _buySpeed;
+    [SerializeField] private GameObject _buyRadiation;
+    [SerializeField] private GameObject _buyNormalInventore;
+    [SerializeField] private GameObject _buyBigInventore;
+    [SerializeField] private GameObject _buyPet;
+    [SerializeField] private GameObject _buyGun;
+    [SerializeField] private GameObject _buyID;
+    [SerializeField] private GameObject _buyTrecker;
 
     [Header("SoldImage")]
-    [SerializeField] GameObject _soldSpeed;
-    [SerializeField] GameObject _soldRadiation;
-    [SerializeField] GameObject _soldInventoreNormal;
-    [SerializeField] GameObject _soldInventoreBig;
-    [SerializeField] GameObject _soldPet;
-    [SerializeField] GameObject _soldGun;
-    [SerializeField] GameObject _soldID;
-    [SerializeField] GameObject _soldTrecker;
+    [SerializeField] private GameObject _soldSpeed;
+    [SerializeField] private GameObject _soldRadiation;
+    [SerializeField] private GameObject _soldInventoreNormal;
+    [SerializeField] private GameObject _soldInventoreBig;
+    [SerializeField] private GameObject _soldPet;
+    [SerializeField] private GameObject _soldGun;
+    [SerializeField] private GameObject _soldID;
+    [SerializeField] private GameObject _soldTrecker;
 
-    void Update()
+    private void Update()
     {
         if (MagazineWorkest._speedSold == true)
         {
@@ -38,7 +36,7 @@ public class SoldManager : MonoBehaviour
             _soldSpeed.SetActive(true);
         }
 
-        if(MagazineWorkest._radiationSold == true)
+        if (MagazineWorkest._radiationSold == true)
         {
             _buyRadiation.SetActive(false);
             _soldRadiation.SetActive(true);
@@ -50,25 +48,25 @@ public class SoldManager : MonoBehaviour
             _soldInventoreNormal.SetActive(true);
         }
 
-        if(MagazineWorkest._inventoreBigSold == true)
+        if (MagazineWorkest._inventoreBigSold == true)
         {
             _buyBigInventore.SetActive(false);
             _soldInventoreBig.SetActive(true);
         }
 
-        if(MagazineWorkest._petSold == true)
+        if (MagazineWorkest._petSold == true)
         {
             _buyPet.SetActive(false);
             _soldPet.SetActive(true);
         }
 
-        if(MagazineWorkest._gunSold == true)
+        if (MagazineWorkest._gunSold == true)
         {
             _buyGun.SetActive(false);
             _soldGun.SetActive(true);
         }
 
-        if(MagazineWorkest._idSold == true)
+        if (MagazineWorkest._idSold == true)
         {
             _buyID.SetActive(false);
             _soldID.SetActive(true);
