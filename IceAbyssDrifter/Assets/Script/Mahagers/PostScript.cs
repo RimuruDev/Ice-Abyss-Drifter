@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public sealed class PostScript : MonoBehaviour
 {
-    [SerializeField] GameObject _gun;
+    [SerializeField] private GameObject _gun;
 
     [SerializeField] private GameObject _petHappy;
     [SerializeField] private GameObject _petNormal;
@@ -50,8 +48,10 @@ public sealed class PostScript : MonoBehaviour
             {
                 GameManager._uranNormalRadiation = 150f;
                 GameManager._uranRadiation = 150f;
+
                 _sound.pitch = Random.Range(0.8f, 1f);
                 _sound.Play();
+
                 Destroy(gameObject);
             }
 
@@ -66,37 +66,43 @@ public sealed class PostScript : MonoBehaviour
             if (_isBigInventore == true && MagazineWorkest._inventoreBigSold == true)
             {
                 GameManager._limitInventore += 25f;
+
                 _sound.pitch = Random.Range(0.8f, 1f);
                 _sound.Play();
+
                 Destroy(gameObject);
             }
 
             if (_isGun == true && MagazineWorkest._gunSold == true)
             {
                 _gun.SetActive(true);
+
                 _sound.pitch = Random.Range(0.8f, 1f);
                 _sound.Play();
+
                 Destroy(gameObject);
             }
 
             if (_isPet == true && MagazineWorkest._petSold == true)
             {
                 float _randomPet = Random.Range(1, 4);
+
                 _sound.pitch = Random.Range(0.8f, 1f);
                 _sound.Play();
+
                 switch (_randomPet)
                 {
                     case 1:
-                    Instantiate(_petSad, gameObject.transform.position, Quaternion.identity);
-                    break;
+                        Instantiate(_petSad, gameObject.transform.position, Quaternion.identity);
+                        break;
 
                     case 2:
-                    Instantiate(_petNormal, gameObject.transform.position, Quaternion.identity);
-                    break;
+                        Instantiate(_petNormal, gameObject.transform.position, Quaternion.identity);
+                        break;
 
                     case 3:
-                    Instantiate(_petHappy, gameObject.transform.position, Quaternion.identity);
-                    break;
+                        Instantiate(_petHappy, gameObject.transform.position, Quaternion.identity);
+                        break;
                 }
                 Destroy(gameObject);
             }
@@ -104,9 +110,12 @@ public sealed class PostScript : MonoBehaviour
             if (_isID == true && MagazineWorkest._idSold == true)
             {
                 _ID.SetActive(true);
+
                 _idIsYou = true;
+
                 _sound.pitch = Random.Range(0.8f, 1f);
                 _sound.Play();
+
                 Destroy(gameObject);
             }
         }
