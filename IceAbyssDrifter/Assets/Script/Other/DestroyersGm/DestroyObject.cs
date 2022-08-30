@@ -1,28 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyObject : MonoBehaviour
+public sealed class DestroyObject : MonoBehaviour
 {
     [Header("Effects")]
-    [SerializeField] GameObject _effectUran;
-    [SerializeField] GameObject _effectUgly;
-    [SerializeField] GameObject _effectGold;
-    [SerializeField] GameObject _effectMetal;
-    [SerializeField] GameObject _effectHorny;
-    [SerializeField] GameObject _effectRubin;
-    [SerializeField] GameObject _effectCosmo;
+    [SerializeField] private GameObject _effectUran;
+    [SerializeField] private GameObject _effectUgly;
+    [SerializeField] private GameObject _effectGold;
+    [SerializeField] private GameObject _effectMetal;
+    [SerializeField] private GameObject _effectHorny;
+    [SerializeField] private GameObject _effectRubin;
+    [SerializeField] private GameObject _effectCosmo;
 
     [Header("Bools")]
-    [SerializeField] bool _isUgly;
-    [SerializeField] bool _isMetal;
-    [SerializeField] bool _isGold;
-    [SerializeField] bool _isUran;
-    [SerializeField] bool _isHorny;
-    [SerializeField] bool _isRubin;
-    [SerializeField] bool _isCosmo;
+    [SerializeField] private bool _isUgly;
+    [SerializeField] private bool _isMetal;
+    [SerializeField] private bool _isGold;
+    [SerializeField] private bool _isUran;
+    [SerializeField] private bool _isHorny;
+    [SerializeField] private bool _isRubin;
+    [SerializeField] private bool _isCosmo;
 
-    void OnTriggerEnter2D(Collider2D _coll)
+    private void OnTriggerEnter2D(Collider2D _coll)
     {
         if (_coll.gameObject.CompareTag("Player"))
         {
@@ -63,7 +61,7 @@ public class DestroyObject : MonoBehaviour
             }
         }
 
-        if ( _coll.gameObject.CompareTag("Sold") || _coll.gameObject.CompareTag("Raport") || _coll.gameObject.CompareTag("Magas"))
+        if (_coll.gameObject.CompareTag("Sold") || _coll.gameObject.CompareTag("Raport") || _coll.gameObject.CompareTag("Magas"))
         {
             Destroy(gameObject);
         }
