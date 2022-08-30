@@ -1,34 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class HPEnemy : MonoBehaviour
+public sealed class HPEnemy : MonoBehaviour
 {
-    [SerializeField] float _health;
+    [SerializeField] private float _health;
     private float _Nhealth;
 
-    [SerializeField] bool _isKing = false;
-    [SerializeField] GameObject _cloud;
-    [SerializeField] GameObject _king;
-    [SerializeField] GameObject _flex;
+    [SerializeField] private bool _isKing = false;
+    [SerializeField] private GameObject _cloud;
+    [SerializeField] private GameObject _king;
+    [SerializeField] private GameObject _flex;
 
-    [SerializeField] GameObject _effectEnemy;
-    [SerializeField] GameObject _blood;
+    [SerializeField] private GameObject _effectEnemy;
+    [SerializeField] private GameObject _blood;
 
-    [SerializeField] bool _isBee;
-    [SerializeField] bool _isUlitka;
-    [SerializeField] bool _isSheep;
-    [SerializeField] bool _isBuka;
-    [SerializeField] bool _isCat;
-    [SerializeField] bool _isMohan;
-    [SerializeField] bool _isActivator;
+    [SerializeField] private bool _isBee;
+    [SerializeField] private bool _isUlitka;
+    [SerializeField] private bool _isSheep;
+    [SerializeField] private bool _isBuka;
+    [SerializeField] private bool _isCat;
+    [SerializeField] private bool _isMohan;
+    [SerializeField] private bool _isActivator;
 
-    void Awake()
-    {
-        _Nhealth = _health;
-    }
+    private void Awake() => _Nhealth = _health;
 
-    void OnTriggerEnter2D(Collider2D _coll)
+    private void OnTriggerEnter2D(Collider2D _coll)
     {
         if (_coll.gameObject.CompareTag("Bullet"))
         {
@@ -36,15 +31,17 @@ public class HPEnemy : MonoBehaviour
         }
     }
 
-    void TakeDamage()
+    private void TakeDamage()
     {
         _health -= 1f;
+
         Instantiate(_effectEnemy, gameObject.transform.position, Quaternion.identity);
+
         if (_health <= 0f)
         {
             Destroy(gameObject);
             Instantiate(_blood, gameObject.transform.position, Quaternion.identity);
-              
+
             _health = _Nhealth;
 
             if (_isKing == true)

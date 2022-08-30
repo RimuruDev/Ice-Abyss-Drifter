@@ -1,28 +1,22 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public sealed class Spawner : MonoBehaviour
 {
-    [SerializeField] float _stratTime;
-    [SerializeField] Transform _spawnPoint;
-    [SerializeField] GameObject _spawnObject;
+    [SerializeField] private float _stratTime;
+    [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private GameObject _spawnObject;
 
-    void Start()
-    {
-        StartCoroutine("Spawn");
-    }
+    private void Start() => StartCoroutine(nameof(Spawn));
 
-    void Restart()
-    {
-        StartCoroutine("Spawn");
-    }
+    private void Restart() => StartCoroutine(nameof(Spawn));
 
-    IEnumerator Spawn()
+    private IEnumerator Spawn()
     {
         yield return new WaitForSeconds(_stratTime);
+
         Instantiate(_spawnObject, _spawnPoint.transform.position, Quaternion.identity);
+
         Restart();
     }
-
 }

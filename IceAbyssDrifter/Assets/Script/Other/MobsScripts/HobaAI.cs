@@ -1,28 +1,24 @@
 using RimuruDev.Mechanics.Character;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class HobaAI : MonoBehaviour
+public sealed class HobaAI : MonoBehaviour
 {
-    [SerializeField] float _speed = 8;
-    [SerializeField] float _distanceOfPlayer = 2f;
-    [SerializeField] float _moneyTime;
+    [SerializeField] private float _speed = 8;
+    [SerializeField] private float _distanceOfPlayer = 2f;
+    [SerializeField] private float _moneyTime;
 
-    void Start()
-    {
-        StartCoroutine("_PlusMoney");
-    }
+    private void Start() => StartCoroutine(nameof(PlusMoney));
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         transform.position = Vector2.MoveTowards(transform.position, CharacterController._playerPoint.transform.position, _speed * Time.deltaTime);
 
-        _FlipWithPlayer();
+        FlipWithPlayer();
 
         if (DeadPlayer._isDead == true)
         {
-            StopCoroutine("_PlusMoney");
+            StopCoroutine(nameof(PlusMoney));
         }
 
         if (Vector2.Distance(transform.position, CharacterController._playerPoint.transform.position) < _distanceOfPlayer)
@@ -35,7 +31,7 @@ public class HobaAI : MonoBehaviour
         }
     }
 
-    void _FlipWithPlayer()
+    private void FlipWithPlayer()
     {
         if (CharacterController._playerPoint.transform.position.x > transform.position.x)
         {
@@ -47,19 +43,22 @@ public class HobaAI : MonoBehaviour
         }
     }
 
-    void Replay()
+    private void Replay()
     {
-        StartCoroutine("_PlusMoney");
+        StartCoroutine(nameof(PlusMoney));
+
         if (DeadPlayer._isDead == true)
         {
-            StopCoroutine("_PlusMoney");
+            StopCoroutine(nameof(PlusMoney));
         }
     }
 
-    IEnumerator _PlusMoney()
+    private IEnumerator PlusMoney()
     {
         yield return new WaitForSeconds(_moneyTime);
+
         GameManager._pointMoney += 1f;
+
         Replay();
     }
 }

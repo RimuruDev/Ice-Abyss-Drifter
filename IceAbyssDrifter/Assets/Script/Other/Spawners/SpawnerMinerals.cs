@@ -1,36 +1,32 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerMinerals : MonoBehaviour
+public sealed class SpawnerMinerals : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] float _timer;
-    [SerializeField] GameObject _spawnObj;
+    [SerializeField] private float _timer;
+    [SerializeField] private GameObject _spawnObj;
 
     [Header("SpawnPosX")]
-    [SerializeField] float _xOne;
-    [SerializeField] float _xTwo;
+    [SerializeField] private float _xOne;
+    [SerializeField] private float _xTwo;
 
     [Header("SpawnPosY")]
-    [SerializeField] float _yOne;
-    [SerializeField] float _yTwo;
+    [SerializeField] private float _yOne;
+    [SerializeField] private float _yTwo;
 
-    void Start()
-    {
-        StartCoroutine("Spawn");
-    }
+    private void Start() => StartCoroutine(nameof(Spawn));
 
-    void Restart()
-    {
-        StartCoroutine("Spawn");
-    }
+    private void Restart() => StartCoroutine(nameof(Spawn));
 
-    IEnumerator Spawn()
+    private IEnumerator Spawn()
     {
         yield return new WaitForSeconds(_timer);
+
         gameObject.transform.position = new Vector2(Random.Range(_xOne, _xTwo), Random.Range(_yOne, _yTwo));
+
         Instantiate(_spawnObj, gameObject.transform.position, Quaternion.identity);
+
         Restart();
     }
 }

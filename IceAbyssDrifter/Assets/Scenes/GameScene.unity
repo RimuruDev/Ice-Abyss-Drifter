@@ -3425,7 +3425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &174005301
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4153,6 +4153,19 @@ MonoBehaviour:
   rubinText: {fileID: 465021601}
   clearRubinText: {fileID: 1804192807}
   cosmoText: {fileID: 395743901}
+  allBeeAISettings:
+  - motionSpeed: 6
+    startWaitTime: 0
+    minDistance: 0
+    isBee: 1
+  - motionSpeed: 6
+    startWaitTime: 0
+    minDistance: 0
+    isBee: 1
+  - motionSpeed: 6
+    startWaitTime: 0
+    minDistance: 0
+    isBee: 1
 --- !u!1001 &193918964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11066,8 +11079,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 996152530}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: Play
+        m_TargetAssemblyTypeName: RimuruDev.UI.MenuManager, Assembly-CSharp
+        m_MethodName: LoadGameScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31801,7 +31814,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3f04722603a47448190bdbb1d2a787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beeMovementPoints: []
   _point:
   - {fileID: 1971029012}
   - {fileID: 1933619527}
@@ -45403,8 +45415,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 996152530}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: MuneReturn
+        m_TargetAssemblyTypeName: RimuruDev.UI.MenuManager, Assembly-CSharp
+        m_MethodName: LoadMenuScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -52502,7 +52514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1951716441
 MonoBehaviour:
   m_ObjectHideFlags: 0

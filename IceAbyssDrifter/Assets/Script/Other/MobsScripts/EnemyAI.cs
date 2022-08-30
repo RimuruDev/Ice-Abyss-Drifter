@@ -4,9 +4,9 @@ namespace RimuruDev.AI
 {
     public sealed class EnemyAI : MonoBehaviour
     {
-        [SerializeField] float _speed;
-        [SerializeField] float _startWaitTime;
-        [SerializeField] float _minDistance;
+        [SerializeField] private float _speed;
+        [SerializeField] private float _startWaitTime;
+        [SerializeField] private float _minDistance;
 
         private bool _isAgry = false;
         private float _waitTime;
@@ -28,11 +28,12 @@ namespace RimuruDev.AI
 
         private void FixedUpdate()
         {
-
             if (_isAgry == false)
             {
                 transform.position = Vector2.MoveTowards(transform.position, allMobPoints.AllPoints[_randomPoint].position, _speed * Time.deltaTime);
+               
                 FlipWithPoints();
+                
                 if (Vector2.Distance(transform.position, allMobPoints.AllPoints[_randomPoint].position) < 0.2f)
                 {
 

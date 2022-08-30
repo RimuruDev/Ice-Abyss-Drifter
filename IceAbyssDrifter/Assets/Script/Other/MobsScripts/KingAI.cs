@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class KingAI : MonoBehaviour
+public sealed class KingAI : MonoBehaviour
 {
-    [SerializeField] float _speed;
+    [SerializeField] private float _speed;
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         transform.position = Vector2.MoveTowards(transform.position, CharacterController._playerPoint.transform.position, _speed * Time.deltaTime);
 
-        _FlipWithPlayer();
+        FlipWithPlayer();
     }
 
-    void _FlipWithPlayer()
+    private void FlipWithPlayer()
     {
         if (CharacterController._playerPoint.transform.position.x < transform.position.x)
         {

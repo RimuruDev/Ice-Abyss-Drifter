@@ -4,8 +4,8 @@ namespace RimuruDev.AI
 {
     public sealed class MobsWorld : MonoBehaviour
     {
-        [SerializeField] float _speed;
-        [SerializeField] float _startWaitTime;
+        [SerializeField] private float _speed;
+        [SerializeField] private float _startWaitTime;
 
         private float _waitTime;
         private int _randomPoint;

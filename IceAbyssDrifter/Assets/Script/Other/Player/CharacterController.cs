@@ -1,18 +1,17 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 using static RimuruDev.Helpers.Tag;
 
 public sealed class CharacterController : MonoBehaviour
 {
-    [SerializeField] Transform _player;
+    [SerializeField] private Transform _player;
 
-    [SerializeField] GameObject _effectTeleport;
+    [SerializeField] private GameObject _effectTeleport;
 
     //[SerializeField] Text _textX;
     //[SerializeField] Text _textY;
 
-    [SerializeField] Transform[] _pointStart;
+    [SerializeField] private Transform[] _pointStart;
     private int _random;
     [Space]
     public SpriteRenderer characterSpriteRenderer;
@@ -72,7 +71,7 @@ public sealed class CharacterController : MonoBehaviour
         CharacterMotion();
     }
 
-    public Vector2 GetPlayerInput() => new Vector2(Input.GetAxisRaw(Horizontal), Input.GetAxisRaw(Vertical));
+    public Vector2 GetPlayerInput() => new(Input.GetAxisRaw(Horizontal), Input.GetAxisRaw(Vertical));
 
     public void CharacterMotion() => _rb.velocity = GetPlayerInput().normalized * _speed;
 

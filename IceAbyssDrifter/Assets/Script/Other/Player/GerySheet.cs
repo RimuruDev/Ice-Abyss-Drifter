@@ -1,17 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GerySheet : MonoBehaviour
+public sealed class GerySheet : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D _coll)
+    private void OnTriggerEnter2D(Collider2D _coll)
     {
         if (_coll.gameObject.CompareTag("Gary") && LutingPlayer._heKeng == false)
         {
             GameManager._uranClear = 0f;
             GameManager._uran = 0f;
             GameManager._metal = 0f;
-            GameManager._pointUgly = 0f; 
+            GameManager._pointUgly = 0f;
             GameManager._horny = 0f;
             GameManager._metalBullet = 0f;
             GameManager._clearRubin = 0f;

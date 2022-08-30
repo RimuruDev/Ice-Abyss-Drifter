@@ -1,20 +1,19 @@
 using RimuruDev.Mechanics.Character;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDeathEffects : MonoBehaviour
+public sealed class PlayerDeathEffects : MonoBehaviour
 {
-    [SerializeField] GameObject _bloodeffect;
-    [SerializeField] Transform _Player;
+    [SerializeField] private GameObject _bloodeffect;
+    [SerializeField] private Transform _Player;
 
-    void Update()
+    private void Update()
     {
         transform.position = _Player.transform.position;
 
         if (DeadPlayer._isDead == true)
         {
             gameObject.SetActive(true);
+
             Instantiate(_bloodeffect, transform.position, Quaternion.identity);
         }
         else if (DeadPlayer._isDead == false)

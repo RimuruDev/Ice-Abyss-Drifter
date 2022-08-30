@@ -4,28 +4,28 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class LutingPlayer : MonoBehaviour
+public sealed class LutingPlayer : MonoBehaviour
 {
-    [SerializeField] GameObject _panelMagazine;
-    [SerializeField] GameObject _keng;
+    [SerializeField] private GameObject _panelMagazine;
+    [SerializeField] private GameObject _keng;
 
     public static bool _heKeng = false;
 
     [Header("Audio")]
-    [SerializeField] AudioSource _boomAudio;
-    [SerializeField] AudioSource _horneSpound;
-    [SerializeField] AudioSource _goldSpound;
-    [SerializeField] AudioSource _raportMachine;
-    [SerializeField] AudioSource _soldMachine;
+    [SerializeField] private AudioSource _boomAudio;
+    [SerializeField] private AudioSource _horneSpound;
+    [SerializeField] private AudioSource _goldSpound;
+    [SerializeField] private AudioSource _raportMachine;
+    [SerializeField] private AudioSource _soldMachine;
 
     public static bool _isMagazineOpen = false;
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        GameManager._inventor = GameManager._pointUgly + GameManager._porohPoint + GameManager._uran + GameManager._uranClear + GameManager._horny + GameManager._metal + GameManager._rubin + GameManager._clearRubin + GameManager._cosmo;  
+        GameManager._inventor = GameManager._pointUgly + GameManager._porohPoint + GameManager._uran + GameManager._uranClear + GameManager._horny + GameManager._metal + GameManager._rubin + GameManager._clearRubin + GameManager._cosmo;
     }
-    
-    void OnTriggerEnter2D(Collider2D _coll)
+
+    private void OnTriggerEnter2D(Collider2D _coll)
     {
         //Ugly
         if (_coll.gameObject.CompareTag("Ugly"))
@@ -46,7 +46,7 @@ public class LutingPlayer : MonoBehaviour
         {
             if (GameManager._inventor < GameManager._limitInventore)
             {
-                GameManager._metal+= 1f;
+                GameManager._metal += 1f;
                 Sfx();
             }
             else if (GameManager._inventor >= GameManager._limitInventore)
@@ -59,7 +59,7 @@ public class LutingPlayer : MonoBehaviour
         if (_coll.gameObject.CompareTag("Gold"))
         {
             GameManager._pointMoney += 20f;
-            _goldSpound.Play();        
+            _goldSpound.Play();
         }
         //Uran
         if (_coll.gameObject.CompareTag("Uran"))
@@ -137,13 +137,13 @@ public class LutingPlayer : MonoBehaviour
         {
             if (GameManager._pointUgly >= 1f || GameManager._uran >= 1f || GameManager._metal >= 1f || GameManager._rubin >= 1f)
             {
-                StartCoroutine("Raporting");
+                StartCoroutine(nameof(Raporting));
             }
         }
 
         if (_coll.gameObject.CompareTag("Sold"))
         {
-            StartCoroutine("Solding");
+            StartCoroutine(nameof(Solding));
         }
 
         if (_coll.gameObject.CompareTag("King"))
@@ -153,9 +153,9 @@ public class LutingPlayer : MonoBehaviour
         }
     }
 
-    IEnumerator Raporting()
+    private IEnumerator Raporting()
     {
-        yield return new WaitForSeconds (0.1f);
+        yield return new WaitForSeconds(0.1f);
 
         //Uglys
         if (GameManager._pointUgly >= 1f)
@@ -164,7 +164,7 @@ public class LutingPlayer : MonoBehaviour
             GameManager._pointUgly -= 1f;
             if (GameManager._pointUgly >= 1f)
             {
-                StartCoroutine("Raporting");
+                StartCoroutine(nameof(Raporting));
             }
         }
         //Uran
@@ -174,7 +174,7 @@ public class LutingPlayer : MonoBehaviour
             GameManager._uran -= 1f;
             if (GameManager._uran >= 1f)
             {
-                StartCoroutine("Raporting");
+                StartCoroutine(nameof(Raporting));
             }
         }
         //Metal
@@ -184,7 +184,7 @@ public class LutingPlayer : MonoBehaviour
             GameManager._metal -= 1f;
             if (GameManager._metal >= 1f)
             {
-                StartCoroutine("Raporting");
+                StartCoroutine(nameof(Raporting));
             }
         }
         //Rubin
@@ -194,18 +194,18 @@ public class LutingPlayer : MonoBehaviour
             GameManager._rubin -= 1f;
             if (GameManager._rubin >= 1f)
             {
-                StartCoroutine("Raporting");
+                StartCoroutine(nameof(Raporting));
             }
         }
 
         if (GameManager._pointUgly <= 0f && GameManager._uran <= 0f && GameManager._metal <= 0f && GameManager._rubin <= 0f)
         {
-            StopCoroutine("Raporting");
+            StopCoroutine(nameof(Raporting));
             _raportMachine.Play();
         }
     }
 
-    IEnumerator Solding()
+    private IEnumerator Solding()
     {
         yield return new WaitForSeconds(0.1f);
         //Sold Ugly
@@ -215,7 +215,7 @@ public class LutingPlayer : MonoBehaviour
             GameManager._pointMoney += 5f;
             if (GameManager._porohPoint >= 1f)
             {
-                StartCoroutine("Solding");
+                StartCoroutine(nameof(Solding));
             }
         }
         else if (GameManager._pointUgly >= 1f)
@@ -224,17 +224,17 @@ public class LutingPlayer : MonoBehaviour
             GameManager._pointMoney += 3f;
             if (GameManager._pointUgly >= 1f)
             {
-                StartCoroutine ("Solding");
+                StartCoroutine(nameof(Solding));
             }
         }
         //Sold Uran
-        if (GameManager._uranClear>= 1f)
+        if (GameManager._uranClear >= 1f)
         {
             GameManager._uranClear -= 1f;
             GameManager._pointMoney += 20f;
             if (GameManager._uranClear >= 1f)
             {
-                StartCoroutine("Solding");
+                StartCoroutine(nameof(Solding));
             }
         }
         else if (GameManager._uran >= 1f)
@@ -243,7 +243,7 @@ public class LutingPlayer : MonoBehaviour
             GameManager._pointMoney += 13f;
             if (GameManager._uran >= 1f)
             {
-                StartCoroutine ("Solding");
+                StartCoroutine(nameof(Solding));
             }
         }
         //Sold Horny
@@ -253,7 +253,7 @@ public class LutingPlayer : MonoBehaviour
             GameManager._pointMoney += 9f;
             if (GameManager._horny >= 1f)
             {
-                StartCoroutine("Solding");
+                StartCoroutine(nameof(Solding));
             }
         }
         //Sold Metal
@@ -263,7 +263,7 @@ public class LutingPlayer : MonoBehaviour
             GameManager._pointMoney += 6f;
             if (GameManager._metal >= 1f)
             {
-                StartCoroutine("Solding");
+                StartCoroutine(nameof(Solding));
             }
         }
         //Rubin
@@ -273,7 +273,7 @@ public class LutingPlayer : MonoBehaviour
             GameManager._pointMoney += 13f;
             if (GameManager._rubin >= 1f)
             {
-                StartCoroutine("Solding");
+                StartCoroutine(nameof(Solding));
             }
         }
         //ClearRubin
@@ -283,7 +283,7 @@ public class LutingPlayer : MonoBehaviour
             GameManager._pointMoney += 18f;
             if (GameManager._clearRubin >= 1f)
             {
-                StartCoroutine("Solding");
+                StartCoroutine(nameof(Solding));
             }
         }
         //Cosmo
@@ -293,18 +293,18 @@ public class LutingPlayer : MonoBehaviour
             GameManager._pointMoney += 20f;
             if (GameManager._cosmo >= 1f)
             {
-                StartCoroutine("Solding");
+                StartCoroutine(nameof(Solding));
             }
         }
 
         if (GameManager._porohPoint <= 0f && GameManager._pointUgly <= 0f && GameManager._uran <= 0f && GameManager._uranClear <= 0f && GameManager._horny <= 0f && GameManager._metal <= 0f && GameManager._clearRubin <= 0f && GameManager._rubin <= 0f && GameManager._cosmo <= 0f)
         {
-            StopCoroutine("Solding");
+            StopCoroutine(nameof(Solding));
             _soldMachine.Play();
         }
     }
 
-    void Sfx()
+    private void Sfx()
     {
         _boomAudio.pitch = Random.Range(0.7f, 1f);
         _boomAudio.Play();
