@@ -1,3 +1,4 @@
+using RimuruDev.AI;
 using RimuruDev.Mechanics.Character;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -77,6 +78,9 @@ namespace RimuruDev
         [Space]
         [Header("Cosmo")]
         [SerializeField] private Text cosmoText;
+        [Space]
+        [Header("AI")]
+        public BeeAISettings[] allBeeAISettings;
 
         private void Start()
         {
@@ -117,6 +121,7 @@ namespace RimuruDev
             PostScript._idIsYou = false;
 
             LutingPlayer._heKeng = false;
+
         }
 
         private void Update()
