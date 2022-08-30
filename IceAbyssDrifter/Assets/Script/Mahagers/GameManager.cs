@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using RimuruDev.Mechanics.Character;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public sealed class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject _panelPause;
+    [SerializeField] private GameObject _panelPause;
 
-    [SerializeField] GameObject _deadPanel;
+    [SerializeField] private GameObject _deadPanel;
 
-    [SerializeField] AudioSource _gameTheme;
-    [SerializeField] AudioSource _wind;
-    [SerializeField] AudioSource _pauseTheme;
+    [SerializeField] private AudioSource _gameTheme;
+    [SerializeField] private AudioSource _wind;
+    [SerializeField] private AudioSource _pauseTheme;
 
     public static bool _isPaused = false;
 
@@ -40,42 +38,42 @@ public class GameManager : MonoBehaviour
 
     public static float _cosmo = 0f;
 
-    [SerializeField] GameObject _limitTexti;
+    [SerializeField] private GameObject _limitTexti;
 
     [Header("MoneyText")]
-    [SerializeField] Text _moneyText;
-    [SerializeField] Text _twoMoneyText;
-    [SerializeField] Text _treeMoneyText;
+    [SerializeField] private Text _moneyText;
+    [SerializeField] private Text _twoMoneyText;
+    [SerializeField] private Text _treeMoneyText;
 
     [Header("Inventore")]
-    [SerializeField] Text _inventoreText;
-    [SerializeField] Text _inventoreGameText;
-    [SerializeField] Text _limitText;
-    [SerializeField] Text _limitGameText;
+    [SerializeField] private Text _inventoreText;
+    [SerializeField] private Text _inventoreGameText;
+    [SerializeField] private Text _limitText;
+    [SerializeField] private Text _limitGameText;
 
     [Header("Uglys")]
-    [SerializeField] Text _uglyText;
-    [SerializeField] Text _porohText;
+    [SerializeField] private Text _uglyText;
+    [SerializeField] private Text _porohText;
 
     [Header("Uranys")]
-    [SerializeField] Text _uranText;
-    [SerializeField] Text _claerUranText;
-    [SerializeField] Text _radiathionText;
+    [SerializeField] private Text _uranText;
+    [SerializeField] private Text _claerUranText;
+    [SerializeField] private Text _radiathionText;
 
     [Header("Hornys")]
-    [SerializeField] Text _hornyText;
+    [SerializeField] private Text _hornyText;
 
     [Header("Metal")]
-    [SerializeField] Text _metalText;
-    [SerializeField] Text _inInventBullet;
-    [SerializeField] Text _bulletText;
+    [SerializeField] private Text _metalText;
+    [SerializeField] private Text _inInventBullet;
+    [SerializeField] private Text _bulletText;
 
     [Header("Rubin")]
-    [SerializeField] Text _rubinText;
-    [SerializeField] Text _clearRubinText;
+    [SerializeField] private Text _rubinText;
+    [SerializeField] private Text _clearRubinText;
 
     [Header("Cosmo")]
-    [SerializeField] Text _cosmoText;
+    [SerializeField] private Text _cosmoText;
 
     private void Start()
     {
