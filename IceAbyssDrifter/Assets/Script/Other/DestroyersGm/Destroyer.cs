@@ -2,18 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destroyer : MonoBehaviour
+public sealed class Destroyer : MonoBehaviour
 {
-    [SerializeField] float _deadTime;
+    [SerializeField] private float _deadTime;
 
-    void Start()
-    {
-        StartCoroutine("Dead");
-    }
+    private void Start() => StartCoroutine(nameof(Dead));
 
-    IEnumerator Dead()
+    private IEnumerator Dead()
     {
         yield return new WaitForSeconds(_deadTime);
+
         Destroy(gameObject);
     }
 }
