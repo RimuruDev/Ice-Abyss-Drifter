@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace RimuruDev.Mechanics
@@ -9,7 +8,7 @@ namespace RimuruDev.Mechanics
         [SerializeField] private Text[] characterCoordinates;
 
         private CharacterController characterController = null;
-        private string[] characterCoordinateText = { ":X", ":Y" };
+        private readonly string[] characterCoordinateText = { ":X", ":Y" };
 
         private void Awake()
         {
