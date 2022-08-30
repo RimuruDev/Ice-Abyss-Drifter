@@ -1,4 +1,3 @@
-using RimuruDev.AI;
 using UnityEngine;
 
 namespace RimuruDev.AI
@@ -36,7 +35,7 @@ namespace RimuruDev.AI
             {
                 transform.position = Vector2.MoveTowards(transform.position, beeTransformPoints.BeeMovementPoints[_randomPoint].position, _speed * Time.deltaTime);
 
-                _FlipWithPoints();
+                FlipWithPoints();
 
                 if (Vector2.Distance(transform.position, beeTransformPoints.BeeMovementPoints[_randomPoint].position) < 0.2f)
                 {
@@ -56,10 +55,11 @@ namespace RimuruDev.AI
             if (Vector2.Distance(transform.position, CharacterController._playerPoint.transform.position) < _minDistance)
             {
                 _isAgry = true;
+
                 if (_isAgry == true)
                 {
                     transform.position = Vector2.MoveTowards(transform.position, CharacterController._playerPoint.transform.position, _speed * Time.deltaTime);
-                    _FlipWithPlayer();
+                    FlipWithPlayer();
                 }
             }
             else if (Vector2.Distance(transform.position, CharacterController._playerPoint.transform.position) > _minDistance)
@@ -96,7 +96,7 @@ namespace RimuruDev.AI
             }
         }
 
-        private void _FlipWithPlayer()
+        private void FlipWithPlayer()
         {
             if (CharacterController._playerPoint.transform.position.x < transform.position.x)
             {
@@ -108,7 +108,7 @@ namespace RimuruDev.AI
             }
         }
 
-        private void _FlipWithPoints()
+        private void FlipWithPoints()
         {
             if (beeTransformPoints.BeeMovementPoints[_randomPoint].transform.position.x < transform.position.x)
             {
