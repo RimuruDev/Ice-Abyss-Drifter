@@ -18,9 +18,9 @@ public sealed class Gun : MonoBehaviour
 
     private void Update()
     {
-        if (LutingPlayer._isMagazineOpen == false && GameManager._isPaused == false)
+        if (LutingPlayer._isMagazineOpen == false && dataContainer._isPaused == false)
         {
-            if (GameManager._metalBullet >= 1f)
+            if (dataContainer._metalBullet >= 1f)
             {
                 if (_timeShot <= 0f)
                 {
@@ -30,7 +30,7 @@ public sealed class Gun : MonoBehaviour
                         Instantiate(_effectShot, _shotPos.transform.position, transform.rotation);
                         _shotSound.pitch = Random.Range(0.7f, 1f);
                         _shotSound.Play();
-                        GameManager._metalBullet -= 1f;
+                        dataContainer._metalBullet -= 1f;
                         _timeShot = _timeStart;
                     }
                 }
