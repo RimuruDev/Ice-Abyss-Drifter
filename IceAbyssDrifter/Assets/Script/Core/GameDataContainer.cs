@@ -42,7 +42,7 @@ namespace RimuruDev
         [Space]
         [SerializeField] private float cosmo = 0f;
         [Space]
-        [SerializeField] private GameObject _limitTexti;
+        [SerializeField] private GameObject  limitTexti;
         [Space]
         [Header("MoneyText")]
         [SerializeField] private Text moneyText;
@@ -103,7 +103,7 @@ namespace RimuruDev
         public float Rubin { get => rubin; set => rubin = value; }
         public float ClearRubin { get => clearRubin; set => clearRubin = value; }
         public float Cosmo { get => cosmo; set => cosmo = value; }
-        public GameObject LimitTexti { get => _limitTexti; set => _limitTexti = value; }
+        public GameObject LimitTexti { get =>  limitTexti; set =>  limitTexti = value; }
         public Text MoneyText { get => moneyText; set => moneyText = value; }
         public Text TwoMoneyText { get => twoMoneyText; set => twoMoneyText = value; }
         public Text TreeMoneyText { get => treeMoneyText; set => treeMoneyText = value; }
@@ -135,7 +135,7 @@ namespace RimuruDev
 
             PointMoney = 200;
 
-            CharacterController._speed = 7f;
+            CharacterController. speed = 7f;
 
             Horny = 0f;
             Metal = 0f;
@@ -152,18 +152,18 @@ namespace RimuruDev
             Rubin = 0f;
             Cosmo = 0f;
 
-            MagazineWorkest._gunSold = false;
-            MagazineWorkest._inventoreBigSold = false;
-            MagazineWorkest._inventoreNormalSold = false;
-            MagazineWorkest._petSold = false;
-            MagazineWorkest._radiationSold = false;
-            MagazineWorkest._speedSold = false;
-            MagazineWorkest._idSold = false;
-            MagazineWorkest._treckerSold = false;
+            MagazineWorkest. gunSold = false;
+            MagazineWorkest. inventoreBigSold = false;
+            MagazineWorkest. inventoreNormalSold = false;
+            MagazineWorkest. petSold = false;
+            MagazineWorkest. radiationSold = false;
+            MagazineWorkest. speedSold = false;
+            MagazineWorkest. idSold = false;
+            MagazineWorkest. treckerSold = false;
 
-            PostScript._idIsYou = false;
+            PostScript. idIsYou = false;
 
-            LutingPlayer._heKeng = false;
+            LutingPlayer. heKeng = false;
 
         }
 
@@ -176,7 +176,7 @@ namespace RimuruDev
             if (Inventor == LimitInventore)
                 Inventor = LimitInventore;
 
-            if (DeadPlayer._isDead == true)
+            if (DeadPlayer. isDead == true)
             {
                 DeadPanel.SetActive(true);
                 GameTheme.Stop();
@@ -190,7 +190,7 @@ namespace RimuruDev
             else if (Inventor < LimitInventore)
                 LimitTexti.SetActive(false);
 
-            if (Input.GetKey(KeyCode.Escape) && LutingPlayer._isMagazineOpen == false && DeadPlayer._isDead == false && ManagerInvent._inventorOpen == false)
+            if (Input.GetKey(KeyCode.Escape) && LutingPlayer. isMagazineOpen == false && DeadPlayer. isDead == false && ManagerInvent. inventorOpen == false)
             {
                 PanelPause.SetActive(true);
                 IsPaused = true;
