@@ -22,7 +22,7 @@ public sealed class LutingPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        GameManager._inventor = GameManager._pointUgly + GameManager._porohPoint + GameManager._uran + GameManager._uranClear + GameManager._horny + GameManager._metal + GameManager._rubin + GameManager._clearRubin + GameManager._cosmo;
+        dataContainer._inventor = dataContainer._pointUgly + dataContainer._porohPoint + dataContainer._uran + dataContainer._uranClear + dataContainer._horny + dataContainer._metal + dataContainer._rubin + dataContainer._clearRubin + dataContainer._cosmo;
     }
 
     private void OnTriggerEnter2D(Collider2D _coll)
@@ -30,50 +30,50 @@ public sealed class LutingPlayer : MonoBehaviour
         //Ugly
         if (_coll.gameObject.CompareTag("Ugly"))
         {
-            if (GameManager._inventor < GameManager._limitInventore)
+            if (dataContainer._inventor < dataContainer._limitInventore)
             {
-                GameManager._pointUgly += 1f;
+                dataContainer._pointUgly += 1f;
                 Sfx();
             }
-            else if (GameManager._inventor >= GameManager._limitInventore)
+            else if (dataContainer._inventor >= dataContainer._limitInventore)
             {
-                GameManager._pointUgly += 0f;
+                dataContainer._pointUgly += 0f;
                 Sfx();
             }
         }
         //Metal
         if (_coll.gameObject.CompareTag("Metal"))
         {
-            if (GameManager._inventor < GameManager._limitInventore)
+            if (dataContainer._inventor < dataContainer._limitInventore)
             {
-                GameManager._metal += 1f;
+                dataContainer._metal += 1f;
                 Sfx();
             }
-            else if (GameManager._inventor >= GameManager._limitInventore)
+            else if (dataContainer._inventor >= dataContainer._limitInventore)
             {
-                GameManager._metal += 0f;
+                dataContainer._metal += 0f;
                 Sfx();
             }
         }
         //Gold
         if (_coll.gameObject.CompareTag("Gold"))
         {
-            GameManager._pointMoney += 20f;
+            dataContainer._pointMoney += 20f;
             _goldSpound.Play();
         }
         //Uran
         if (_coll.gameObject.CompareTag("Uran"))
         {
-            if (GameManager._inventor < GameManager._limitInventore)
+            if (dataContainer._inventor < dataContainer._limitInventore)
             {
-                GameManager._uran += 1f;
+                dataContainer._uran += 1f;
                 Sfx();
             }
-            else if (GameManager._inventor >= GameManager._limitInventore)
+            else if (dataContainer._inventor >= dataContainer._limitInventore)
             {
                 if (MagazineWorkest._radiationSold == true)
                 {
-                    GameManager._uran += 0f;
+                    dataContainer._uran += 0f;
                     Sfx();
                 }
                 else if (MagazineWorkest._radiationSold == false)
@@ -86,42 +86,42 @@ public sealed class LutingPlayer : MonoBehaviour
         //Horny
         if (_coll.gameObject.CompareTag("Horny"))
         {
-            if (GameManager._inventor < GameManager._limitInventore)
+            if (dataContainer._inventor < dataContainer._limitInventore)
             {
-                GameManager._horny += 1f;
+                dataContainer._horny += 1f;
                 _horneSpound.Play();
             }
-            else if (GameManager._inventor >= GameManager._limitInventore)
+            else if (dataContainer._inventor >= dataContainer._limitInventore)
             {
-                GameManager._horny += 0f;
+                dataContainer._horny += 0f;
                 _horneSpound.Play();
             }
         }
         //Rubin
         if (_coll.gameObject.CompareTag("Rubin"))
         {
-            if (GameManager._inventor < GameManager._limitInventore)
+            if (dataContainer._inventor < dataContainer._limitInventore)
             {
-                GameManager._rubin += 1f;
+                dataContainer._rubin += 1f;
                 Sfx();
             }
-            else if (GameManager._inventor >= GameManager._limitInventore)
+            else if (dataContainer._inventor >= dataContainer._limitInventore)
             {
-                GameManager._rubin += 0f;
+                dataContainer._rubin += 0f;
                 Sfx();
             }
         }
         //Cosmo
         if (_coll.gameObject.CompareTag("Cosmo"))
         {
-            if (GameManager._inventor < GameManager._limitInventore)
+            if (dataContainer._inventor < dataContainer._limitInventore)
             {
-                GameManager._cosmo += 1f;
+                dataContainer._cosmo += 1f;
                 Sfx();
             }
-            else if (GameManager._inventor >= GameManager._limitInventore)
+            else if (dataContainer._inventor >= dataContainer._limitInventore)
             {
-                GameManager._cosmo += 0f;
+                dataContainer._cosmo += 0f;
                 Sfx();
             }
         }
@@ -135,7 +135,7 @@ public sealed class LutingPlayer : MonoBehaviour
 
         if (_coll.gameObject.CompareTag("Raport"))
         {
-            if (GameManager._pointUgly >= 1f || GameManager._uran >= 1f || GameManager._metal >= 1f || GameManager._rubin >= 1f)
+            if (dataContainer._pointUgly >= 1f || dataContainer._uran >= 1f || dataContainer._metal >= 1f || dataContainer._rubin >= 1f)
             {
                 StartCoroutine(nameof(Raporting));
             }
@@ -158,47 +158,47 @@ public sealed class LutingPlayer : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         //Uglys
-        if (GameManager._pointUgly >= 1f)
+        if (dataContainer._pointUgly >= 1f)
         {
-            GameManager._porohPoint += 1f;
-            GameManager._pointUgly -= 1f;
-            if (GameManager._pointUgly >= 1f)
+            dataContainer._porohPoint += 1f;
+            dataContainer._pointUgly -= 1f;
+            if (dataContainer._pointUgly >= 1f)
             {
                 StartCoroutine(nameof(Raporting));
             }
         }
         //Uran
-        if (GameManager._uran >= 1f)
+        if (dataContainer._uran >= 1f)
         {
-            GameManager._uranClear += 1f;
-            GameManager._uran -= 1f;
-            if (GameManager._uran >= 1f)
+            dataContainer._uranClear += 1f;
+            dataContainer._uran -= 1f;
+            if (dataContainer._uran >= 1f)
             {
                 StartCoroutine(nameof(Raporting));
             }
         }
         //Metal
-        if (GameManager._metal >= 1f)
+        if (dataContainer._metal >= 1f)
         {
-            GameManager._metalBullet += 1f;
-            GameManager._metal -= 1f;
-            if (GameManager._metal >= 1f)
+            dataContainer._metalBullet += 1f;
+            dataContainer._metal -= 1f;
+            if (dataContainer._metal >= 1f)
             {
                 StartCoroutine(nameof(Raporting));
             }
         }
         //Rubin
-        if (GameManager._rubin >= 1f)
+        if (dataContainer._rubin >= 1f)
         {
-            GameManager._clearRubin += 1f;
-            GameManager._rubin -= 1f;
-            if (GameManager._rubin >= 1f)
+            dataContainer._clearRubin += 1f;
+            dataContainer._rubin -= 1f;
+            if (dataContainer._rubin >= 1f)
             {
                 StartCoroutine(nameof(Raporting));
             }
         }
 
-        if (GameManager._pointUgly <= 0f && GameManager._uran <= 0f && GameManager._metal <= 0f && GameManager._rubin <= 0f)
+        if (dataContainer._pointUgly <= 0f && dataContainer._uran <= 0f && dataContainer._metal <= 0f && dataContainer._rubin <= 0f)
         {
             StopCoroutine(nameof(Raporting));
             _raportMachine.Play();
@@ -209,95 +209,95 @@ public sealed class LutingPlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         //Sold Ugly
-        if (GameManager._porohPoint >= 1f)
+        if (dataContainer._porohPoint >= 1f)
         {
-            GameManager._porohPoint -= 1f;
-            GameManager._pointMoney += 5f;
-            if (GameManager._porohPoint >= 1f)
+            dataContainer._porohPoint -= 1f;
+            dataContainer._pointMoney += 5f;
+            if (dataContainer._porohPoint >= 1f)
             {
                 StartCoroutine(nameof(Solding));
             }
         }
-        else if (GameManager._pointUgly >= 1f)
+        else if (dataContainer._pointUgly >= 1f)
         {
-            GameManager._pointUgly -= 1f;
-            GameManager._pointMoney += 3f;
-            if (GameManager._pointUgly >= 1f)
+            dataContainer._pointUgly -= 1f;
+            dataContainer._pointMoney += 3f;
+            if (dataContainer._pointUgly >= 1f)
             {
                 StartCoroutine(nameof(Solding));
             }
         }
         //Sold Uran
-        if (GameManager._uranClear >= 1f)
+        if (dataContainer._uranClear >= 1f)
         {
-            GameManager._uranClear -= 1f;
-            GameManager._pointMoney += 20f;
-            if (GameManager._uranClear >= 1f)
+            dataContainer._uranClear -= 1f;
+            dataContainer._pointMoney += 20f;
+            if (dataContainer._uranClear >= 1f)
             {
                 StartCoroutine(nameof(Solding));
             }
         }
-        else if (GameManager._uran >= 1f)
+        else if (dataContainer._uran >= 1f)
         {
-            GameManager._uran -= 1f;
-            GameManager._pointMoney += 13f;
-            if (GameManager._uran >= 1f)
+            dataContainer._uran -= 1f;
+            dataContainer._pointMoney += 13f;
+            if (dataContainer._uran >= 1f)
             {
                 StartCoroutine(nameof(Solding));
             }
         }
         //Sold Horny
-        if (GameManager._horny >= 1f)
+        if (dataContainer._horny >= 1f)
         {
-            GameManager._horny -= 1f;
-            GameManager._pointMoney += 9f;
-            if (GameManager._horny >= 1f)
+            dataContainer._horny -= 1f;
+            dataContainer._pointMoney += 9f;
+            if (dataContainer._horny >= 1f)
             {
                 StartCoroutine(nameof(Solding));
             }
         }
         //Sold Metal
-        if (GameManager._metal >= 1f)
+        if (dataContainer._metal >= 1f)
         {
-            GameManager._metal -= 1f;
-            GameManager._pointMoney += 6f;
-            if (GameManager._metal >= 1f)
+            dataContainer._metal -= 1f;
+            dataContainer._pointMoney += 6f;
+            if (dataContainer._metal >= 1f)
             {
                 StartCoroutine(nameof(Solding));
             }
         }
         //Rubin
-        if (GameManager._rubin >= 1f)
+        if (dataContainer._rubin >= 1f)
         {
-            GameManager._rubin -= 1f;
-            GameManager._pointMoney += 13f;
-            if (GameManager._rubin >= 1f)
+            dataContainer._rubin -= 1f;
+            dataContainer._pointMoney += 13f;
+            if (dataContainer._rubin >= 1f)
             {
                 StartCoroutine(nameof(Solding));
             }
         }
         //ClearRubin
-        if (GameManager._clearRubin >= 1f)
+        if (dataContainer._clearRubin >= 1f)
         {
-            GameManager._clearRubin -= 1f;
-            GameManager._pointMoney += 18f;
-            if (GameManager._clearRubin >= 1f)
+            dataContainer._clearRubin -= 1f;
+            dataContainer._pointMoney += 18f;
+            if (dataContainer._clearRubin >= 1f)
             {
                 StartCoroutine(nameof(Solding));
             }
         }
         //Cosmo
-        if (GameManager._cosmo >= 1f)
+        if (dataContainer._cosmo >= 1f)
         {
-            GameManager._cosmo -= 1f;
-            GameManager._pointMoney += 20f;
-            if (GameManager._cosmo >= 1f)
+            dataContainer._cosmo -= 1f;
+            dataContainer._pointMoney += 20f;
+            if (dataContainer._cosmo >= 1f)
             {
                 StartCoroutine(nameof(Solding));
             }
         }
 
-        if (GameManager._porohPoint <= 0f && GameManager._pointUgly <= 0f && GameManager._uran <= 0f && GameManager._uranClear <= 0f && GameManager._horny <= 0f && GameManager._metal <= 0f && GameManager._clearRubin <= 0f && GameManager._rubin <= 0f && GameManager._cosmo <= 0f)
+        if (dataContainer._porohPoint <= 0f && dataContainer._pointUgly <= 0f && dataContainer._uran <= 0f && dataContainer._uranClear <= 0f && dataContainer._horny <= 0f && dataContainer._metal <= 0f && dataContainer._clearRubin <= 0f && dataContainer._rubin <= 0f && dataContainer._cosmo <= 0f)
         {
             StopCoroutine(nameof(Solding));
             _soldMachine.Play();
