@@ -5,11 +5,18 @@ namespace RimuruDev.UI
 {
     public sealed class MenuManager : MonoBehaviour
     {
+        private GameDataContainer dataContainer;
+
         [SerializeField] private GameObject panel;
         [Space]
         [SerializeField] private AudioSource gameTheme;
         [SerializeField] private AudioSource wind;
         [SerializeField] private AudioSource pauseTheme;
+
+        private void Awake()
+        {
+            dataContainer = FindObjectOfType<GameDataContainer>();
+        }
 
         private void Start() => TimeNormal();
 
@@ -25,7 +32,7 @@ namespace RimuruDev.UI
         {
             panel.SetActive(false);
 
-            GameManager._isPaused = false;
+            dataContainer.IsPaused = false;
 
             gameTheme.volume = 0.671f;
             wind.volume = 0.274f;
