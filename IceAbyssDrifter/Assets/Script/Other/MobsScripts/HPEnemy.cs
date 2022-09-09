@@ -1,7 +1,9 @@
+using RimuruDev;
 using UnityEngine;
 
 public sealed class HPEnemy : MonoBehaviour
 {
+    private GameDataContainer dataContainer;
     [SerializeField] private float _health;
     private float _Nhealth;
 
@@ -21,7 +23,12 @@ public sealed class HPEnemy : MonoBehaviour
     [SerializeField] private bool _isMohan;
     [SerializeField] private bool _isActivator;
 
-    private void Awake() => _Nhealth = _health;
+    private void Awake()
+    {
+        dataContainer = FindObjectOfType<GameDataContainer>();
+
+        _Nhealth = _health;
+    }
 
     private void OnTriggerEnter2D(Collider2D _coll)
     {
@@ -59,42 +66,42 @@ public sealed class HPEnemy : MonoBehaviour
             {
                 if (_isBee == true)
                 {
-                    GameManager._pointMoney += 50f;
+                    dataContainer.PointMoney += 50f;
                 }
 
                 if (_isUlitka == true)
                 {
-                    GameManager._pointMoney += 30f;
+                    dataContainer.PointMoney += 30f;
                 }
 
                 if (_isBuka == true)
                 {
-                    GameManager._pointMoney += 20f;
+                    dataContainer.PointMoney += 20f;
                 }
 
                 if (_isSheep == true)
                 {
-                    GameManager._pointMoney += 80f;
+                    dataContainer.PointMoney += 80f;
                 }
 
                 if (_isMohan == true)
                 {
-                    GameManager._pointMoney += 150f;
+                    dataContainer.PointMoney += 150f;
                 }
 
                 if (_isCat == true)
                 {
-                    GameManager._pointMoney += 56f;
+                    dataContainer.PointMoney += 56f;
                 }
 
                 if (_isActivator == true)
                 {
-                    GameManager._pointMoney += 300f;
+                    dataContainer.PointMoney += 300f;
                 }
 
                 if (_isKing == true)
                 {
-                    GameManager._pointMoney += 200f;
+                    dataContainer.PointMoney += 200f;
                 }
             }
         }
