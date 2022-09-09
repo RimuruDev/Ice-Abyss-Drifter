@@ -4,31 +4,31 @@ using UnityEngine;
 
 public sealed class BulletMove : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField] private float  speed;
 
-    private bool _isRight;
+    private bool  isRight;
 
     private void Start()
     {
-        if (Gun._FacingRight == true)
+        if (Gun. FacingRight == true)
         {
-            _isRight = true;
+             isRight = true;
         }
-        else if (Gun._FacingRight == false)
+        else if (Gun. FacingRight == false)
         {
-            _isRight = false;
+             isRight = false;
         }
     }
 
     private void Update()
     {
-        if (_isRight)
+        if ( isRight)
         {
-            transform.Translate(_speed * Time.deltaTime * Vector2.left);
+            transform.Translate( speed * Time.deltaTime * Vector2.left);
         }
-        else if (!_isRight)
+        else if (! isRight)
         {
-            transform.Translate(_speed * Time.deltaTime * Vector2.right);
+            transform.Translate( speed * Time.deltaTime * Vector2.right);
         }
     }
 }
