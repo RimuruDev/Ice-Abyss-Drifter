@@ -5,40 +5,40 @@ public sealed class MagazineWorkest : MonoBehaviour
 {
     private GameDataContainer dataContainer;
 
-    [SerializeField] private GameObject _petHappy;
-    [SerializeField] private GameObject _petNormal;
-    [SerializeField] private GameObject _petSad;
+    [SerializeField] private GameObject  petHappy;
+    [SerializeField] private GameObject  petNormal;
+    [SerializeField] private GameObject  petSad;
 
-    [SerializeField] private GameObject _trecker;
+    [SerializeField] private GameObject  trecker;
 
     [Header("DereactPost")]
-    [SerializeField] private GameObject _panelSpeed;
-    [SerializeField] private GameObject _panelRadiation;
-    [SerializeField] private GameObject _panelNormal;
-    [SerializeField] private GameObject _panelBig;
-    [SerializeField] private GameObject _panelGun;
-    [SerializeField] private GameObject _panelID;
-    [SerializeField] private GameObject _panelPet;
+    [SerializeField] private GameObject  panelSpeed;
+    [SerializeField] private GameObject  panelRadiation;
+    [SerializeField] private GameObject  panelNormal;
+    [SerializeField] private GameObject  panelBig;
+    [SerializeField] private GameObject  panelGun;
+    [SerializeField] private GameObject  panelID;
+    [SerializeField] private GameObject  panelPet;
 
     [Header("Posters")]
-    [SerializeField] private GameObject _postSpeed;
-    [SerializeField] private GameObject _postRadiation;
-    [SerializeField] private GameObject _postNormalInvenore;
-    [SerializeField] private GameObject _postBigInventore;
-    [SerializeField] private GameObject _postGun;
-    [SerializeField] private GameObject _postPet;
-    [SerializeField] private GameObject _postID;
+    [SerializeField] private GameObject  postSpeed;
+    [SerializeField] private GameObject  postRadiation;
+    [SerializeField] private GameObject  postNormalInvenore;
+    [SerializeField] private GameObject  postBigInventore;
+    [SerializeField] private GameObject  postGun;
+    [SerializeField] private GameObject  postPet;
+    [SerializeField] private GameObject  postID;
 
-    [SerializeField] private AudioSource _buySound;
+    [SerializeField] private AudioSource  buySound;
 
-    public static bool _speedSold = false;
-    public static bool _radiationSold = false;
-    public static bool _inventoreNormalSold = false;
-    public static bool _inventoreBigSold = false;
-    public static bool _petSold = false;
-    public static bool _gunSold = false;
-    public static bool _idSold = false;
-    public static bool _treckerSold = false;
+    public static bool  speedSold = false;
+    public static bool  radiationSold = false;
+    public static bool  inventoreNormalSold = false;
+    public static bool  inventoreBigSold = false;
+    public static bool  petSold = false;
+    public static bool  gunSold = false;
+    public static bool  idSold = false;
+    public static bool  treckerSold = false;
 
     private void Awake()
     {
@@ -51,10 +51,10 @@ public sealed class MagazineWorkest : MonoBehaviour
         {
             dataContainer.PointMoney -= 275f; ;
 
-            _postRadiation.SetActive(true);
-            _panelRadiation.SetActive(true);
-            _buySound.Play();
-            _radiationSold = true;
+             postRadiation.SetActive(true);
+             panelRadiation.SetActive(true);
+             buySound.Play();
+             radiationSold = true;
         }
     }
 
@@ -64,10 +64,10 @@ public sealed class MagazineWorkest : MonoBehaviour
         {
             dataContainer.PointMoney -= 150f;
 
-            _postSpeed.SetActive(true);
-            _panelSpeed.SetActive(true);
-            _buySound.Play();
-            _speedSold = true;
+             postSpeed.SetActive(true);
+             panelSpeed.SetActive(true);
+             buySound.Play();
+             speedSold = true;
         }
     }
 
@@ -77,10 +77,10 @@ public sealed class MagazineWorkest : MonoBehaviour
         {
             dataContainer.PointMoney -= 180f;
 
-            _postNormalInvenore.SetActive(true);
-            _panelNormal.SetActive(true);
-            _buySound.Play();
-            _inventoreNormalSold = true;
+             postNormalInvenore.SetActive(true);
+             panelNormal.SetActive(true);
+             buySound.Play();
+             inventoreNormalSold = true;
         }
     }
 
@@ -90,10 +90,10 @@ public sealed class MagazineWorkest : MonoBehaviour
         {
             dataContainer.PointMoney -= 300f;
 
-            _postBigInventore.SetActive(true);
-            _panelBig.SetActive(true);
-            _buySound.Play();
-            _inventoreBigSold = true;
+             postBigInventore.SetActive(true);
+             panelBig.SetActive(true);
+             buySound.Play();
+             inventoreBigSold = true;
         }
     }
 
@@ -103,10 +103,10 @@ public sealed class MagazineWorkest : MonoBehaviour
         {
             dataContainer.PointMoney -= 50f;
 
-            _postPet.SetActive(true);
-            _panelPet.SetActive(true);
-            _buySound.Play();
-            _petSold = true;
+             postPet.SetActive(true);
+             panelPet.SetActive(true);
+             buySound.Play();
+             petSold = true;
         }
     }
 
@@ -116,10 +116,10 @@ public sealed class MagazineWorkest : MonoBehaviour
         {
             dataContainer.PointMoney -= 250f;
 
-            _postGun.SetActive(true);
-            _panelGun.SetActive(true);
-            _buySound.Play();
-            _gunSold = true;
+             postGun.SetActive(true);
+             panelGun.SetActive(true);
+             buySound.Play();
+             gunSold = true;
         }
     }
 
@@ -129,10 +129,10 @@ public sealed class MagazineWorkest : MonoBehaviour
         {
             dataContainer.PointMoney -= 200f;
 
-            _postID.SetActive(true);
-            _panelID.SetActive(true);
-            _buySound.Play();
-            _idSold = true;
+             postID.SetActive(true);
+             panelID.SetActive(true);
+             buySound.Play();
+             idSold = true;
         }
     }
 
@@ -142,15 +142,15 @@ public sealed class MagazineWorkest : MonoBehaviour
         {
             dataContainer.PointMoney -= 100f;
 
-            _trecker.SetActive(true);
-            _buySound.Play();
-            _treckerSold = true;
+             trecker.SetActive(true);
+             buySound.Play();
+             treckerSold = true;
         }
     }
 
     public void ExitMagazine()
     {
-        LutingPlayer._isMagazineOpen = false;
+        LutingPlayer. isMagazineOpen = false;
 
         Time.timeScale = 1;
     }
