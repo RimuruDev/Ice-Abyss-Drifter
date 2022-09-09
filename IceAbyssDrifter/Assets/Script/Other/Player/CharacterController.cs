@@ -9,33 +9,33 @@ public sealed class CharacterController : MonoBehaviour
 
     [SerializeField] private Joystick joystick;
 
-    [SerializeField] private Transform _player;
+    [SerializeField] private Transform  player;
 
-    [SerializeField] private GameObject _effectTeleport;
+    [SerializeField] private GameObject  effectTeleport;
 
-    [SerializeField] private Transform[] _pointStart;
-    private int _random;
+    [SerializeField] private Transform[]  pointStart;
+    private int  random;
     [Space]
     public SpriteRenderer characterSpriteRenderer;
 
-    public static float _speed = 7f;
-    public static Transform _playerPoint;
+    public static float  speed = 7f;
+    public static Transform  playerPoint;
 
-    private float _timeStart = 7f;
-    private float _timeShot = 7f;
+    private float  timeStart = 7f;
+    private float  timeShot = 7f;
 
-    private Rigidbody2D _rb;
-    private Vector2 _movement;
+    private Rigidbody2D  rb;
+    private Vector2  movement;
 
     private void Awake()
     {
         gameContainer = FindObjectOfType<GameDataContainer>();
 
-        _timeStart = Random.Range(5, 12);
-        _timeShot = _timeStart;
-        _random = Random.Range(0, _pointStart.Length);
-        _rb = GetComponent<Rigidbody2D>();
-        transform.position = _pointStart[_random].transform.position;
+         timeStart = Random.Range(5, 12);
+         timeShot =  timeStart;
+         random = Random.Range(0,  pointStart.Length);
+         rb = GetComponent<Rigidbody2D>();
+        transform.position =  pointStart[ random].transform.position;
 
         if (characterSpriteRenderer == null)
             characterSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
@@ -43,32 +43,32 @@ public sealed class CharacterController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _movement = GetPlayerInput();
+         movement = GetPlayerInput();
 
-        //_textX.text = transform.position.x.ToString() + " :X";
-        //_textY.text = transform.position.y.ToString() + " :Y";
+        // textX.text = transform.position.x.ToString() + " :X";
+        // textY.text = transform.position.y.ToString() + " :Y";
 
-        if (!(_playerPoint == _player))
-            _playerPoint = _player;
+        if (!( playerPoint ==  player))
+             playerPoint =  player;
 
-        if (_movement.x < 0)
+        if ( movement.x < 0)
             FlipX(false);
 
-        if (_movement.x > 0)
+        if ( movement.x > 0)
             FlipX(true);
 
         if (gameContainer.Cosmo >= 1f)
         {
-            if (_timeShot <= 0f)
+            if ( timeShot <= 0f)
             {
                 transform.position = new Vector2(Random.Range(110, -110), Random.Range(70, 10));
-                _timeStart = Random.Range(5, 12);
-                Instantiate(_effectTeleport, gameObject.transform.position, Quaternion.identity);
-                _timeShot = _timeStart;
+                 timeStart = Random.Range(5, 12);
+                Instantiate( effectTeleport, gameObject.transform.position, Quaternion.identity);
+                 timeShot =  timeStart;
             }
             else
             {
-                _timeShot -= Time.deltaTime;
+                 timeShot -= Time.deltaTime;
             }
         }
 
@@ -77,9 +77,9 @@ public sealed class CharacterController : MonoBehaviour
 
     public Vector2 GetPlayerInput() => new(joystick.Horizontal, joystick.Vertical);
 
-    public void CharacterMotion() => _rb.velocity = GetPlayerInput().normalized * _speed;
+    public void CharacterMotion() =>  rb.velocity = GetPlayerInput().normalized *  speed;
 
     public void FlipX(bool isFlipX) => characterSpriteRenderer.flipX = isFlipX;
 
-    public Transform GetCharacterTransform { get => _player; private set => _player = value; }
+    public Transform GetCharacterTransform { get =>  player; private set =>  player = value; }
 }
