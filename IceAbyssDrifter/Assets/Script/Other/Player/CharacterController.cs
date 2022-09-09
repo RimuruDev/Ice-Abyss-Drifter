@@ -1,9 +1,12 @@
+using RimuruDev;
 using UnityEngine;
 
 using static RimuruDev.Helpers.Tag;
 
 public sealed class CharacterController : MonoBehaviour
 {
+    private GameDataContainer gameContainer;
+
     [SerializeField] private Joystick joystick;
 
     [SerializeField] private Transform _player;
@@ -26,6 +29,8 @@ public sealed class CharacterController : MonoBehaviour
 
     private void Awake()
     {
+        gameContainer = FindObjectOfType<GameDataContainer>();
+
         _timeStart = Random.Range(5, 12);
         _timeShot = _timeStart;
         _random = Random.Range(0, _pointStart.Length);
@@ -52,7 +57,7 @@ public sealed class CharacterController : MonoBehaviour
         if (_movement.x > 0)
             FlipX(true);
 
-        if (GameManager._cosmo >= 1f)
+        if (gameContainer.Cosmo >= 1f)
         {
             if (_timeShot <= 0f)
             {
