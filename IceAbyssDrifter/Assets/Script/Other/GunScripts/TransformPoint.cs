@@ -4,10 +4,10 @@ namespace RimuruDev.AI
 {
     public sealed class TransformPoint : MonoBehaviour
     {
-        [SerializeField] private Transform[] _point;
+        [SerializeField] private Transform[]  point;
 
-        public static Transform[] _points;
+        public static Transform[]  points;
 
-        private void Awake() => _points = _point;
+        private void Awake() =>  points =  point;
     }
 }
