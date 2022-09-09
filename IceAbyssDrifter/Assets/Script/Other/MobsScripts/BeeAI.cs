@@ -8,15 +8,15 @@ namespace RimuruDev.AI
 
         [SerializeField] private BeePointArray beeTransformPoints;
 
-        [SerializeField] float _speed;
-        [SerializeField] float _startWaitTime;
-        [SerializeField] float _minDistance;
+        [SerializeField] float  speed;
+        [SerializeField] float  startWaitTime;
+        [SerializeField] float  minDistance;
 
-        [SerializeField] bool _isBee;
+        [SerializeField] bool  isBee;
 
-        private bool _isAgry = false;
-        private float _waitTime;
-        private int _randomPoint;
+        private bool  isAgry = false;
+        private float  waitTime;
+        private int  randomPoint;
 
         private void Awake()
         {
@@ -28,85 +28,85 @@ namespace RimuruDev.AI
 
         private void Start()
         {
-            _randomPoint = Random.Range(0, beeTransformPoints.BeeMovementPoints.Length);
+             randomPoint = Random.Range(0, beeTransformPoints.BeeMovementPoints.Length);
 
-            _waitTime = _startWaitTime;
+             waitTime =  startWaitTime;
         }
 
         private void FixedUpdate()
         {
-            if (_isAgry == false)
+            if ( isAgry == false)
             {
-                transform.position = Vector2.MoveTowards(transform.position, beeTransformPoints.BeeMovementPoints[_randomPoint].position, _speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, beeTransformPoints.BeeMovementPoints[ randomPoint].position,  speed * Time.deltaTime);
 
                 FlipWithPoints();
 
-                if (Vector2.Distance(transform.position, beeTransformPoints.BeeMovementPoints[_randomPoint].position) < 0.2f)
+                if (Vector2.Distance(transform.position, beeTransformPoints.BeeMovementPoints[ randomPoint].position) < 0.2f)
                 {
 
-                    if (_waitTime <= 0)
+                    if ( waitTime <= 0)
                     {
-                        _randomPoint = Random.Range(0, beeTransformPoints.BeeMovementPoints.Length);
-                        _waitTime = _startWaitTime;
+                         randomPoint = Random.Range(0, beeTransformPoints.BeeMovementPoints.Length);
+                         waitTime =  startWaitTime;
                     }
                     else
                     {
-                        _waitTime -= Time.deltaTime;
+                         waitTime -= Time.deltaTime;
                     }
                 }
             }
 
-            if (Vector2.Distance(transform.position, CharacterController._playerPoint.transform.position) < _minDistance)
+            if (Vector2.Distance(transform.position, CharacterController. playerPoint.transform.position) <  minDistance)
             {
-                _isAgry = true;
+                 isAgry = true;
 
-                if (_isAgry == true)
+                if ( isAgry == true)
                 {
-                    transform.position = Vector2.MoveTowards(transform.position, CharacterController._playerPoint.transform.position, _speed * Time.deltaTime);
+                    transform.position = Vector2.MoveTowards(transform.position, CharacterController. playerPoint.transform.position,  speed * Time.deltaTime);
                     FlipWithPlayer();
                 }
             }
-            else if (Vector2.Distance(transform.position, CharacterController._playerPoint.transform.position) > _minDistance)
+            else if (Vector2.Distance(transform.position, CharacterController. playerPoint.transform.position) >  minDistance)
             {
-                _isAgry = false;
+                 isAgry = false;
             }
 
-            if (LutingPlayer._heKeng == true)
+            if (LutingPlayer. heKeng == true)
             {
-                _minDistance = 0f;
+                 minDistance = 0f;
             }
 
-            if (_isBee == true && LutingPlayer._heKeng == false)
+            if ( isBee == true && LutingPlayer. heKeng == false)
             {
                 if (dataContainer.Horny <= 0f)
                 {
-                    _minDistance = 0f;
+                     minDistance = 0f;
                 }
                 else if (dataContainer.Horny >= 1f)
                 {
-                    _minDistance = 5f;
+                     minDistance = 5f;
                 }
             }
-            else if (_isBee == false && LutingPlayer._heKeng == false)
+            else if ( isBee == false && LutingPlayer. heKeng == false)
             {
                 if (dataContainer.Metal >= 1f || dataContainer.Uran >= 1f || dataContainer.Horny >= 1f || dataContainer.PointUgly >= 1f || dataContainer.UranClear >= 1f || dataContainer.PorohPoint >= 1f || dataContainer.MetalBullet >= 1f || dataContainer.ClearRubin >= 1f || dataContainer.Rubin >= 1f)
                 {
-                    _minDistance = 7f;
+                     minDistance = 7f;
                 }
                 else if (dataContainer.Metal <= 0f && dataContainer.Uran <= 0f && dataContainer.Horny <= 0f && dataContainer.PointUgly <= 0f && dataContainer.UranClear <= 0f && dataContainer.PorohPoint <= 0f && dataContainer.MetalBullet <= 0f && dataContainer.Rubin <= 0f && dataContainer.ClearRubin <= 0f)
                 {
-                    _minDistance = 0f;
+                     minDistance = 0f;
                 }
             }
         }
 
         private void FlipWithPlayer()
         {
-            if (CharacterController._playerPoint.transform.position.x < transform.position.x)
+            if (CharacterController. playerPoint.transform.position.x < transform.position.x)
             {
                 transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
-            else if (CharacterController._playerPoint.transform.position.x > transform.position.x)
+            else if (CharacterController. playerPoint.transform.position.x > transform.position.x)
             {
                 transform.localRotation = Quaternion.Euler(0, 180, 0);
             }
@@ -114,11 +114,11 @@ namespace RimuruDev.AI
 
         private void FlipWithPoints()
         {
-            if (beeTransformPoints.BeeMovementPoints[_randomPoint].transform.position.x < transform.position.x)
+            if (beeTransformPoints.BeeMovementPoints[ randomPoint].transform.position.x < transform.position.x)
             {
                 transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
-            else if (beeTransformPoints.BeeMovementPoints[_randomPoint].transform.position.x > transform.position.x)
+            else if (beeTransformPoints.BeeMovementPoints[ randomPoint].transform.position.x > transform.position.x)
             {
                 transform.localRotation = Quaternion.Euler(0, 180, 0);
             }
