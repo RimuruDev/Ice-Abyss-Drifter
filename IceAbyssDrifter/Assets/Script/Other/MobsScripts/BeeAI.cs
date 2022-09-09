@@ -4,6 +4,8 @@ namespace RimuruDev.AI
 {
     public sealed class BeeAI : MonoBehaviour
     {
+        private GameDataContainer dataContainer;
+
         [SerializeField] private BeePointArray beeTransformPoints;
 
         [SerializeField] float _speed;
@@ -18,6 +20,8 @@ namespace RimuruDev.AI
 
         private void Awake()
         {
+            dataContainer = FindObjectOfType<GameDataContainer>();
+
             if (beeTransformPoints == null)
                 beeTransformPoints = FindObjectOfType<BeePointArray>();
         }
@@ -74,22 +78,22 @@ namespace RimuruDev.AI
 
             if (_isBee == true && LutingPlayer._heKeng == false)
             {
-                if (GameManager._horny <= 0f)
+                if (dataContainer.Horny <= 0f)
                 {
                     _minDistance = 0f;
                 }
-                else if (GameManager._horny >= 1f)
+                else if (dataContainer.Horny >= 1f)
                 {
                     _minDistance = 5f;
                 }
             }
             else if (_isBee == false && LutingPlayer._heKeng == false)
             {
-                if (GameManager._metal >= 1f || GameManager._uran >= 1f || GameManager._horny >= 1f || GameManager._pointUgly >= 1f || GameManager._uranClear >= 1f || GameManager._porohPoint >= 1f || GameManager._metalBullet >= 1f || GameManager._clearRubin >= 1f || GameManager._rubin >= 1f)
+                if (dataContainer.Metal >= 1f || dataContainer.Uran >= 1f || dataContainer.Horny >= 1f || dataContainer.PointUgly >= 1f || dataContainer.UranClear >= 1f || dataContainer.PorohPoint >= 1f || dataContainer.MetalBullet >= 1f || dataContainer.ClearRubin >= 1f || dataContainer.Rubin >= 1f)
                 {
                     _minDistance = 7f;
                 }
-                else if (GameManager._metal <= 0f && GameManager._uran <= 0f && GameManager._horny <= 0f && GameManager._pointUgly <= 0f && GameManager._uranClear <= 0f && GameManager._porohPoint <= 0f && GameManager._metalBullet <= 0f && GameManager._rubin <= 0f && GameManager._clearRubin <= 0f)
+                else if (dataContainer.Metal <= 0f && dataContainer.Uran <= 0f && dataContainer.Horny <= 0f && dataContainer.PointUgly <= 0f && dataContainer.UranClear <= 0f && dataContainer.PorohPoint <= 0f && dataContainer.MetalBullet <= 0f && dataContainer.Rubin <= 0f && dataContainer.ClearRubin <= 0f)
                 {
                     _minDistance = 0f;
                 }
