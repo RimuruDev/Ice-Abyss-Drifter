@@ -8,10 +8,10 @@ public sealed class UranRadiation : MonoBehaviour
     {
         if (_coll.gameObject.CompareTag("Uran"))
         {
-            if (GameManager._uran >= 1f)
+            if (dataContainer._uran >= 1f)
             {
                 StartCoroutine(nameof(MinusRadiation));
-                if (GameManager._uranRadiation <= 0f)
+                if (dataContainer._uranRadiation <= 0f)
                 {
                     Destroy(gameObject);
                     DeadPlayer._isDead = true;
@@ -22,9 +22,9 @@ public sealed class UranRadiation : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager._uran >= 1f)
+        if (dataContainer._uran >= 1f)
         {
-            if (GameManager._uranRadiation <= 0f)
+            if (dataContainer._uranRadiation <= 0f)
             {
                 Destroy(gameObject);
                 DeadPlayer._isDead = true;
@@ -35,14 +35,14 @@ public sealed class UranRadiation : MonoBehaviour
     private IEnumerator MinusRadiation()
     {
         yield return new WaitForSeconds(0.7f);
-        if (GameManager._uran <= 0f)
+        if (dataContainer._uran <= 0f)
         {
             StopCoroutine(nameof(MinusRadiation));
             StartCoroutine(nameof(PlusRadiation));
         }
-        else if (GameManager._uran >= 1f)
+        else if (dataContainer._uran >= 1f)
         {
-            GameManager._uranRadiation -= 1f;
+            dataContainer._uranRadiation -= 1f;
             StartCoroutine(nameof(MinusRadiation));
             StopCoroutine(nameof(PlusRadiation));
         }
@@ -56,12 +56,12 @@ public sealed class UranRadiation : MonoBehaviour
     private IEnumerator PlusRadiation()
     {
         yield return new WaitForSeconds(0.5f);
-        GameManager._uranRadiation += 1f;
-        if (GameManager._uranRadiation < GameManager._uranNormalRadiation)
+        dataContainer._uranRadiation += 1f;
+        if (dataContainer._uranRadiation < dataContainer._uranNormalRadiation)
         {
             StartCoroutine(nameof(PlusRadiation));
         }
-        else if (GameManager._uranRadiation == GameManager._uranNormalRadiation)
+        else if (dataContainer._uranRadiation == dataContainer._uranNormalRadiation)
         {
             StopCoroutine(nameof(PlusRadiation));
         }
