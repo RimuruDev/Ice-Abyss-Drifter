@@ -5,10 +5,10 @@ namespace RimuruDev.UI
 {
     public sealed class GenerationRandomText : MonoBehaviour
     {
-        public Text _randomText;
+        public Text  randomText;
         [TextArea()] public string[] afterDefeatText;
 
-        public void SetAfterDeatText(int index) => _randomText.text = $"{afterDefeatText[index]}";
+        public void SetAfterDeatText(int index) =>  randomText.text = $"{afterDefeatText[index]}";
 
         public int GetAfterDefeatTextLength => afterDefeatText.Length;
     }
