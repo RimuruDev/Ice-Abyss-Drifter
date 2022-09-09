@@ -80,34 +80,77 @@ namespace RimuruDev
         [SerializeField] private Text cosmoText;
         [Space]
         [Header("AI")]
-        public BeeAISettings[] allBeeAISettings;
+        private BeeAISettings[] allBeeAISettings;
+
+        public GameObject PanelPause { get => panelPause; set => panelPause = value; }
+        public GameObject DeadPanel { get => deadPanel; set => deadPanel = value; }
+        public AudioSource GameTheme { get => gameTheme; set => gameTheme = value; }
+        public AudioSource Wind { get => wind; set => wind = value; }
+        public AudioSource PauseTheme { get => pauseTheme; set => pauseTheme = value; }
+        public bool IsPaused { get => isPaused; set => isPaused = value; }
+        public float PointMoney { get => pointMoney; set => pointMoney = value; }
+        public float PointUgly { get => pointUgly; set => pointUgly = value; }
+        public float PorohPoint { get => porohPoint; set => porohPoint = value; }
+        public float Inventor { get => inventor; set => inventor = value; }
+        public float LimitInventore { get => limitInventore; set => limitInventore = value; }
+        public float Uran { get => uran; set => uran = value; }
+        public float UranClear { get => uranClear; set => uranClear = value; }
+        public float UranRadiation { get => uranRadiation; set => uranRadiation = value; }
+        public float UranNormalRadiation { get => uranNormalRadiation; set => uranNormalRadiation = value; }
+        public float Horny { get => horny; set => horny = value; }
+        public float Metal { get => metal; set => metal = value; }
+        public float MetalBullet { get => metalBullet; set => metalBullet = value; }
+        public float Rubin { get => rubin; set => rubin = value; }
+        public float ClearRubin { get => clearRubin; set => clearRubin = value; }
+        public float Cosmo { get => cosmo; set => cosmo = value; }
+        public GameObject LimitTexti { get => _limitTexti; set => _limitTexti = value; }
+        public Text MoneyText { get => moneyText; set => moneyText = value; }
+        public Text TwoMoneyText { get => twoMoneyText; set => twoMoneyText = value; }
+        public Text TreeMoneyText { get => treeMoneyText; set => treeMoneyText = value; }
+        public Text InventoreText { get => inventoreText; set => inventoreText = value; }
+        public Text InventoreGameText { get => inventoreGameText; set => inventoreGameText = value; }
+        public Text LimitText { get => limitText; set => limitText = value; }
+        public Text LimitGameText { get => limitGameText; set => limitGameText = value; }
+        public Text UglyText { get => uglyText; set => uglyText = value; }
+        public Text PorohText { get => porohText; set => porohText = value; }
+        public Text UranText { get => uranText; set => uranText = value; }
+        public Text ClaerUranText { get => claerUranText; set => claerUranText = value; }
+        public Text RadiathionText { get => radiathionText; set => radiathionText = value; }
+        public Text HornyText { get => hornyText; set => hornyText = value; }
+        public Text MetalText { get => metalText; set => metalText = value; }
+        public Text InInventBullet { get => inInventBullet; set => inInventBullet = value; }
+        public Text BulletText { get => bulletText; set => bulletText = value; }
+        public Text RubinText { get => rubinText; set => rubinText = value; }
+        public Text ClearRubinText { get => clearRubinText; set => clearRubinText = value; }
+        public Text CosmoText { get => cosmoText; set => cosmoText = value; }
+        public BeeAISettings[] AllBeeAISettings { get => allBeeAISettings; set => allBeeAISettings = value; }
 
         private void Start()
         {
             Time.timeScale = 1;
 
-            uranNormalRadiation = uranRadiation;
+            UranNormalRadiation = UranRadiation;
 
-            isPaused = false;
+            IsPaused = false;
 
-            pointMoney = 200;
+            PointMoney = 200;
 
             CharacterController._speed = 7f;
 
-            horny = 0f;
-            metal = 0f;
-            metalBullet = 0f;
-            inventor = 0f;
-            limitInventore = 10f;
-            uran = 0f;
-            uranClear = 0f;
-            pointUgly = 0f;
-            porohPoint = 0f;
-            uranNormalRadiation = 0f;
-            uranRadiation = 0f;
-            clearRubin = 0f;
-            rubin = 0f;
-            cosmo = 0f;
+            Horny = 0f;
+            Metal = 0f;
+            MetalBullet = 0f;
+            Inventor = 0f;
+            LimitInventore = 10f;
+            Uran = 0f;
+            UranClear = 0f;
+            PointUgly = 0f;
+            PorohPoint = 0f;
+            UranNormalRadiation = 0f;
+            UranRadiation = 0f;
+            ClearRubin = 0f;
+            Rubin = 0f;
+            Cosmo = 0f;
 
             MagazineWorkest._gunSold = false;
             MagazineWorkest._inventoreBigSold = false;
@@ -126,34 +169,34 @@ namespace RimuruDev
 
         private void Update()
         {
-            moneyText.text = pointMoney.ToString();
-            twoMoneyText.text = pointMoney.ToString();
-            treeMoneyText.text = pointMoney.ToString();
+            MoneyText.text = PointMoney.ToString();
+            TwoMoneyText.text = PointMoney.ToString();
+            TreeMoneyText.text = PointMoney.ToString();
 
-            if (inventor == limitInventore)
-                inventor = limitInventore;
+            if (Inventor == LimitInventore)
+                Inventor = LimitInventore;
 
             if (DeadPlayer._isDead == true)
             {
-                deadPanel.SetActive(true);
-                gameTheme.Stop();
+                DeadPanel.SetActive(true);
+                GameTheme.Stop();
             }
 
-            if (pointMoney >= 1225)
+            if (PointMoney >= 1225)
                 SceneManager.LoadScene(2);
 
-            if (inventor >= limitInventore)
-                _limitTexti.SetActive(true);
-            else if (inventor < limitInventore)
-                _limitTexti.SetActive(false);
+            if (Inventor >= LimitInventore)
+                LimitTexti.SetActive(true);
+            else if (Inventor < LimitInventore)
+                LimitTexti.SetActive(false);
 
             if (Input.GetKey(KeyCode.Escape) && LutingPlayer._isMagazineOpen == false && DeadPlayer._isDead == false && ManagerInvent._inventorOpen == false)
             {
-                panelPause.SetActive(true);
-                isPaused = true;
-                gameTheme.volume = 0;
-                wind.volume = 0;
-                pauseTheme.volume = 0.671f;
+                PanelPause.SetActive(true);
+                IsPaused = true;
+                GameTheme.volume = 0;
+                Wind.volume = 0;
+                PauseTheme.volume = 0.671f;
                 Time.timeScale = 0;
             }
 
@@ -163,28 +206,28 @@ namespace RimuruDev
 
         private void FixedUpdate()
         {
-            inventoreText.text = inventor.ToString();
-            inventoreGameText.text = inventor.ToString();
-            limitText.text = limitInventore.ToString();
-            limitGameText.text = limitInventore.ToString();
+            InventoreText.text = Inventor.ToString();
+            InventoreGameText.text = Inventor.ToString();
+            LimitText.text = LimitInventore.ToString();
+            LimitGameText.text = LimitInventore.ToString();
 
-            uglyText.text = pointUgly.ToString();
-            porohText.text = porohPoint.ToString();
+            UglyText.text = PointUgly.ToString();
+            PorohText.text = PorohPoint.ToString();
 
-            uranText.text = uran.ToString();
-            claerUranText.text = uranClear.ToString();
-            radiathionText.text = uranRadiation.ToString();
+            UranText.text = Uran.ToString();
+            ClaerUranText.text = UranClear.ToString();
+            RadiathionText.text = UranRadiation.ToString();
 
-            hornyText.text = horny.ToString();
+            HornyText.text = Horny.ToString();
 
-            metalText.text = metal.ToString();
-            bulletText.text = metalBullet.ToString();
-            inInventBullet.text = metalBullet.ToString();
+            MetalText.text = Metal.ToString();
+            BulletText.text = MetalBullet.ToString();
+            InInventBullet.text = MetalBullet.ToString();
 
-            rubinText.text = rubin.ToString();
-            clearRubinText.text = clearRubin.ToString();
+            RubinText.text = Rubin.ToString();
+            ClearRubinText.text = ClearRubin.ToString();
 
-            cosmoText.text = cosmo.ToString();
+            CosmoText.text = Cosmo.ToString();
         }
     }
 }
