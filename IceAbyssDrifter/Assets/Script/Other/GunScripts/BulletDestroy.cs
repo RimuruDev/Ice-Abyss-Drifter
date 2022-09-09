@@ -4,9 +4,9 @@ using UnityEngine;
 
 public sealed class BulletDestroy : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D _coll)
+    private void OnTriggerEnter2D(Collider2D  coll)
     {
-        if (_coll.gameObject.CompareTag("Enemy") || _coll.gameObject.CompareTag("Gary") || _coll.gameObject.CompareTag("Other"))
+        if ( coll.gameObject.CompareTag("Enemy") ||  coll.gameObject.CompareTag("Gary") ||  coll.gameObject.CompareTag("Other"))
         {
             Destroy(gameObject);
         }
