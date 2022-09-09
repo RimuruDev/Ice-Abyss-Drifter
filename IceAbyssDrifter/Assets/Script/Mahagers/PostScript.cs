@@ -46,8 +46,8 @@ public sealed class PostScript : MonoBehaviour
 
             if (_isRadiation == true && MagazineWorkest._radiationSold == true)
             {
-                GameManager._uranNormalRadiation = 150f;
-                GameManager._uranRadiation = 150f;
+                dataContainer._uranNormalRadiation = 150f;
+                dataContainer._uranRadiation = 150f;
 
                 _sound.pitch = Random.Range(0.8f, 1f);
                 _sound.Play();
@@ -57,7 +57,7 @@ public sealed class PostScript : MonoBehaviour
 
             if (_isNormalInventore == true && MagazineWorkest._inventoreNormalSold == true)
             {
-                GameManager._limitInventore += 15f;
+                dataContainer._limitInventore += 15f;
                 _sound.pitch = Random.Range(0.8f, 1f);
                 _sound.Play();
                 Destroy(gameObject);
@@ -65,7 +65,7 @@ public sealed class PostScript : MonoBehaviour
 
             if (_isBigInventore == true && MagazineWorkest._inventoreBigSold == true)
             {
-                GameManager._limitInventore += 25f;
+                dataContainer._limitInventore += 25f;
 
                 _sound.pitch = Random.Range(0.8f, 1f);
                 _sound.Play();
