@@ -2,7 +2,7 @@ using UnityEngine;
 
 public sealed class GunTransform : MonoBehaviour
 {
-    [SerializeField] private Transform _player;
+    [SerializeField] private Transform  player;
 
-    private void Update() => gameObject.transform.position = _player.transform.position;
+    private void Update() => gameObject.transform.position =  player.transform.position;
 }
