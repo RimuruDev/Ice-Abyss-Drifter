@@ -6,44 +6,44 @@ public sealed class ManagerInvent : MonoBehaviour
 {
     private GameDataContainer dataContainer;
 
-    [SerializeField] private GameObject _inventore;
+    [SerializeField] private GameObject  inventore;
 
-    private bool _isOpenInventore = false;
+    private bool  isOpenInventore = false;
 
-    public static bool _inventorOpen;
+    public static bool  inventorOpen;
 
     private void Awake()
     {
         dataContainer = FindObjectOfType<GameDataContainer>();
 
-        _isOpenInventore = false;
+         isOpenInventore = false;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && DeadPlayer._isDead == false && LutingPlayer._isMagazineOpen == false && dataContainer.IsPaused == false)
+        if (Input.GetKeyDown(KeyCode.E) && DeadPlayer. isDead == false && LutingPlayer. isMagazineOpen == false && dataContainer.IsPaused == false)
         {
-            _isOpenInventore = true;
-            _inventorOpen = true;
+             isOpenInventore = true;
+             inventorOpen = true;
 
             Time.timeScale = 0;
         }
 
-        if (Input.GetKeyUp(KeyCode.E) && DeadPlayer._isDead == false && LutingPlayer._isMagazineOpen == false && dataContainer.IsPaused == false)
+        if (Input.GetKeyUp(KeyCode.E) && DeadPlayer. isDead == false && LutingPlayer. isMagazineOpen == false && dataContainer.IsPaused == false)
         {
-            _isOpenInventore = false;
-            _inventorOpen = false;
+             isOpenInventore = false;
+             inventorOpen = false;
 
             Time.timeScale = 1;
         }
 
-        if (_isOpenInventore == true && DeadPlayer._isDead == false && LutingPlayer._isMagazineOpen == false && dataContainer.IsPaused == false)
+        if ( isOpenInventore == true && DeadPlayer. isDead == false && LutingPlayer. isMagazineOpen == false && dataContainer.IsPaused == false)
         {
-            _inventore.SetActive(true);
+             inventore.SetActive(true);
         }
-        else if (_isOpenInventore == false)
+        else if ( isOpenInventore == false)
         {
-            _inventore.SetActive(false);
+             inventore.SetActive(false);
         }
     }
 }
