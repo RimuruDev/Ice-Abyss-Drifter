@@ -1,19 +1,27 @@
+using RimuruDev;
 using RimuruDev.Mechanics.Character;
 using UnityEngine;
 
 public sealed class ManagerInvent : MonoBehaviour
 {
+    private GameDataContainer dataContainer;
+
     [SerializeField] private GameObject _inventore;
 
     private bool _isOpenInventore = false;
 
     public static bool _inventorOpen;
 
-    private void Awake() => _isOpenInventore = false;
+    private void Awake()
+    {
+        dataContainer = FindObjectOfType<GameDataContainer>();
+
+        _isOpenInventore = false;
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && DeadPlayer._isDead == false && LutingPlayer._isMagazineOpen == false && GameManager._isPaused == false)
+        if (Input.GetKeyDown(KeyCode.E) && DeadPlayer._isDead == false && LutingPlayer._isMagazineOpen == false && dataContainer.IsPaused == false)
         {
             _isOpenInventore = true;
             _inventorOpen = true;
@@ -21,7 +29,7 @@ public sealed class ManagerInvent : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        if (Input.GetKeyUp(KeyCode.E) && DeadPlayer._isDead == false && LutingPlayer._isMagazineOpen == false && GameManager._isPaused == false)
+        if (Input.GetKeyUp(KeyCode.E) && DeadPlayer._isDead == false && LutingPlayer._isMagazineOpen == false && dataContainer.IsPaused == false)
         {
             _isOpenInventore = false;
             _inventorOpen = false;
@@ -29,7 +37,7 @@ public sealed class ManagerInvent : MonoBehaviour
             Time.timeScale = 1;
         }
 
-        if (_isOpenInventore == true && DeadPlayer._isDead == false && LutingPlayer._isMagazineOpen == false && GameManager._isPaused == false)
+        if (_isOpenInventore == true && DeadPlayer._isDead == false && LutingPlayer._isMagazineOpen == false && dataContainer.IsPaused == false)
         {
             _inventore.SetActive(true);
         }
