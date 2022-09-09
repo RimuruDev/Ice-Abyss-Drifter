@@ -1,7 +1,10 @@
+using RimuruDev;
 using UnityEngine;
 
 public sealed class MagazineWorkest : MonoBehaviour
 {
+    private GameDataContainer dataContainer;
+
     [SerializeField] private GameObject _petHappy;
     [SerializeField] private GameObject _petNormal;
     [SerializeField] private GameObject _petSad;
@@ -37,11 +40,16 @@ public sealed class MagazineWorkest : MonoBehaviour
     public static bool _idSold = false;
     public static bool _treckerSold = false;
 
+    private void Awake()
+    {
+        dataContainer = FindObjectOfType<GameDataContainer>();
+    }
+
     public void BuyRadiation()
     {
-        if (GameManager._pointMoney >= 275f)
+        if (dataContainer.PointMoney >= 275f)
         {
-            GameManager._pointMoney -= 275f; ;
+            dataContainer.PointMoney -= 275f; ;
 
             _postRadiation.SetActive(true);
             _panelRadiation.SetActive(true);
@@ -52,9 +60,9 @@ public sealed class MagazineWorkest : MonoBehaviour
 
     public void BuySpeed()
     {
-        if (GameManager._pointMoney >= 150f)
+        if (dataContainer.PointMoney >= 150f)
         {
-            GameManager._pointMoney -= 150f;
+            dataContainer.PointMoney -= 150f;
 
             _postSpeed.SetActive(true);
             _panelSpeed.SetActive(true);
@@ -65,9 +73,9 @@ public sealed class MagazineWorkest : MonoBehaviour
 
     public void BuyNormalInventore()
     {
-        if (GameManager._pointMoney >= 180f)
+        if (dataContainer.PointMoney >= 180f)
         {
-            GameManager._pointMoney -= 180f;
+            dataContainer.PointMoney -= 180f;
 
             _postNormalInvenore.SetActive(true);
             _panelNormal.SetActive(true);
@@ -78,9 +86,9 @@ public sealed class MagazineWorkest : MonoBehaviour
 
     public void BuyBigInventore()
     {
-        if (GameManager._pointMoney >= 300f)
+        if (dataContainer.PointMoney >= 300f)
         {
-            GameManager._pointMoney -= 300f;
+            dataContainer.PointMoney -= 300f;
 
             _postBigInventore.SetActive(true);
             _panelBig.SetActive(true);
@@ -91,9 +99,9 @@ public sealed class MagazineWorkest : MonoBehaviour
 
     public void BuyPet()
     {
-        if (GameManager._pointMoney >= 50f)
+        if (dataContainer.PointMoney >= 50f)
         {
-            GameManager._pointMoney -= 50f;
+            dataContainer.PointMoney -= 50f;
 
             _postPet.SetActive(true);
             _panelPet.SetActive(true);
@@ -104,9 +112,9 @@ public sealed class MagazineWorkest : MonoBehaviour
 
     public void BuyGun()
     {
-        if (GameManager._pointMoney >= 250f)
+        if (dataContainer.PointMoney >= 250f)
         {
-            GameManager._pointMoney -= 250f;
+            dataContainer.PointMoney -= 250f;
 
             _postGun.SetActive(true);
             _panelGun.SetActive(true);
@@ -117,9 +125,9 @@ public sealed class MagazineWorkest : MonoBehaviour
 
     public void BuyID()
     {
-        if (GameManager._pointMoney >= 200f)
+        if (dataContainer.PointMoney >= 200f)
         {
-            GameManager._pointMoney -= 200f;
+            dataContainer.PointMoney -= 200f;
 
             _postID.SetActive(true);
             _panelID.SetActive(true);
@@ -130,9 +138,9 @@ public sealed class MagazineWorkest : MonoBehaviour
 
     public void BuyTreker()
     {
-        if (GameManager._pointMoney >= 100f)
+        if (dataContainer.PointMoney >= 100f)
         {
-            GameManager._pointMoney -= 100f;
+            dataContainer.PointMoney -= 100f;
 
             _trecker.SetActive(true);
             _buySound.Play();
