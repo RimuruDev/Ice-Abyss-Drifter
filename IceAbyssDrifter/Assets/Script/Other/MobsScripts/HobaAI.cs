@@ -57,7 +57,7 @@ public sealed class HobaAI : MonoBehaviour
     {
         yield return new WaitForSeconds(_moneyTime);
 
-        GameManager._pointMoney += 1f;
+        dataContainer._pointMoney += 1f;
 
         Replay();
     }
