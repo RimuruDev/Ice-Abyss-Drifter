@@ -1,20 +1,29 @@
 using RimuruDev.Mechanics.Character;
 using System.Collections;
 using UnityEngine;
+using RimuruDev;
 
 public sealed class UranRadiation : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D _coll)
+    private GameDataContainer dataContainer;
+
+    private void Awake()
     {
-        if (_coll.gameObject.CompareTag("Uran"))
+        dataContainer = FindObjectOfType<GameDataContainer>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.CompareTag("Uran"))
         {
-            if (dataContainer._uran >= 1f)
+            if (dataContainer.Uran >= 1f)
             {
                 StartCoroutine(nameof(MinusRadiation));
-                if (dataContainer._uranRadiation <= 0f)
+                if (dataContainer.UranRadiation <= 0f)
                 {
                     Destroy(gameObject);
-                    DeadPlayer._isDead = true;
+
+                    DeadPlayer.isDead = true;
                 }
             }
         }
@@ -22,12 +31,12 @@ public sealed class UranRadiation : MonoBehaviour
 
     private void Update()
     {
-        if (dataContainer._uran >= 1f)
+        if (dataContainer.Uran >= 1f)
         {
-            if (dataContainer._uranRadiation <= 0f)
+            if (dataContainer.UranRadiation <= 0f)
             {
                 Destroy(gameObject);
-                DeadPlayer._isDead = true;
+                DeadPlayer.isDead = true;
             }
         }
     }
@@ -35,19 +44,19 @@ public sealed class UranRadiation : MonoBehaviour
     private IEnumerator MinusRadiation()
     {
         yield return new WaitForSeconds(0.7f);
-        if (dataContainer._uran <= 0f)
+        if (dataContainer.Uran <= 0f)
         {
             StopCoroutine(nameof(MinusRadiation));
             StartCoroutine(nameof(PlusRadiation));
         }
-        else if (dataContainer._uran >= 1f)
+        else if (dataContainer.Uran >= 1f)
         {
-            dataContainer._uranRadiation -= 1f;
+            dataContainer.UranRadiation -= 1f;
             StartCoroutine(nameof(MinusRadiation));
             StopCoroutine(nameof(PlusRadiation));
         }
 
-        if (DeadPlayer._isDead == true)
+        if (DeadPlayer.isDead == true)
         {
             StopCoroutine(nameof(MinusRadiation));
         }
@@ -56,17 +65,17 @@ public sealed class UranRadiation : MonoBehaviour
     private IEnumerator PlusRadiation()
     {
         yield return new WaitForSeconds(0.5f);
-        dataContainer._uranRadiation += 1f;
-        if (dataContainer._uranRadiation < dataContainer._uranNormalRadiation)
+        dataContainer.UranRadiation += 1f;
+        if (dataContainer.UranRadiation < dataContainer.UranNormalRadiation)
         {
             StartCoroutine(nameof(PlusRadiation));
         }
-        else if (dataContainer._uranRadiation == dataContainer._uranNormalRadiation)
+        else if (dataContainer.UranRadiation == dataContainer.UranNormalRadiation)
         {
             StopCoroutine(nameof(PlusRadiation));
         }
 
-        if (DeadPlayer._isDead == true)
+        if (DeadPlayer.isDead == true)
         {
             StopCoroutine(nameof(PlusRadiation));
         }
