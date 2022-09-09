@@ -1,19 +1,27 @@
+using RimuruDev;
 using UnityEngine;
 
 public sealed class GerySheet : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D _coll)
+    private GameDataContainer dataContainer;
+
+    private void Awake()
     {
-        if (_coll.gameObject.CompareTag("Gary") && LutingPlayer._heKeng == false)
+        dataContainer = FindObjectOfType<GameDataContainer>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D  coll)
+    {
+        if ( coll.gameObject.CompareTag("Gary") && LutingPlayer. heKeng == false)
         {
-            dataContainer._uranClear = 0f;
-            dataContainer._uran = 0f;
-            dataContainer._metal = 0f;
-            dataContainer._pointUgly = 0f;
-            dataContainer._horny = 0f;
-            dataContainer._metalBullet = 0f;
-            dataContainer._clearRubin = 0f;
-            dataContainer._rubin = 0f;
+            dataContainer.UranClear = 0f;
+            dataContainer.Uran = 0f;
+            dataContainer.Metal = 0f;
+            dataContainer.PointUgly = 0f;
+            dataContainer.Horny = 0f;
+            dataContainer.MetalBullet = 0f;
+            dataContainer.ClearRubin = 0f;
+            dataContainer.Rubin = 0f;
         }
     }
 }
