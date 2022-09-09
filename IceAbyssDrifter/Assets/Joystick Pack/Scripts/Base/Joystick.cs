@@ -49,7 +49,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         if (canvas == null)
             Debug.LogError("The Joystick is not placed inside a canvas");
 
-        Vector2 center = new Vector2(0.5f, 0.5f);
+        Vector2 center = new(0.5f, 0.5f);
         background.pivot = center;
         handle.anchorMin = center;
         handle.anchorMax = center;
