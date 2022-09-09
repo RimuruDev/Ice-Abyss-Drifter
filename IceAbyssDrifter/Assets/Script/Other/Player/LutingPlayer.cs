@@ -1,3 +1,4 @@
+using RimuruDev;
 using RimuruDev.Mechanics.Character;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,150 +7,157 @@ using UnityEngine;
 
 public sealed class LutingPlayer : MonoBehaviour
 {
-    [SerializeField] private GameObject _panelMagazine;
-    [SerializeField] private GameObject _keng;
+    private GameDataContainer dataContainer;
 
-    public static bool _heKeng = false;
+    [SerializeField] private GameObject panelMagazine;
+    [SerializeField] private GameObject keng;
+
+    public static bool heKeng = false;
 
     [Header("Audio")]
-    [SerializeField] private AudioSource _boomAudio;
-    [SerializeField] private AudioSource _horneSpound;
-    [SerializeField] private AudioSource _goldSpound;
-    [SerializeField] private AudioSource _raportMachine;
-    [SerializeField] private AudioSource _soldMachine;
+    [SerializeField] private AudioSource boomAudio;
+    [SerializeField] private AudioSource horneSpound;
+    [SerializeField] private AudioSource goldSpound;
+    [SerializeField] private AudioSource raportMachine;
+    [SerializeField] private AudioSource soldMachine;
 
-    public static bool _isMagazineOpen = false;
+    public static bool isMagazineOpen = false;
+
+    private void Awake()
+    {
+        dataContainer = FindObjectOfType<GameDataContainer>();
+    }
 
     private void FixedUpdate()
     {
-        dataContainer._inventor = dataContainer._pointUgly + dataContainer._porohPoint + dataContainer._uran + dataContainer._uranClear + dataContainer._horny + dataContainer._metal + dataContainer._rubin + dataContainer._clearRubin + dataContainer._cosmo;
+        dataContainer.Inventor = dataContainer.PointUgly + dataContainer.PorohPoint + dataContainer.Uran + dataContainer.UranClear + dataContainer.Horny + dataContainer.Metal + dataContainer.Rubin + dataContainer.ClearRubin + dataContainer.Cosmo;
     }
 
-    private void OnTriggerEnter2D(Collider2D _coll)
+    private void OnTriggerEnter2D(Collider2D coll)
     {
         //Ugly
-        if (_coll.gameObject.CompareTag("Ugly"))
+        if (coll.gameObject.CompareTag("Ugly"))
         {
-            if (dataContainer._inventor < dataContainer._limitInventore)
+            if (dataContainer.Inventor < dataContainer.LimitInventore)
             {
-                dataContainer._pointUgly += 1f;
+                dataContainer.PointUgly += 1f;
                 Sfx();
             }
-            else if (dataContainer._inventor >= dataContainer._limitInventore)
+            else if (dataContainer.Inventor >= dataContainer.LimitInventore)
             {
-                dataContainer._pointUgly += 0f;
+                dataContainer.PointUgly += 0f;
                 Sfx();
             }
         }
         //Metal
-        if (_coll.gameObject.CompareTag("Metal"))
+        if (coll.gameObject.CompareTag("Metal"))
         {
-            if (dataContainer._inventor < dataContainer._limitInventore)
+            if (dataContainer.Inventor < dataContainer.LimitInventore)
             {
-                dataContainer._metal += 1f;
+                dataContainer.Metal += 1f;
                 Sfx();
             }
-            else if (dataContainer._inventor >= dataContainer._limitInventore)
+            else if (dataContainer.Inventor >= dataContainer.LimitInventore)
             {
-                dataContainer._metal += 0f;
+                dataContainer.Metal += 0f;
                 Sfx();
             }
         }
         //Gold
-        if (_coll.gameObject.CompareTag("Gold"))
+        if (coll.gameObject.CompareTag("Gold"))
         {
-            dataContainer._pointMoney += 20f;
-            _goldSpound.Play();
+            dataContainer.PointMoney += 20f;
+            goldSpound.Play();
         }
         //Uran
-        if (_coll.gameObject.CompareTag("Uran"))
+        if (coll.gameObject.CompareTag("Uran"))
         {
-            if (dataContainer._inventor < dataContainer._limitInventore)
+            if (dataContainer.Inventor < dataContainer.LimitInventore)
             {
-                dataContainer._uran += 1f;
+                dataContainer.Uran += 1f;
                 Sfx();
             }
-            else if (dataContainer._inventor >= dataContainer._limitInventore)
+            else if (dataContainer.Inventor >= dataContainer.LimitInventore)
             {
-                if (MagazineWorkest._radiationSold == true)
+                if (MagazineWorkest.radiationSold == true)
                 {
-                    dataContainer._uran += 0f;
+                    dataContainer.Uran += 0f;
                     Sfx();
                 }
-                else if (MagazineWorkest._radiationSold == false)
+                else if (MagazineWorkest.radiationSold == false)
                 {
                     Destroy(gameObject);
-                    DeadPlayer._isDead = true;
+                    DeadPlayer.isDead = true;
                 }
             }
         }
         //Horny
-        if (_coll.gameObject.CompareTag("Horny"))
+        if (coll.gameObject.CompareTag("Horny"))
         {
-            if (dataContainer._inventor < dataContainer._limitInventore)
+            if (dataContainer.Inventor < dataContainer.LimitInventore)
             {
-                dataContainer._horny += 1f;
-                _horneSpound.Play();
+                dataContainer.Horny += 1f;
+                horneSpound.Play();
             }
-            else if (dataContainer._inventor >= dataContainer._limitInventore)
+            else if (dataContainer.Inventor >= dataContainer.LimitInventore)
             {
-                dataContainer._horny += 0f;
-                _horneSpound.Play();
+                dataContainer.Horny += 0f;
+                horneSpound.Play();
             }
         }
         //Rubin
-        if (_coll.gameObject.CompareTag("Rubin"))
+        if (coll.gameObject.CompareTag("Rubin"))
         {
-            if (dataContainer._inventor < dataContainer._limitInventore)
+            if (dataContainer.Inventor < dataContainer.LimitInventore)
             {
-                dataContainer._rubin += 1f;
+                dataContainer.Rubin += 1f;
                 Sfx();
             }
-            else if (dataContainer._inventor >= dataContainer._limitInventore)
+            else if (dataContainer.Inventor >= dataContainer.LimitInventore)
             {
-                dataContainer._rubin += 0f;
+                dataContainer.Rubin += 0f;
                 Sfx();
             }
         }
         //Cosmo
-        if (_coll.gameObject.CompareTag("Cosmo"))
+        if (coll.gameObject.CompareTag("Cosmo"))
         {
-            if (dataContainer._inventor < dataContainer._limitInventore)
+            if (dataContainer.Inventor < dataContainer.LimitInventore)
             {
-                dataContainer._cosmo += 1f;
+                dataContainer.Cosmo += 1f;
                 Sfx();
             }
-            else if (dataContainer._inventor >= dataContainer._limitInventore)
+            else if (dataContainer.Inventor >= dataContainer.LimitInventore)
             {
-                dataContainer._cosmo += 0f;
+                dataContainer.Cosmo += 0f;
                 Sfx();
             }
         }
 
-        if (_coll.gameObject.CompareTag("Magas"))
+        if (coll.gameObject.CompareTag("Magas"))
         {
-            _panelMagazine.SetActive(true);
-            _isMagazineOpen = true;
+            panelMagazine.SetActive(true);
+            isMagazineOpen = true;
             Time.timeScale = 0;
         }
 
-        if (_coll.gameObject.CompareTag("Raport"))
+        if (coll.gameObject.CompareTag("Raport"))
         {
-            if (dataContainer._pointUgly >= 1f || dataContainer._uran >= 1f || dataContainer._metal >= 1f || dataContainer._rubin >= 1f)
+            if (dataContainer.PointUgly >= 1f || dataContainer.Uran >= 1f || dataContainer.Metal >= 1f || dataContainer.Rubin >= 1f)
             {
                 StartCoroutine(nameof(Raporting));
             }
         }
 
-        if (_coll.gameObject.CompareTag("Sold"))
+        if (coll.gameObject.CompareTag("Sold"))
         {
             StartCoroutine(nameof(Solding));
         }
 
-        if (_coll.gameObject.CompareTag("King"))
+        if (coll.gameObject.CompareTag("King"))
         {
-            _heKeng = true;
-            _keng.SetActive(true);
+            heKeng = true;
+            keng.SetActive(true);
         }
     }
 
@@ -158,50 +166,50 @@ public sealed class LutingPlayer : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         //Uglys
-        if (dataContainer._pointUgly >= 1f)
+        if (dataContainer.PointUgly >= 1f)
         {
-            dataContainer._porohPoint += 1f;
-            dataContainer._pointUgly -= 1f;
-            if (dataContainer._pointUgly >= 1f)
+            dataContainer.PorohPoint += 1f;
+            dataContainer.PointUgly -= 1f;
+            if (dataContainer.PointUgly >= 1f)
             {
                 StartCoroutine(nameof(Raporting));
             }
         }
         //Uran
-        if (dataContainer._uran >= 1f)
+        if (dataContainer.Uran >= 1f)
         {
-            dataContainer._uranClear += 1f;
-            dataContainer._uran -= 1f;
-            if (dataContainer._uran >= 1f)
+            dataContainer.UranClear += 1f;
+            dataContainer.Uran -= 1f;
+            if (dataContainer.Uran >= 1f)
             {
                 StartCoroutine(nameof(Raporting));
             }
         }
         //Metal
-        if (dataContainer._metal >= 1f)
+        if (dataContainer.Metal >= 1f)
         {
-            dataContainer._metalBullet += 1f;
-            dataContainer._metal -= 1f;
-            if (dataContainer._metal >= 1f)
+            dataContainer.MetalBullet += 1f;
+            dataContainer.Metal -= 1f;
+            if (dataContainer.Metal >= 1f)
             {
                 StartCoroutine(nameof(Raporting));
             }
         }
         //Rubin
-        if (dataContainer._rubin >= 1f)
+        if (dataContainer.Rubin >= 1f)
         {
-            dataContainer._clearRubin += 1f;
-            dataContainer._rubin -= 1f;
-            if (dataContainer._rubin >= 1f)
+            dataContainer.ClearRubin += 1f;
+            dataContainer.Rubin -= 1f;
+            if (dataContainer.Rubin >= 1f)
             {
                 StartCoroutine(nameof(Raporting));
             }
         }
 
-        if (dataContainer._pointUgly <= 0f && dataContainer._uran <= 0f && dataContainer._metal <= 0f && dataContainer._rubin <= 0f)
+        if (dataContainer.PointUgly <= 0f && dataContainer.Uran <= 0f && dataContainer.Metal <= 0f && dataContainer.Rubin <= 0f)
         {
             StopCoroutine(nameof(Raporting));
-            _raportMachine.Play();
+            raportMachine.Play();
         }
     }
 
@@ -209,104 +217,104 @@ public sealed class LutingPlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         //Sold Ugly
-        if (dataContainer._porohPoint >= 1f)
+        if (dataContainer.PorohPoint >= 1f)
         {
-            dataContainer._porohPoint -= 1f;
-            dataContainer._pointMoney += 5f;
-            if (dataContainer._porohPoint >= 1f)
+            dataContainer.PorohPoint -= 1f;
+            dataContainer.PointMoney += 5f;
+            if (dataContainer.PorohPoint >= 1f)
             {
                 StartCoroutine(nameof(Solding));
             }
         }
-        else if (dataContainer._pointUgly >= 1f)
+        else if (dataContainer.PointUgly >= 1f)
         {
-            dataContainer._pointUgly -= 1f;
-            dataContainer._pointMoney += 3f;
-            if (dataContainer._pointUgly >= 1f)
+            dataContainer.PointUgly -= 1f;
+            dataContainer.PointMoney += 3f;
+            if (dataContainer.PointUgly >= 1f)
             {
                 StartCoroutine(nameof(Solding));
             }
         }
         //Sold Uran
-        if (dataContainer._uranClear >= 1f)
+        if (dataContainer.UranClear >= 1f)
         {
-            dataContainer._uranClear -= 1f;
-            dataContainer._pointMoney += 20f;
-            if (dataContainer._uranClear >= 1f)
+            dataContainer.UranClear -= 1f;
+            dataContainer.PointMoney += 20f;
+            if (dataContainer.UranClear >= 1f)
             {
                 StartCoroutine(nameof(Solding));
             }
         }
-        else if (dataContainer._uran >= 1f)
+        else if (dataContainer.Uran >= 1f)
         {
-            dataContainer._uran -= 1f;
-            dataContainer._pointMoney += 13f;
-            if (dataContainer._uran >= 1f)
+            dataContainer.Uran -= 1f;
+            dataContainer.PointMoney += 13f;
+            if (dataContainer.Uran >= 1f)
             {
                 StartCoroutine(nameof(Solding));
             }
         }
         //Sold Horny
-        if (dataContainer._horny >= 1f)
+        if (dataContainer.Horny >= 1f)
         {
-            dataContainer._horny -= 1f;
-            dataContainer._pointMoney += 9f;
-            if (dataContainer._horny >= 1f)
+            dataContainer.Horny -= 1f;
+            dataContainer.PointMoney += 9f;
+            if (dataContainer.Horny >= 1f)
             {
                 StartCoroutine(nameof(Solding));
             }
         }
         //Sold Metal
-        if (dataContainer._metal >= 1f)
+        if (dataContainer.Metal >= 1f)
         {
-            dataContainer._metal -= 1f;
-            dataContainer._pointMoney += 6f;
-            if (dataContainer._metal >= 1f)
+            dataContainer.Metal -= 1f;
+            dataContainer.PointMoney += 6f;
+            if (dataContainer.Metal >= 1f)
             {
                 StartCoroutine(nameof(Solding));
             }
         }
         //Rubin
-        if (dataContainer._rubin >= 1f)
+        if (dataContainer.Rubin >= 1f)
         {
-            dataContainer._rubin -= 1f;
-            dataContainer._pointMoney += 13f;
-            if (dataContainer._rubin >= 1f)
+            dataContainer.Rubin -= 1f;
+            dataContainer.PointMoney += 13f;
+            if (dataContainer.Rubin >= 1f)
             {
                 StartCoroutine(nameof(Solding));
             }
         }
         //ClearRubin
-        if (dataContainer._clearRubin >= 1f)
+        if (dataContainer.ClearRubin >= 1f)
         {
-            dataContainer._clearRubin -= 1f;
-            dataContainer._pointMoney += 18f;
-            if (dataContainer._clearRubin >= 1f)
+            dataContainer.ClearRubin -= 1f;
+            dataContainer.PointMoney += 18f;
+            if (dataContainer.ClearRubin >= 1f)
             {
                 StartCoroutine(nameof(Solding));
             }
         }
         //Cosmo
-        if (dataContainer._cosmo >= 1f)
+        if (dataContainer.Cosmo >= 1f)
         {
-            dataContainer._cosmo -= 1f;
-            dataContainer._pointMoney += 20f;
-            if (dataContainer._cosmo >= 1f)
+            dataContainer.Cosmo -= 1f;
+            dataContainer.PointMoney += 20f;
+            if (dataContainer.Cosmo >= 1f)
             {
                 StartCoroutine(nameof(Solding));
             }
         }
 
-        if (dataContainer._porohPoint <= 0f && dataContainer._pointUgly <= 0f && dataContainer._uran <= 0f && dataContainer._uranClear <= 0f && dataContainer._horny <= 0f && dataContainer._metal <= 0f && dataContainer._clearRubin <= 0f && dataContainer._rubin <= 0f && dataContainer._cosmo <= 0f)
+        if (dataContainer.PorohPoint <= 0f && dataContainer.PointUgly <= 0f && dataContainer.Uran <= 0f && dataContainer.UranClear <= 0f && dataContainer.Horny <= 0f && dataContainer.Metal <= 0f && dataContainer.ClearRubin <= 0f && dataContainer.Rubin <= 0f && dataContainer.Cosmo <= 0f)
         {
             StopCoroutine(nameof(Solding));
-            _soldMachine.Play();
+            soldMachine.Play();
         }
     }
 
     private void Sfx()
     {
-        _boomAudio.pitch = Random.Range(0.7f, 1f);
-        _boomAudio.Play();
+        boomAudio.pitch = Random.Range(0.7f, 1f);
+        boomAudio.Play();
     }
 }
