@@ -4,12 +4,11 @@ using static RimuruDev.Helpers.Tag;
 
 public sealed class CharacterController : MonoBehaviour
 {
+    [SerializeField] private Joystick joystick;
+
     [SerializeField] private Transform _player;
 
     [SerializeField] private GameObject _effectTeleport;
-
-    //[SerializeField] Text _textX;
-    //[SerializeField] Text _textY;
 
     [SerializeField] private Transform[] _pointStart;
     private int _random;
@@ -71,7 +70,7 @@ public sealed class CharacterController : MonoBehaviour
         CharacterMotion();
     }
 
-    public Vector2 GetPlayerInput() => new(Input.GetAxisRaw(Horizontal), Input.GetAxisRaw(Vertical));
+    public Vector2 GetPlayerInput() => new(joystick.Horizontal, joystick.Vertical);
 
     public void CharacterMotion() => _rb.velocity = GetPlayerInput().normalized * _speed;
 
