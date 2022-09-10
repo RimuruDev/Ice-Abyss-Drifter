@@ -40,6 +40,8 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
+        if (PlayerControl._playerPoint == null) return;
+
         if (Vector2.Distance(transform.position, PlayerControl._playerPoint.transform.position) < _minDistance && LutingPlayer._heKeng == false)
         {
             _isAgry = true;
