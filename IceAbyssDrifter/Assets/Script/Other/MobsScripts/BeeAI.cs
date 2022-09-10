@@ -42,6 +42,8 @@ public class BeeAI : MonoBehaviour
             }
         }
 
+        if (PlayerControl._playerPoint == null) return;
+
         if (Vector2.Distance(transform.position, PlayerControl._playerPoint.transform.position) < _minDistance)
         {
             _isAgry = true;
