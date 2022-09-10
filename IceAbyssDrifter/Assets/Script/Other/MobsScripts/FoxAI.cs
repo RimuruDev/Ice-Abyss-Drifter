@@ -45,6 +45,8 @@ public class FoxAI : MonoBehaviour
             }
         }
 
+        if (PlayerControl._playerPoint == null) return;
+
         if (_isTheef == true && Vector2.Distance(transform.position, PlayerControl._playerPoint.transform.position) < _distance && LutingPlayer._heKeng == false)
         {
             _isDagry = true;
