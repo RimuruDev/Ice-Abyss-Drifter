@@ -51,8 +51,8 @@ public sealed class CharacterController : MonoBehaviour
         // textX.text = transform.position.x.ToString() + " :X";
         // textY.text = transform.position.y.ToString() + " :Y";
 
-        if (!(playerPoint == player))
-            playerPoint = player;
+        if (!(playerPoint == Player))
+            playerPoint = Player;
 
         if (movement.x < 0)
             FlipX(false);
@@ -84,5 +84,6 @@ public sealed class CharacterController : MonoBehaviour
 
     public void FlipX(bool isFlipX) => characterSpriteRenderer.flipX = isFlipX;
 
-    public Transform GetCharacterTransform { get => player; private set => player = value; }
+    public Transform GetCharacterTransform { get => Player; private set => Player = value; }
+    public Transform Player { get => player; set => player = value; }
 }

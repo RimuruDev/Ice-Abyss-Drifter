@@ -56,6 +56,8 @@ namespace RimuruDev.AI
                 }
             }
 
+            if (CharacterController.playerPoint == null) return;
+
             if (Vector2.Distance(transform.position, CharacterController.playerPoint.transform.position) < minDistance)
             {
                 isAgry = true;

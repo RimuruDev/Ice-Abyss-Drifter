@@ -3,7 +3,7 @@
 namespace RimuruDev.GameFinal
 {
     /// <summary>
-    /// The UI handler for the game's final cutscene.
+    /// The UIHelper handler for the game's final cutscene.
     /// </summary>
     [System.Serializable]
     public sealed class FinalScreensaverGameUIHandler

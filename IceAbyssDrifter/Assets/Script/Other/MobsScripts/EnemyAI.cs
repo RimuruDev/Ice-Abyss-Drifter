@@ -49,6 +49,7 @@ namespace RimuruDev.AI
                 }
             }
 
+            if (CharacterController.playerPoint == null) return; // Temp solution - In console null ref
             if (Vector2.Distance(transform.position, CharacterController. playerPoint.transform.position) <  minDistance && LutingPlayer. heKeng == false)
             {
                  isAgry = true;

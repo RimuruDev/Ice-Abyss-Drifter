@@ -102,7 +102,7 @@ GameObject:
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3111075492428806286
 Transform:
   m_ObjectHideFlags: 0
@@ -178,17 +178,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f0cbc33a794ff43b103109a43e45eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _petHappy: {fileID: 4411248887068275343, guid: 47edd057d90b8f74393a9573045cb87e, type: 3}
-  _petNormal: {fileID: 4411248887068275343, guid: bb901f12651b2d845b5a1a1e83c02562, type: 3}
-  _petSad: {fileID: 4411248887068275343, guid: 89d9cb32947b3c340952b73b5f1899d6, type: 3}
-  _isSpeed: 0
-  _isRadiation: 0
-  _isNormalInventore: 0
-  _isBigInventore: 1
-  _isPet: 0
-  _isGun: 0
-  _isID: 0
-  _isTrecker: 0
+  gun: {fileID: 0}
+  petHappy: {fileID: 4411248887068275343, guid: 47edd057d90b8f74393a9573045cb87e, type: 3}
+  petNormal: {fileID: 4411248887068275343, guid: bb901f12651b2d845b5a1a1e83c02562, type: 3}
+  petSad: {fileID: 4411248887068275343, guid: 89d9cb32947b3c340952b73b5f1899d6, type: 3}
+  ID: {fileID: 0}
+  sound: {fileID: 0}
+  isSpeed: 0
+  isRadiation: 0
+  isNormalInventore: 0
+  isBigInventore: 0
+  isPet: 0
+  isGun: 0
+  isID: 0
+  isTrecker: 0
 --- !u!1 &3111075492671422155
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ namespace RimuruDev.GameFinal
     [System.Serializable]
     public sealed class FinalScreensaverGameDataContainer
     {
-        [Header("UI")]
+        [Header("UIHelper")]
         [SerializeField] private Text unlockCounterText;
         [SerializeField] private GameObject endGameButton;
         [Space]
