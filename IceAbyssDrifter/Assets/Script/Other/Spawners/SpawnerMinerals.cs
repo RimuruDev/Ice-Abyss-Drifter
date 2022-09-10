@@ -4,16 +4,16 @@ using UnityEngine;
 public sealed class SpawnerMinerals : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private float _timer;
-    [SerializeField] private GameObject _spawnObj;
+    [SerializeField] private float  timer;
+    [SerializeField] private GameObject  spawnObj;
 
     [Header("SpawnPosX")]
-    [SerializeField] private float _xOne;
-    [SerializeField] private float _xTwo;
+    [SerializeField] private float  xOne;
+    [SerializeField] private float  xTwo;
 
     [Header("SpawnPosY")]
-    [SerializeField] private float _yOne;
-    [SerializeField] private float _yTwo;
+    [SerializeField] private float  yOne;
+    [SerializeField] private float  yTwo;
 
     private void Start() => StartCoroutine(nameof(Spawn));
 
@@ -21,11 +21,11 @@ public sealed class SpawnerMinerals : MonoBehaviour
 
     private IEnumerator Spawn()
     {
-        yield return new WaitForSeconds(_timer);
+        yield return new WaitForSeconds( timer);
 
-        gameObject.transform.position = new Vector2(Random.Range(_xOne, _xTwo), Random.Range(_yOne, _yTwo));
+        gameObject.transform.position = new Vector2(Random.Range( xOne,  xTwo), Random.Range( yOne,  yTwo));
 
-        Instantiate(_spawnObj, gameObject.transform.position, Quaternion.identity);
+        Instantiate( spawnObj, gameObject.transform.position, Quaternion.identity);
 
         Restart();
     }

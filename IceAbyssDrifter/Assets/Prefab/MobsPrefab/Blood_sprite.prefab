@@ -97,4 +97,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2f0fb28c6e31043987bfa1b8ad7a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deadTime: 45
+  deadTime: 45

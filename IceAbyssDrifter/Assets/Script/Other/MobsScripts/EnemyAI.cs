@@ -4,13 +4,13 @@ namespace RimuruDev.AI
 {
     public sealed class EnemyAI : MonoBehaviour
     {
-        [SerializeField] private float _speed;
-        [SerializeField] private float _startWaitTime;
-        [SerializeField] private float _minDistance;
+        [SerializeField] private float  speed;
+        [SerializeField] private float  startWaitTime;
+        [SerializeField] private float  minDistance;
 
-        private bool _isAgry = false;
-        private float _waitTime;
-        private int _randomPoint;
+        private bool  isAgry = false;
+        private float  waitTime;
+        private int  randomPoint;
 
         private AllMobMovementPoints allMobPoints = null;
 
@@ -21,61 +21,62 @@ namespace RimuruDev.AI
 
         private void Start()
         {
-            _randomPoint = Random.Range(0, allMobPoints.AllPoints.Length);
+             randomPoint = Random.Range(0, allMobPoints.AllPoints.Length);
 
-            _waitTime = _startWaitTime;
+             waitTime =  startWaitTime;
         }
 
         private void FixedUpdate()
         {
-            if (_isAgry == false)
+            if ( isAgry == false)
             {
-                transform.position = Vector2.MoveTowards(transform.position, allMobPoints.AllPoints[_randomPoint].position, _speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, allMobPoints.AllPoints[ randomPoint].position,  speed * Time.deltaTime);
                
                 FlipWithPoints();
                 
-                if (Vector2.Distance(transform.position, allMobPoints.AllPoints[_randomPoint].position) < 0.2f)
+                if (Vector2.Distance(transform.position, allMobPoints.AllPoints[ randomPoint].position) < 0.2f)
                 {
 
-                    if (_waitTime <= 0)
+                    if ( waitTime <= 0)
                     {
-                        _randomPoint = Random.Range(0, allMobPoints.AllPoints.Length);
-                        _waitTime = _startWaitTime;
+                         randomPoint = Random.Range(0, allMobPoints.AllPoints.Length);
+                         waitTime =  startWaitTime;
                     }
                     else
                     {
-                        _waitTime -= Time.deltaTime;
+                         waitTime -= Time.deltaTime;
                     }
                 }
             }
 
-            if (Vector2.Distance(transform.position, CharacterController._playerPoint.transform.position) < _minDistance && LutingPlayer._heKeng == false)
+            if (CharacterController.playerPoint == null) return; // Temp solution - In console null ref
+            if (Vector2.Distance(transform.position, CharacterController. playerPoint.transform.position) <  minDistance && LutingPlayer. heKeng == false)
             {
-                _isAgry = true;
+                 isAgry = true;
 
-                if (_isAgry)
+                if ( isAgry)
                 {
-                    transform.position = Vector2.MoveTowards(transform.position, CharacterController._playerPoint.transform.position, _speed * Time.deltaTime);
+                    transform.position = Vector2.MoveTowards(transform.position, CharacterController. playerPoint.transform.position,  speed * Time.deltaTime);
 
                     FlipWithPlayer();
                 }
             }
-            else if (Vector2.Distance(transform.position, CharacterController._playerPoint.transform.position) > _minDistance)
+            else if (Vector2.Distance(transform.position, CharacterController. playerPoint.transform.position) >  minDistance)
             {
-                _isAgry = false;
+                 isAgry = false;
             }
 
-            if (LutingPlayer._heKeng)
-                _minDistance = 0f;
+            if (LutingPlayer. heKeng)
+                 minDistance = 0f;
         }
 
         private void FlipWithPlayer()
         {
-            if (CharacterController._playerPoint.transform.position.x < transform.position.x)
+            if (CharacterController. playerPoint.transform.position.x < transform.position.x)
             {
                 transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
-            else if (CharacterController._playerPoint.transform.position.x > transform.position.x)
+            else if (CharacterController. playerPoint.transform.position.x > transform.position.x)
             {
                 transform.localRotation = Quaternion.Euler(0, 180, 0);
             }
@@ -83,11 +84,11 @@ namespace RimuruDev.AI
 
         private void FlipWithPoints()
         {
-            if (allMobPoints.AllPoints[_randomPoint].transform.position.x < transform.position.x)
+            if (allMobPoints.AllPoints[ randomPoint].transform.position.x < transform.position.x)
             {
                 transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
-            else if (allMobPoints.AllPoints[_randomPoint].transform.position.x > transform.position.x)
+            else if (allMobPoints.AllPoints[ randomPoint].transform.position.x > transform.position.x)
             {
                 transform.localRotation = Quaternion.Euler(0, 180, 0);
             }

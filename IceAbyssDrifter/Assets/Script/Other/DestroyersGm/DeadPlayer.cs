@@ -7,14 +7,14 @@ namespace RimuruDev.Mechanics.Character
 {
     public sealed class DeadPlayer : MonoBehaviour
     {
-        public static bool _isDead = false;
-        [SerializeField] GameObject _gun;
+        public static bool  isDead = false;
+        [SerializeField] GameObject  gun;
 
         private GenerationRandomText generationRandomText = null;
 
         private void Awake()
         {
-            _isDead = false;
+             isDead = false;
 
             if (generationRandomText == null)
             {
@@ -25,13 +25,13 @@ namespace RimuruDev.Mechanics.Character
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D _coll)
+        private void OnTriggerEnter2D(Collider2D  coll)
         {
-            if (_coll.gameObject.CompareTag(Enemy) && LutingPlayer._heKeng == false)
+            if ( coll.gameObject.CompareTag(Enemy) && LutingPlayer. heKeng == false)
             {
                 Destroy(gameObject);
-                Destroy(_gun);
-                _isDead = true;
+                Destroy( gun);
+                 isDead = true;
 
                 generationRandomText.SetAfterDeatText((Random.Range(0, generationRandomText.GetAfterDefeatTextLength)));
             }

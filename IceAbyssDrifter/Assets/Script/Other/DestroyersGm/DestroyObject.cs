@@ -3,65 +3,65 @@ using UnityEngine;
 public sealed class DestroyObject : MonoBehaviour
 {
     [Header("Effects")]
-    [SerializeField] private GameObject _effectUran;
-    [SerializeField] private GameObject _effectUgly;
-    [SerializeField] private GameObject _effectGold;
-    [SerializeField] private GameObject _effectMetal;
-    [SerializeField] private GameObject _effectHorny;
-    [SerializeField] private GameObject _effectRubin;
-    [SerializeField] private GameObject _effectCosmo;
+    [SerializeField] private GameObject  effectUran;
+    [SerializeField] private GameObject  effectUgly;
+    [SerializeField] private GameObject  effectGold;
+    [SerializeField] private GameObject  effectMetal;
+    [SerializeField] private GameObject  effectHorny;
+    [SerializeField] private GameObject  effectRubin;
+    [SerializeField] private GameObject  effectCosmo;
 
     [Header("Bools")]
-    [SerializeField] private bool _isUgly;
-    [SerializeField] private bool _isMetal;
-    [SerializeField] private bool _isGold;
-    [SerializeField] private bool _isUran;
-    [SerializeField] private bool _isHorny;
-    [SerializeField] private bool _isRubin;
-    [SerializeField] private bool _isCosmo;
+    [SerializeField] private bool  isUgly;
+    [SerializeField] private bool  isMetal;
+    [SerializeField] private bool  isGold;
+    [SerializeField] private bool  isUran;
+    [SerializeField] private bool  isHorny;
+    [SerializeField] private bool  isRubin;
+    [SerializeField] private bool  isCosmo;
 
-    private void OnTriggerEnter2D(Collider2D _coll)
+    private void OnTriggerEnter2D(Collider2D  coll)
     {
-        if (_coll.gameObject.CompareTag("Player"))
+        if ( coll.gameObject.CompareTag("Player"))
         {
-            if (_isUran == true)
+            if ( isUran == true)
             {
-                Instantiate(_effectUran, gameObject.transform.position, Quaternion.identity);
+                Instantiate( effectUran, gameObject.transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
-            else if (_isUgly == true)
+            else if ( isUgly == true)
             {
-                Instantiate(_effectUgly, gameObject.transform.position, Quaternion.identity);
+                Instantiate( effectUgly, gameObject.transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
-            else if (_isMetal == true)
+            else if ( isMetal == true)
             {
-                Instantiate(_effectMetal, gameObject.transform.position, Quaternion.identity);
+                Instantiate( effectMetal, gameObject.transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
-            else if (_isHorny == true)
+            else if ( isHorny == true)
             {
-                Instantiate(_effectHorny, gameObject.transform.position, Quaternion.identity);
+                Instantiate( effectHorny, gameObject.transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
-            else if (_isGold == true)
+            else if ( isGold == true)
             {
-                Instantiate(_effectGold, gameObject.transform.position, Quaternion.identity);
+                Instantiate( effectGold, gameObject.transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
-            else if (_isRubin == true)
+            else if ( isRubin == true)
             {
-                Instantiate(_effectRubin, gameObject.transform.position, Quaternion.identity);
+                Instantiate( effectRubin, gameObject.transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
-            else if (_isCosmo == true)
+            else if ( isCosmo == true)
             {
-                Instantiate(_effectCosmo, gameObject.transform.position, Quaternion.identity);
+                Instantiate( effectCosmo, gameObject.transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
         }
 
-        if (_coll.gameObject.CompareTag("Sold") || _coll.gameObject.CompareTag("Raport") || _coll.gameObject.CompareTag("Magas"))
+        if ( coll.gameObject.CompareTag("Sold") ||  coll.gameObject.CompareTag("Raport") ||  coll.gameObject.CompareTag("Magas"))
         {
             Destroy(gameObject);
         }

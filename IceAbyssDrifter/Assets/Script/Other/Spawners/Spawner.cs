@@ -3,9 +3,9 @@ using UnityEngine;
 
 public sealed class Spawner : MonoBehaviour
 {
-    [SerializeField] private float _stratTime;
-    [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private GameObject _spawnObject;
+    [SerializeField] private float  stratTime;
+    [SerializeField] private Transform  spawnPoint;
+    [SerializeField] private GameObject  spawnObject;
 
     private void Start() => StartCoroutine(nameof(Spawn));
 
@@ -13,9 +13,9 @@ public sealed class Spawner : MonoBehaviour
 
     private IEnumerator Spawn()
     {
-        yield return new WaitForSeconds(_stratTime);
+        yield return new WaitForSeconds( stratTime);
 
-        Instantiate(_spawnObject, _spawnPoint.transform.position, Quaternion.identity);
+        Instantiate( spawnObject,  spawnPoint.transform.position, Quaternion.identity);
 
         Restart();
     }

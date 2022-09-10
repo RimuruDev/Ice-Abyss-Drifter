@@ -28,6 +28,9 @@ namespace RimuruDev.Mechanics
 
         private void RenderCoordinate()
         {
+            if (characterController.Player == null) { Debug.Log("Player died!" +
+                ""); return; }
+
             characterCoordinates[0].text = $"{(int)characterController.GetCharacterTransform.position.x}{characterCoordinateText[0]}";
             characterCoordinates[1].text = $"{(int)characterController.GetCharacterTransform.position.y}{characterCoordinateText[1]}";
         }

@@ -6,6 +6,9 @@ namespace RimuruDev.Helpers
     public sealed class OnDrawGizmosHelper : MonoBehaviour
     {
         [SerializeField] private bool isVisualization;
+        [Space]
+        [SerializeField] private bool isVisualizationBeePath;
+        [SerializeField] private bool isVisualizationWorldPath;
 
         private BeePointArray beePointArray = null;
         private WorldPontArray worldPontArray = null;
@@ -18,8 +21,11 @@ namespace RimuruDev.Helpers
         {
             if (!isVisualization) return;
 
-            VisualizationBeeTargetsPoint(beePointArray.BeeMovementPoints, Color.red);
-            VisualizationBeeTargetsPoint(worldPontArray.WorldMovementPoints, Color.blue);
+            if (isVisualizationBeePath)
+                VisualizationBeeTargetsPoint(beePointArray.BeeMovementPoints, Color.red);
+
+            if (isVisualizationWorldPath)
+                VisualizationBeeTargetsPoint(worldPontArray.WorldMovementPoints, Color.blue);
         }
 
         private void VisualizationBeeTargetsPoint(Transform[] points, Color color)

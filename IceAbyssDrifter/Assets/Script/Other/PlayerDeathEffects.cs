@@ -3,22 +3,22 @@ using UnityEngine;
 
 public sealed class PlayerDeathEffects : MonoBehaviour
 {
-    [SerializeField] private GameObject _bloodeffect;
-    [SerializeField] private Transform _Player;
+    [SerializeField] private GameObject  bloodeffect;
+    [SerializeField] private Transform  Player;
 
     private void Update()
     {
-        transform.position = _Player.transform.position;
+        transform.position =  Player.transform.position;
 
-        if (DeadPlayer._isDead == true)
+        if (DeadPlayer. isDead == true)
         {
             gameObject.SetActive(true);
 
-            Instantiate(_bloodeffect, transform.position, Quaternion.identity);
+            Instantiate( bloodeffect, transform.position, Quaternion.identity);
         }
-        else if (DeadPlayer._isDead == false)
+        else if (DeadPlayer. isDead == false)
         {
-            transform.position = _Player.transform.position;
+            transform.position =  Player.transform.position;
         }
     }
 }

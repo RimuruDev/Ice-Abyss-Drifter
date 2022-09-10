@@ -1,31 +1,38 @@
+using RimuruDev;
 using UnityEngine;
 
 public sealed class HPEnemy : MonoBehaviour
 {
-    [SerializeField] private float _health;
-    private float _Nhealth;
+    private GameDataContainer dataContainer;
+    [SerializeField] private float  health;
+    private float  Nhealth;
 
-    [SerializeField] private bool _isKing = false;
-    [SerializeField] private GameObject _cloud;
-    [SerializeField] private GameObject _king;
-    [SerializeField] private GameObject _flex;
+    [SerializeField] private bool  isKing = false;
+    [SerializeField] private GameObject  cloud;
+    [SerializeField] private GameObject  king;
+    [SerializeField] private GameObject  flex;
 
-    [SerializeField] private GameObject _effectEnemy;
-    [SerializeField] private GameObject _blood;
+    [SerializeField] private GameObject  effectEnemy;
+    [SerializeField] private GameObject  blood;
 
-    [SerializeField] private bool _isBee;
-    [SerializeField] private bool _isUlitka;
-    [SerializeField] private bool _isSheep;
-    [SerializeField] private bool _isBuka;
-    [SerializeField] private bool _isCat;
-    [SerializeField] private bool _isMohan;
-    [SerializeField] private bool _isActivator;
+    [SerializeField] private bool  isBee;
+    [SerializeField] private bool  isUlitka;
+    [SerializeField] private bool  isSheep;
+    [SerializeField] private bool  isBuka;
+    [SerializeField] private bool  isCat;
+    [SerializeField] private bool  isMohan;
+    [SerializeField] private bool  isActivator;
 
-    private void Awake() => _Nhealth = _health;
-
-    private void OnTriggerEnter2D(Collider2D _coll)
+    private void Awake()
     {
-        if (_coll.gameObject.CompareTag("Bullet"))
+        dataContainer = FindObjectOfType<GameDataContainer>();
+
+         Nhealth =  health;
+    }
+
+    private void OnTriggerEnter2D(Collider2D  coll)
+    {
+        if ( coll.gameObject.CompareTag("Bullet"))
         {
             TakeDamage();
         }
@@ -33,68 +40,68 @@ public sealed class HPEnemy : MonoBehaviour
 
     private void TakeDamage()
     {
-        _health -= 1f;
+         health -= 1f;
 
-        Instantiate(_effectEnemy, gameObject.transform.position, Quaternion.identity);
+        Instantiate( effectEnemy, gameObject.transform.position, Quaternion.identity);
 
-        if (_health <= 0f)
+        if ( health <= 0f)
         {
             Destroy(gameObject);
-            Instantiate(_blood, gameObject.transform.position, Quaternion.identity);
+            Instantiate( blood, gameObject.transform.position, Quaternion.identity);
 
-            _health = _Nhealth;
+             health =  Nhealth;
 
-            if (_isKing == true)
+            if ( isKing == true)
             {
-                Instantiate(_flex, gameObject.transform.position, Quaternion.identity);
-                Instantiate(_cloud, gameObject.transform.position, Quaternion.identity);
+                Instantiate( flex, gameObject.transform.position, Quaternion.identity);
+                Instantiate( cloud, gameObject.transform.position, Quaternion.identity);
             }
 
-            if (_isActivator == true && LutingPlayer._heKeng == false)
+            if ( isActivator == true && LutingPlayer. heKeng == false)
             {
-                Instantiate(_king, gameObject.transform.position, Quaternion.identity);
+                Instantiate( king, gameObject.transform.position, Quaternion.identity);
             }
 
-            if (MagazineWorkest._idSold == true && PostScript._idIsYou == true)
+            if (MagazineWorkest. idSold == true && PostScript. idIsYou == true)
             {
-                if (_isBee == true)
+                if ( isBee == true)
                 {
-                    GameManager._pointMoney += 50f;
+                    dataContainer.PointMoney += 50f;
                 }
 
-                if (_isUlitka == true)
+                if ( isUlitka == true)
                 {
-                    GameManager._pointMoney += 30f;
+                    dataContainer.PointMoney += 30f;
                 }
 
-                if (_isBuka == true)
+                if ( isBuka == true)
                 {
-                    GameManager._pointMoney += 20f;
+                    dataContainer.PointMoney += 20f;
                 }
 
-                if (_isSheep == true)
+                if ( isSheep == true)
                 {
-                    GameManager._pointMoney += 80f;
+                    dataContainer.PointMoney += 80f;
                 }
 
-                if (_isMohan == true)
+                if ( isMohan == true)
                 {
-                    GameManager._pointMoney += 150f;
+                    dataContainer.PointMoney += 150f;
                 }
 
-                if (_isCat == true)
+                if ( isCat == true)
                 {
-                    GameManager._pointMoney += 56f;
+                    dataContainer.PointMoney += 56f;
                 }
 
-                if (_isActivator == true)
+                if ( isActivator == true)
                 {
-                    GameManager._pointMoney += 300f;
+                    dataContainer.PointMoney += 300f;
                 }
 
-                if (_isKing == true)
+                if ( isKing == true)
                 {
-                    GameManager._pointMoney += 200f;
+                    dataContainer.PointMoney += 200f;
                 }
             }
         }

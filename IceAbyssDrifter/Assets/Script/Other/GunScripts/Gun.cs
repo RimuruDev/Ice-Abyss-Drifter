@@ -1,51 +1,59 @@
+using RimuruDev;
 using RimuruDev.Mechanics.Character;
 using UnityEngine;
 
 public sealed class Gun : MonoBehaviour
 {
-    [SerializeField] private float _offset;
-    public static bool _FacingRight;
+    private GameDataContainer dataContainer; 
 
-    [SerializeField] private GameObject _effectShot;
+    [SerializeField] private float  offset;
+    public static bool  FacingRight;
 
-    [SerializeField] private GameObject _bullet;
-    [SerializeField] private Transform _shotPos;
+    [SerializeField] private GameObject  effectShot;
 
-    [SerializeField] private AudioSource _shotSound;
+    [SerializeField] private GameObject  bullet;
+    [SerializeField] private Transform  shotPos;
 
-    [SerializeField] private float _timeStart;
-    private float _timeShot;
+    [SerializeField] private AudioSource  shotSound;
+
+    [SerializeField] private float  timeStart;
+    private float  timeShot;
+
+    private void Awake()
+    {
+        dataContainer = FindObjectOfType<GameDataContainer>();
+    }
 
     private void Update()
     {
-        if (LutingPlayer._isMagazineOpen == false && GameManager._isPaused == false)
+        if (LutingPlayer. isMagazineOpen == false && dataContainer.IsPaused == false)
         {
-            if (GameManager._metalBullet >= 1f)
+            if (dataContainer.MetalBullet >= 1f)
             {
-                if (_timeShot <= 0f)
+                if ( timeShot <= 0f)
                 {
                     if (Input.GetMouseButtonDown(0))
                     {
-                        Instantiate(_bullet, _shotPos.position, transform.rotation);
-                        Instantiate(_effectShot, _shotPos.transform.position, transform.rotation);
-                        _shotSound.pitch = Random.Range(0.7f, 1f);
-                        _shotSound.Play();
-                        GameManager._metalBullet -= 1f;
-                        _timeShot = _timeStart;
+                        Instantiate( bullet,  shotPos.position, transform.rotation);
+                        Instantiate( effectShot,  shotPos.transform.position, transform.rotation);
+                         shotSound.pitch = Random.Range(0.7f, 1f);
+                         shotSound.Play();
+                        dataContainer.MetalBullet -= 1f;
+                         timeShot =  timeStart;
                     }
                 }
                 else
                 {
-                    _timeShot -= Time.deltaTime;
+                     timeShot -= Time.deltaTime;
                 }
             }
         }
         else
         {
-            _timeShot -= Time.deltaTime;
+             timeShot -= Time.deltaTime;
         }
 
-        if (DeadPlayer._isDead == true)
+        if (DeadPlayer. isDead == true)
         {
             Destroy(gameObject);
         }
@@ -53,25 +61,25 @@ public sealed class Gun : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 _difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float _rotateZ = Mathf.Atan2(_difference.y, _difference.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, _rotateZ + _offset);
+        Vector3  difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        float  rotateZ = Mathf.Atan2( difference.y,  difference.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f,  rotateZ +  offset);
 
-        if (_difference.x > 0 && _FacingRight)
+        if ( difference.x > 0 &&  FacingRight)
         {
             Flip();
-            _offset = 0;
+             offset = 0;
         }
-        else if (_difference.x < 0 && !_FacingRight)
+        else if ( difference.x < 0 && ! FacingRight)
         {
             Flip();
-            _offset = 180f;
+             offset = 180f;
         }
     }
 
     private void Flip()
     {
-        _FacingRight = !_FacingRight;
+         FacingRight = ! FacingRight;
 
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;

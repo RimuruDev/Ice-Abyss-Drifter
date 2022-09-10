@@ -3,79 +3,79 @@ using UnityEngine;
 public sealed class SoldManager : MonoBehaviour
 {
     [Header("Objects")]
-    [SerializeField] private GameObject _gun;
-    [SerializeField] private GameObject _pet;
-    [SerializeField] private GameObject _ID;
-    [SerializeField] private GameObject _Trecker;
+    [SerializeField] private GameObject  gun;
+    [SerializeField] private GameObject  pet;
+    [SerializeField] private GameObject  ID;
+    [SerializeField] private GameObject  Trecker;
 
     [Header("BuyButtons")]
-    [SerializeField] private GameObject _buySpeed;
-    [SerializeField] private GameObject _buyRadiation;
-    [SerializeField] private GameObject _buyNormalInventore;
-    [SerializeField] private GameObject _buyBigInventore;
-    [SerializeField] private GameObject _buyPet;
-    [SerializeField] private GameObject _buyGun;
-    [SerializeField] private GameObject _buyID;
-    [SerializeField] private GameObject _buyTrecker;
+    [SerializeField] private GameObject  buySpeed;
+    [SerializeField] private GameObject  buyRadiation;
+    [SerializeField] private GameObject  buyNormalInventore;
+    [SerializeField] private GameObject  buyBigInventore;
+    [SerializeField] private GameObject  buyPet;
+    [SerializeField] private GameObject  buyGun;
+    [SerializeField] private GameObject  buyID;
+    [SerializeField] private GameObject  buyTrecker;
 
     [Header("SoldImage")]
-    [SerializeField] private GameObject _soldSpeed;
-    [SerializeField] private GameObject _soldRadiation;
-    [SerializeField] private GameObject _soldInventoreNormal;
-    [SerializeField] private GameObject _soldInventoreBig;
-    [SerializeField] private GameObject _soldPet;
-    [SerializeField] private GameObject _soldGun;
-    [SerializeField] private GameObject _soldID;
-    [SerializeField] private GameObject _soldTrecker;
+    [SerializeField] private GameObject  soldSpeed;
+    [SerializeField] private GameObject  soldRadiation;
+    [SerializeField] private GameObject  soldInventoreNormal;
+    [SerializeField] private GameObject  soldInventoreBig;
+    [SerializeField] private GameObject  soldPet;
+    [SerializeField] private GameObject  soldGun;
+    [SerializeField] private GameObject  soldID;
+    [SerializeField] private GameObject  soldTrecker;
 
     private void Update()
     {
-        if (MagazineWorkest._speedSold == true)
+        if (MagazineWorkest. speedSold == true)
         {
-            _buySpeed.SetActive(false);
-            _soldSpeed.SetActive(true);
+             buySpeed.SetActive(false);
+             soldSpeed.SetActive(true);
         }
 
-        if (MagazineWorkest._radiationSold == true)
+        if (MagazineWorkest. radiationSold == true)
         {
-            _buyRadiation.SetActive(false);
-            _soldRadiation.SetActive(true);
+             buyRadiation.SetActive(false);
+             soldRadiation.SetActive(true);
         }
 
-        if (MagazineWorkest._inventoreNormalSold == true)
+        if (MagazineWorkest. inventoreNormalSold == true)
         {
-            _buyNormalInventore.SetActive(false);
-            _soldInventoreNormal.SetActive(true);
+             buyNormalInventore.SetActive(false);
+             soldInventoreNormal.SetActive(true);
         }
 
-        if (MagazineWorkest._inventoreBigSold == true)
+        if (MagazineWorkest. inventoreBigSold == true)
         {
-            _buyBigInventore.SetActive(false);
-            _soldInventoreBig.SetActive(true);
+             buyBigInventore.SetActive(false);
+             soldInventoreBig.SetActive(true);
         }
 
-        if (MagazineWorkest._petSold == true)
+        if (MagazineWorkest. petSold == true)
         {
-            _buyPet.SetActive(false);
-            _soldPet.SetActive(true);
+             buyPet.SetActive(false);
+             soldPet.SetActive(true);
         }
 
-        if (MagazineWorkest._gunSold == true)
+        if (MagazineWorkest. gunSold == true)
         {
-            _buyGun.SetActive(false);
-            _soldGun.SetActive(true);
+             buyGun.SetActive(false);
+             soldGun.SetActive(true);
         }
 
-        if (MagazineWorkest._idSold == true)
+        if (MagazineWorkest. idSold == true)
         {
-            _buyID.SetActive(false);
-            _soldID.SetActive(true);
+             buyID.SetActive(false);
+             soldID.SetActive(true);
         }
 
-        if (MagazineWorkest._treckerSold == true)
+        if (MagazineWorkest. treckerSold == true)
         {
-            _buyTrecker.SetActive(false);
-            _soldTrecker.SetActive(true);
+             buyTrecker.SetActive(false);
+             soldTrecker.SetActive(true);
         }
     }
 }

@@ -179,9 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc3ba96af2bc354ea935a0a47c9452a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 6
-  _distanceOfPlayer: 1
-  _moneyTime: 1
+  speed: 6
+  distanceOfPlayer: 1
+  moneyTime: 1
 --- !u!95 &4411248887068275342
 Animator:
   serializedVersion: 4

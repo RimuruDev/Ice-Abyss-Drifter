@@ -1,120 +1,128 @@
+using RimuruDev;
 using UnityEngine;
 
 public sealed class PostScript : MonoBehaviour
 {
-    [SerializeField] private GameObject _gun;
+    private GameDataContainer dataContainer;
 
-    [SerializeField] private GameObject _petHappy;
-    [SerializeField] private GameObject _petNormal;
-    [SerializeField] private GameObject _petSad;
+    [SerializeField] private GameObject  gun;
 
-    [SerializeField] private GameObject _ID;
+    [SerializeField] private GameObject  petHappy;
+    [SerializeField] private GameObject  petNormal;
+    [SerializeField] private GameObject  petSad;
 
-    [SerializeField] private AudioSource _sound;
+    [SerializeField] private GameObject  ID;
+
+    [SerializeField] private AudioSource  sound;
 
     [Header("Bools")]
-    [SerializeField] private bool _isSpeed;
-    [SerializeField] private bool _isRadiation;
-    [SerializeField] private bool _isNormalInventore;
-    [SerializeField] private bool _isBigInventore;
-    [SerializeField] private bool _isPet;
-    [SerializeField] private bool _isGun;
-    [SerializeField] private bool _isID;
-    [SerializeField] private bool _isTrecker;
+    [SerializeField] private bool  isSpeed;
+    [SerializeField] private bool  isRadiation;
+    [SerializeField] private bool  isNormalInventore;
+    [SerializeField] private bool  isBigInventore;
+    [SerializeField] private bool  isPet;
+    [SerializeField] private bool  isGun;
+    [SerializeField] private bool  isID;
+    [SerializeField] private bool  isTrecker;
 
-    public static bool _isSpeedy;
+    public static bool  isSpeedy;
 
-    public static bool _idIsYou = false;
+    public static bool  idIsYou = false;
+
+    private void Awake()
+    {
+        dataContainer = FindObjectOfType<GameDataContainer>();
+    }
 
     private void Start()
     {
         transform.position = new Vector2(Random.Range(-110, 110), Random.Range(10, 70));
-        _isSpeedy = false;
+         isSpeedy = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D _coll)
+    private void OnTriggerEnter2D(Collider2D  coll)
     {
-        if (_coll.gameObject.CompareTag("Player"))
+        if ( coll.gameObject.CompareTag("Player"))
         {
-            if (_isSpeed == true && MagazineWorkest._speedSold == true)
+            if ( isSpeed == true && MagazineWorkest. speedSold == true)
             {
-                CharacterController._speed = 9f;
-                _sound.pitch = Random.Range(0.8f, 1f);
-                _sound.Play();
+                CharacterController. speed = 9f;
+                 sound.pitch = Random.Range(0.8f, 1f);
+                 sound.Play();
                 Destroy(gameObject);
             }
 
-            if (_isRadiation == true && MagazineWorkest._radiationSold == true)
+            if ( isRadiation == true && MagazineWorkest. radiationSold == true)
             {
-                GameManager._uranNormalRadiation = 150f;
-                GameManager._uranRadiation = 150f;
+                dataContainer.UranNormalRadiation = 150f;
+                dataContainer.UranRadiation = 150f;
 
-                _sound.pitch = Random.Range(0.8f, 1f);
-                _sound.Play();
-
-                Destroy(gameObject);
-            }
-
-            if (_isNormalInventore == true && MagazineWorkest._inventoreNormalSold == true)
-            {
-                GameManager._limitInventore += 15f;
-                _sound.pitch = Random.Range(0.8f, 1f);
-                _sound.Play();
-                Destroy(gameObject);
-            }
-
-            if (_isBigInventore == true && MagazineWorkest._inventoreBigSold == true)
-            {
-                GameManager._limitInventore += 25f;
-
-                _sound.pitch = Random.Range(0.8f, 1f);
-                _sound.Play();
+                 sound.pitch = Random.Range(0.8f, 1f);
+                 sound.Play();
 
                 Destroy(gameObject);
             }
 
-            if (_isGun == true && MagazineWorkest._gunSold == true)
+            if ( isNormalInventore == true && MagazineWorkest. inventoreNormalSold == true)
             {
-                _gun.SetActive(true);
+                dataContainer.LimitInventore += 15f;
+                 sound.pitch = Random.Range(0.8f, 1f);
+                 sound.Play();
+                Destroy(gameObject);
+            }
 
-                _sound.pitch = Random.Range(0.8f, 1f);
-                _sound.Play();
+            if ( isBigInventore == true && MagazineWorkest. inventoreBigSold == true)
+            {
+                dataContainer.LimitInventore += 25f;
+
+                 sound.pitch = Random.Range(0.8f, 1f);
+                 sound.Play();
 
                 Destroy(gameObject);
             }
 
-            if (_isPet == true && MagazineWorkest._petSold == true)
+            if ( isGun == true && MagazineWorkest. gunSold == true)
             {
-                float _randomPet = Random.Range(1, 4);
+                 gun.SetActive(true);
 
-                _sound.pitch = Random.Range(0.8f, 1f);
-                _sound.Play();
+                 sound.pitch = Random.Range(0.8f, 1f);
+                 sound.Play();
 
-                switch (_randomPet)
+                Destroy(gameObject);
+            }
+
+            if ( isPet == true && MagazineWorkest. petSold == true)
+            {
+                float  randomPet = Random.Range(1, 4);
+
+                 sound.pitch = Random.Range(0.8f, 1f);
+                 sound.Play();
+
+                switch ( randomPet)
                 {
                     case 1:
-                        Instantiate(_petSad, gameObject.transform.position, Quaternion.identity);
+                        Instantiate( petSad, gameObject.transform.position, Quaternion.identity);
                         break;
 
                     case 2:
-                        Instantiate(_petNormal, gameObject.transform.position, Quaternion.identity);
+                        Instantiate( petNormal, gameObject.transform.position, Quaternion.identity);
                         break;
 
                     case 3:
-                        Instantiate(_petHappy, gameObject.transform.position, Quaternion.identity);
+                        Instantiate( petHappy, gameObject.transform.position, Quaternion.identity);
                         break;
                 }
                 Destroy(gameObject);
             }
 
-            if (_isID == true && MagazineWorkest._idSold == true)
+            if ( isID == true && MagazineWorkest. idSold == true)
             {
-                _ID.SetActive(true);
+                 ID.SetActive(true);
 
-                _idIsYou = true;
+                 idIsYou = true;
 
-                _sound.pitch = Random.Range(0.8f, 1f);
-                _sound.Play();
+                 sound.pitch = Random.Range(0.8f, 1f);
+                 sound.Play();
 
                 Destroy(gameObject);
             }
