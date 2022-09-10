@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
+    [SerializeField] private Joystick joystick;
+
     [SerializeField] float _speedFactor;
     [SerializeField] Transform _player;
 
@@ -42,8 +44,8 @@ public class PlayerControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        _movement.x = Input.GetAxisRaw("Horizontal");
-        _movement.y = Input.GetAxisRaw("Vertical");
+        _movement.x = joystick.Horizontal;
+        _movement.y = joystick.Vertical;
 
         _speedFactor = _speed;
 
