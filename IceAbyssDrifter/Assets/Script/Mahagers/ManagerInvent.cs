@@ -17,14 +17,41 @@ public class ManagerInvent : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && DeadPlayer._isDead == false && LutingPlayer._isMagazineOpen == false && GameManager._isPaused == false)
+        //if (Input.GetKeyDown(KeyCode.E) && DeadPlayer._isDead == false && LutingPlayer._isMagazineOpen == false && GameManager._isPaused == false)
+        //{
+        //    _isOpenInventore = true;
+        //    _inventorOpen = true;
+        //    Time.timeScale = 0;       
+        //}
+
+        //if (Input.GetKeyUp(KeyCode.E) && DeadPlayer._isDead == false && LutingPlayer._isMagazineOpen == false && GameManager._isPaused == false)
+        //{
+        //    _isOpenInventore = false;
+        //    _inventorOpen = false;
+        //    Time.timeScale = 1;
+        //}
+
+        //if (_isOpenInventore == true && DeadPlayer._isDead == false && LutingPlayer._isMagazineOpen == false && GameManager._isPaused == false)
+        //{
+        //    _inventore.SetActive(true);
+        //}
+        //else if (_isOpenInventore == false)
+        //{
+        //    _inventore.SetActive(false);
+        //}
+    }
+
+    public void TestOpenInvent()
+    {
+        Debug.Log("Test");
+        if (DeadPlayer._isDead == false && LutingPlayer._isMagazineOpen == false && GameManager._isPaused == false)
         {
             _isOpenInventore = true;
             _inventorOpen = true;
-            Time.timeScale = 0;       
+            Time.timeScale = 0;
         }
 
-        if (Input.GetKeyUp(KeyCode.E) && DeadPlayer._isDead == false && LutingPlayer._isMagazineOpen == false && GameManager._isPaused == false)
+        if (DeadPlayer._isDead == false && LutingPlayer._isMagazineOpen == false && GameManager._isPaused == false)
         {
             _isOpenInventore = false;
             _inventorOpen = false;
