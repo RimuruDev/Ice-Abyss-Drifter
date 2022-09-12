@@ -1,9 +1,12 @@
+using RimuruDev;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DeadPlayer : MonoBehaviour
 {
+    private GenerationRandomText generationRandomText = null;
+
     public static bool _isDead = false;
 
     [SerializeField] GameObject _gun;
@@ -11,6 +14,11 @@ public class DeadPlayer : MonoBehaviour
     [SerializeField] AudioSource _teleportLife;
 
     [SerializeField] GameObject _effectsTep;
+
+    private void Awake()
+    {
+        generationRandomText = FindObjectOfType<GenerationRandomText>();
+    }
 
     void Start()
     {
@@ -32,6 +40,8 @@ public class DeadPlayer : MonoBehaviour
             Destroy(gameObject);
             Destroy(_gun);
             _isDead = true;
+
+            generationRandomText.SetAfterDeatText((Random.Range(0, generationRandomText.GetAfterDefeatTextLength)));
         }
 
         if (_coll.gameObject.CompareTag("Enemy") && SouthPickUp._isLive == true)
@@ -41,6 +51,8 @@ public class DeadPlayer : MonoBehaviour
             _teleportLife.Play();
             _heartImage.SetActive(false);
             SouthPickUp._isLive = false;
+
+            generationRandomText.SetAfterDeatText((Random.Range(0, generationRandomText.GetAfterDefeatTextLength)));
         }
     }
 }
