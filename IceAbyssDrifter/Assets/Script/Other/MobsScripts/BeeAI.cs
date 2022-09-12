@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using RimuruDev;
+
 public class BeeAI : MonoBehaviour
 {
+    [SerializeField] private BeePointArray beePointArray;
     [SerializeField] float _speed;
     [SerializeField] float _startWaitTime;
     [SerializeField] float _minDistance;
@@ -14,9 +17,15 @@ public class BeeAI : MonoBehaviour
     private float _waitTime;
     private int _randomPoint;
 
+    private void Awake()
+    {
+        if (beePointArray == null)
+            beePointArray = FindObjectOfType<BeePointArray>();
+    }
+
     void Start()
     {
-        _randomPoint = Random.Range(0, TransformPoint._points.Length);
+        _randomPoint = Random.Range(0, beePointArray.BeeMovementPoints.Length);
         _waitTime = _startWaitTime;
     }
 
@@ -25,14 +34,14 @@ public class BeeAI : MonoBehaviour
 
         if (_isAgry == false)
         {
-            transform.position = Vector2.MoveTowards(transform.position, TransformPoint._points[_randomPoint].position, _speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, beePointArray.BeeMovementPoints[_randomPoint].position, _speed * Time.deltaTime);
             _FlipWithPoints();
-            if (Vector2.Distance(transform.position, TransformPoint._points[_randomPoint].position) < 0.2f)
+            if (Vector2.Distance(transform.position, beePointArray.BeeMovementPoints[_randomPoint].position) < 0.2f)
             {
                
                if (_waitTime <= 0)
                {
-                 _randomPoint = Random.Range(0, TransformPoint._points.Length);
+                 _randomPoint = Random.Range(0, beePointArray.BeeMovementPoints.Length);
                  _waitTime = _startWaitTime;
                }
                else
@@ -101,11 +110,11 @@ public class BeeAI : MonoBehaviour
 
     void _FlipWithPoints()
     {
-        if (TransformPoint._points[_randomPoint].transform.position.x < transform.position.x)
+        if (beePointArray.BeeMovementPoints[_randomPoint].transform.position.x < transform.position.x)
         {
            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (TransformPoint._points[_randomPoint].transform.position.x > transform.position.x)
+        else if (beePointArray.BeeMovementPoints[_randomPoint].transform.position.x > transform.position.x)
         {
           transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
