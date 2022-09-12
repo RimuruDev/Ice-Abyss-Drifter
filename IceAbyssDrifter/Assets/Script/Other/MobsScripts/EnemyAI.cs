@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using RimuruDev;
+
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField] private WorldPontArray worldPontArray;
+
     [SerializeField] float _speed;
     [SerializeField] float _startWaitTime;
     [SerializeField] float _minDistance;
@@ -12,9 +16,15 @@ public class EnemyAI : MonoBehaviour
     private float _waitTime;
     private int _randomPoint;
 
+    private void Awake()
+    {
+        if (worldPontArray == null)
+            worldPontArray = FindObjectOfType<WorldPontArray>();
+    }
+
     void Start()
     {
-        _randomPoint = Random.Range(0, TransformPoint._points.Length);
+        _randomPoint = Random.Range(0, worldPontArray.WorldMovementPoints.Length);
         _waitTime = _startWaitTime;
     }
 
@@ -23,14 +33,14 @@ public class EnemyAI : MonoBehaviour
 
         if (_isAgry == false)
         {
-            transform.position = Vector2.MoveTowards(transform.position, TransformPoint._points[_randomPoint].position, _speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, worldPontArray.WorldMovementPoints[_randomPoint].position, _speed * Time.deltaTime);
             _FlipWithPoints();
-            if (Vector2.Distance(transform.position, TransformPoint._points[_randomPoint].position) < 0.2f)
+            if (Vector2.Distance(transform.position, worldPontArray.WorldMovementPoints[_randomPoint].position) < 0.2f)
             {
                
                if (_waitTime <= 0)
                {
-                 _randomPoint = Random.Range(0, TransformPoint._points.Length);
+                 _randomPoint = Random.Range(0, worldPontArray.WorldMovementPoints.Length);
                  _waitTime = _startWaitTime;
                }
                else
@@ -76,11 +86,11 @@ public class EnemyAI : MonoBehaviour
 
     void _FlipWithPoints()
     {
-        if (TransformPoint._points[_randomPoint].transform.position.x < transform.position.x)
+        if (worldPontArray.WorldMovementPoints[_randomPoint].transform.position.x < transform.position.x)
         {
            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (TransformPoint._points[_randomPoint].transform.position.x > transform.position.x)
+        else if (worldPontArray.WorldMovementPoints[_randomPoint].transform.position.x > transform.position.x)
         {
           transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
