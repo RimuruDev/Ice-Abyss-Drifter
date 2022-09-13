@@ -19,6 +19,7 @@ public class SpawnerMinerals : MonoBehaviour
     void Start()
     {
         StartCoroutine("Spawn");
+
     }
 
     void Restart()
