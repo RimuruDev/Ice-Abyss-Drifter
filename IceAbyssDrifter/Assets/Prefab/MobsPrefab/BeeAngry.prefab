@@ -201,9 +201,9 @@ GameObject:
   - component: {fileID: 9202350916076470402}
   - component: {fileID: 9202350916076470405}
   - component: {fileID: 9202350916076470404}
-  - component: {fileID: -347838620367169706}
   - component: {fileID: -8432275049293599039}
   - component: {fileID: -2724887793722369632}
+  - component: {fileID: 7648633032504141441}
   m_Layer: 0
   m_Name: BeeAngry
   m_TagString: Enemy
@@ -274,19 +274,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-347838620367169706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9202350916076470406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f2f0fb28c6e31043987bfa1b8ad7a74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _deadTime: 120
 --- !u!114 &-8432275049293599039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,12 +294,6 @@ MonoBehaviour:
   _flex: {fileID: 3759431133327206780, guid: 45c8881b01bde1449b5f685657feebe7, type: 3}
   _effectEnemy: {fileID: 524017635059273377, guid: ef3ac07b40c23dc4f98e7c16816f4fa5, type: 3}
   _blood: {fileID: 3959829667790399206, guid: 24fb4482cb528a442b11cf465f1b186a, type: 3}
-  _isBee: 1
-  _isUlitka: 0
-  _isSheep: 0
-  _isBuka: 0
-  _isCat: 0
-  _isMohan: 0
   _isActivator: 0
 --- !u!114 &-2724887793722369632
 MonoBehaviour:
@@ -327,3 +308,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 12
+--- !u!114 &7648633032504141441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202350916076470406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09dfb6e6946a2e45a569184fc5866df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destructionMode: 1
+  timerToDestruction: 120

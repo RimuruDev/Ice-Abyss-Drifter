@@ -201,10 +201,10 @@ GameObject:
   - component: {fileID: 9202350916076470402}
   - component: {fileID: 9202350916076470405}
   - component: {fileID: 9202350916076470404}
-  - component: {fileID: -347838620367169706}
   - component: {fileID: 9202350916076470407}
   - component: {fileID: -8432275049293599039}
   - component: {fileID: 169769433179105017}
+  - component: {fileID: 6253230696145886225}
   m_Layer: 0
   m_Name: Bee
   m_TagString: Enemy
@@ -275,19 +275,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-347838620367169706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9202350916076470406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f2f0fb28c6e31043987bfa1b8ad7a74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _deadTime: 120
 --- !u!114 &9202350916076470407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c34669614e43244918234d11dc6638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beePointArray: {fileID: 0}
   _speed: 6
   _startWaitTime: 0
   _minDistance: 0
@@ -324,12 +312,6 @@ MonoBehaviour:
   _flex: {fileID: 3759431133327206780, guid: 45c8881b01bde1449b5f685657feebe7, type: 3}
   _effectEnemy: {fileID: 524017635059273377, guid: ef3ac07b40c23dc4f98e7c16816f4fa5, type: 3}
   _blood: {fileID: 3959829667790399206, guid: 24fb4482cb528a442b11cf465f1b186a, type: 3}
-  _isBee: 1
-  _isUlitka: 0
-  _isSheep: 0
-  _isBuka: 0
-  _isCat: 0
-  _isMohan: 0
   _isActivator: 0
 --- !u!114 &169769433179105017
 MonoBehaviour:
@@ -346,3 +328,17 @@ MonoBehaviour:
   _stratTime: 8
   _spawnPoint: {fileID: 9202350916076470402}
   _spawnObject: {fileID: 1826161091631539516, guid: 43e53e37048370e4ea6e141e4da40c61, type: 3}
+--- !u!114 &6253230696145886225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202350916076470406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09dfb6e6946a2e45a569184fc5866df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destructionMode: 1
+  timerToDestruction: 120

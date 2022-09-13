@@ -201,9 +201,9 @@ GameObject:
   - component: {fileID: 7144766192770245693}
   - component: {fileID: 7144766192770245694}
   - component: {fileID: 7144766192770245695}
-  - component: {fileID: -3535922025318114044}
   - component: {fileID: 8098838247775252276}
   - component: {fileID: 5462642820671262607}
+  - component: {fileID: -8092382357610091769}
   m_Layer: 0
   m_Name: Fox
   m_TagString: Other
@@ -274,19 +274,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-3535922025318114044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7144766192770245633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f2f0fb28c6e31043987bfa1b8ad7a74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _deadTime: 120
 --- !u!114 &8098838247775252276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,3 +310,17 @@ MonoBehaviour:
   _speed: 5
   _distance: 4
   _startWaitTime: 3
+--- !u!114 &-8092382357610091769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7144766192770245633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09dfb6e6946a2e45a569184fc5866df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destructionMode: 1
+  timerToDestruction: 120

@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: -8432275049293599039}
   - component: {fileID: 169769433179105017}
   - component: {fileID: 7418504322551697989}
+  - component: {fileID: 2977394612055732911}
   m_Layer: 0
   m_Name: BeeKing
   m_TagString: Enemy
@@ -294,12 +295,6 @@ MonoBehaviour:
   _flex: {fileID: 3759431133327206780, guid: 45c8881b01bde1449b5f685657feebe7, type: 3}
   _effectEnemy: {fileID: 524017635059273377, guid: ef3ac07b40c23dc4f98e7c16816f4fa5, type: 3}
   _blood: {fileID: 3959829667790399206, guid: 24fb4482cb528a442b11cf465f1b186a, type: 3}
-  _isBee: 0
-  _isUlitka: 0
-  _isSheep: 0
-  _isBuka: 0
-  _isCat: 0
-  _isMohan: 0
   _isActivator: 0
 --- !u!114 &169769433179105017
 MonoBehaviour:
@@ -329,3 +324,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+--- !u!114 &2977394612055732911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202350916076470406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09dfb6e6946a2e45a569184fc5866df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destructionMode: 1
+  timerToDestruction: 120

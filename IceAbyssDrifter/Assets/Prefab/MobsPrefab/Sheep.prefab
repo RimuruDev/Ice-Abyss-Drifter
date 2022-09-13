@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 7358859467912354786}
   - component: {fileID: 7358859467912354789}
   - component: {fileID: 7358859467912354788}
-  - component: {fileID: -8309546435309304281}
+  - component: {fileID: 659895870844575165}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Other
@@ -308,14 +308,8 @@ MonoBehaviour:
   _flex: {fileID: 3759431133327206780, guid: 45c8881b01bde1449b5f685657feebe7, type: 3}
   _effectEnemy: {fileID: 524017635059273377, guid: ef3ac07b40c23dc4f98e7c16816f4fa5, type: 3}
   _blood: {fileID: 3959829667790399206, guid: 24fb4482cb528a442b11cf465f1b186a, type: 3}
-  _isBee: 0
-  _isUlitka: 0
-  _isSheep: 1
-  _isBuka: 0
-  _isCat: 0
-  _isMohan: 0
   _isActivator: 0
---- !u!114 &-8309546435309304281
+--- !u!114 &659895870844575165
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -324,7 +318,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7358859467912354791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f2f0fb28c6e31043987bfa1b8ad7a74, type: 3}
+  m_Script: {fileID: 11500000, guid: c09dfb6e6946a2e45a569184fc5866df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deadTime: 120
+  destructionMode: 1
+  timerToDestruction: 120

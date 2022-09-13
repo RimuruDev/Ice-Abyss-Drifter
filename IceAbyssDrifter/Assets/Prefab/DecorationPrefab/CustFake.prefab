@@ -179,7 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6338917808618730775}
   - component: {fileID: 6338917808618730761}
-  - component: {fileID: 7682632306034023768}
+  - component: {fileID: 8223369422852133784}
   m_Layer: 0
   m_Name: CustFake
   m_TagString: Other
@@ -229,7 +229,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3384886, y: 0.29330063}
   m_EdgeRadius: 0
---- !u!114 &7682632306034023768
+--- !u!114 &8223369422852133784
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,7 +238,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6338917808618730763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f2f0fb28c6e31043987bfa1b8ad7a74, type: 3}
+  m_Script: {fileID: 11500000, guid: c09dfb6e6946a2e45a569184fc5866df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deadTime: 40
+  destructionMode: 1
+  timerToDestruction: 40
