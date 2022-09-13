@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 1778414901677643110}
   - component: {fileID: 8830740236805547027}
   - component: {fileID: 5199795504447593829}
+  - component: {fileID: 2875533377447423564}
   m_Layer: 0
   m_Name: GoldOre
   m_TagString: Gold
@@ -186,6 +187,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destructionMode: 1
   timerToDestruction: 100
+--- !u!114 &2875533377447423564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8503834905034692504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c65e7b37dd3e8c4bb975f31315d58b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8511116700172402361
 GameObject:
   m_ObjectHideFlags: 0

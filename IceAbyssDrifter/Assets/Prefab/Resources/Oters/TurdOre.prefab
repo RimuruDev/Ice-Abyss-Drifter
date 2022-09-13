@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 8396746565494451610}
   - component: {fileID: 4879307358056740498}
   - component: {fileID: 5353703554752513613}
+  - component: {fileID: 6233574602064211942}
   m_Layer: 0
   m_Name: TurdOre
   m_TagString: Poop
@@ -184,6 +185,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96cf4e2367c32504e8470bc97253113f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6233574602064211942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8503834905034692504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c65e7b37dd3e8c4bb975f31315d58b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8511116700172402361

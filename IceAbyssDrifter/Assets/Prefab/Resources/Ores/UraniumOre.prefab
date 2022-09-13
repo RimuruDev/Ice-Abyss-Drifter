@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 75485657553562652}
   - component: {fileID: 7385979265364558117}
   - component: {fileID: 8047154241028392101}
+  - component: {fileID: -8984422646336783035}
   m_Layer: 0
   m_Name: UraniumOre
   m_TagString: Uran
@@ -99,6 +100,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96cf4e2367c32504e8470bc97253113f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8984422646336783035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039670074374444658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c65e7b37dd3e8c4bb975f31315d58b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1039670075791578846

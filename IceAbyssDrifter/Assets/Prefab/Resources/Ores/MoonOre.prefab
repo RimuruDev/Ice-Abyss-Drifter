@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: -5119135281463929461}
   - component: {fileID: 4911654013884260136}
   - component: {fileID: 2340571512155423302}
+  - component: {fileID: -5677521544453810774}
   m_Layer: 0
   m_Name: MoonOre
   m_TagString: Moon
@@ -174,6 +175,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96cf4e2367c32504e8470bc97253113f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5677521544453810774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384497189126223409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c65e7b37dd3e8c4bb975f31315d58b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3027776285213527331

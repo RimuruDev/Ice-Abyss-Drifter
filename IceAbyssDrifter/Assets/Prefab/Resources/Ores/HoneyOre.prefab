@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 7821786044162236067}
   - component: {fileID: 5086041267431414687}
   - component: {fileID: 610792456753366609}
+  - component: {fileID: -7816640577539685154}
   m_Layer: 0
   m_Name: HoneyOre
   m_TagString: Horny
@@ -268,5 +269,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96cf4e2367c32504e8470bc97253113f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7816640577539685154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826161091631539516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c65e7b37dd3e8c4bb975f31315d58b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
