@@ -2,7 +2,7 @@
 
 namespace RimuruDev
 {
-    public sealed class TagForEffects : MonoBehaviour
+    public sealed class OreTagProvider : MonoBehaviour
     {
         [SerializeField] private string effectTag;
 

@@ -12,6 +12,7 @@ public class LutingPlayer : MonoBehaviour
 
     [SerializeField] GameObject _effectTeleportMoon;
 
+    // Rescheduled
     [Header("Audio")]
     [SerializeField] AudioSource _boomAudio;
     [SerializeField] AudioSource _horneSpound;
@@ -406,7 +407,7 @@ public class LutingPlayer : MonoBehaviour
             _soldMachine.Play();
         }
     }
-
+    // Rescheduled
     void Sfx()
     {
         _boomAudio.pitch = Random.Range(0.7f, 1f);

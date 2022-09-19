@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     public static bool _isPaused = false;
 
-    public static float _pointMoney = 20f;
+    public static float _pointMoney = 653;
 
     public static float _pointUgly = 0f;
     public static float _porohPoint = 0f;
